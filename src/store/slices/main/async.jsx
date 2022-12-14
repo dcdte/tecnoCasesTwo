@@ -1,7 +1,6 @@
 import { setDetails, setFinances, setRams, setZones } from ".";
-
-const axios = require("axios");
-const url = "http://localhost:3001/";
+import axios from "axios";
+const url = "http://localhost:3000";
 const urlFront = "http://localhost:3000/";
 
 export const getZonesAsync = () => async (dispatch) => {

@@ -15,7 +15,7 @@ const initialState = {
   },
 };
 
-export const mainSlide = createSlice({
+export const mainSlice = createSlice({
   name: "main",
   initialState,
   reducers: {
@@ -51,4 +51,6 @@ export const {
   setFinances,
   setDetails,
   setFilters,
-} = mainSlide.actions;
+} = mainSlice.actions;
+
+export default mainSlice.reducer;
