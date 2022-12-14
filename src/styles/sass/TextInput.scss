@@ -1,0 +1,13 @@
+input {
+  padding: 17px 0px 17px 17px;
+  font-weight: bolder;
+  font-size: 14px;
+  border-radius: 11px;
+  border-color: transparent;
+  background-color: #F5F7F9;
+  outline: none;
+
+  ::placeholder {
+    color: rgba(0, 0, 0, 0.2);
+  }
+}
