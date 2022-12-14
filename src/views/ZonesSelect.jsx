@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getZonesAsync } from '../store/slices/main/async';
-import {showZones} from './../store/slices/main/selectors';
+import {showZones} from '../store/slices/main/selectors';
 
 function ZonesSelect() {
 

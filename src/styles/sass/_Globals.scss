@@ -1,0 +1,26 @@
+
+@mixin flex($justify, $align, $dir: row) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+
+@mixin sm-screen {
+  @media only screen and (max-width: 834px) {
+    @content;
+  }
+}
+
+@mixin md-screen {
+  @media only screen and (min-width: 835px) {
+    @content;
+  }
+}
+
+@mixin lg-screen {
+  @media only screen and (min-width: 1440px) {
+    @content;
+  }
+}
