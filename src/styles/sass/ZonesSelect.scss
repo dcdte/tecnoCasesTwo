@@ -1,0 +1,5 @@
+@import "./Globals";
+
+p {
+    @include flex(center, center);
+} 

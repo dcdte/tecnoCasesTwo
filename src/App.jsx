@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Router, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import ZonesSelect from "./components/ZonesSelect";
+import Home from "./views/Home";
+import ZonesSelect from "./views/ZonesSelect";
 
 function App() {
   return (
