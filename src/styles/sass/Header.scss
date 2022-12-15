@@ -1,0 +1,51 @@
+@import "./Globals";
+
+header {
+    width: 100%;
+    box-sizing: border-box;
+    
+    @include flex(space-between, center); 
+    
+    @include sm-screen() {
+        padding: 20px;
+        height: 75px;
+    }
+
+    @include md-screen() {
+        height: 100px;
+        padding: 30px;
+    }
+
+    @include lg-screen() {
+        height: 121px;
+        padding: 30px 100px;
+    }
+
+}
+
+.header {
+
+    &__container {
+
+    }
+
+    @include sm-screen() {
+        &__logo {
+            height: 40px;
+        }
+    }
+
+    @include md-screen() {
+        &__logo {
+            height: 45px;
+        }
+    }
+
+    @include lg-screen() {
+        &__logo {
+            height: 50px;
+        }
+    }
+
+    
+}

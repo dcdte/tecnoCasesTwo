@@ -1,9 +1,12 @@
+$primary: #792EDE;
+$secondary: #F7EDFF;
 
 @mixin flex($justify, $align, $dir: row) {
     display: flex;
     flex-direction: $dir;
     justify-content: $justify;
     align-items: $align;
+    flex-wrap: wrap;
 }
 
 

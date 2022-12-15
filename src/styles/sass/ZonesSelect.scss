@@ -1,5 +1,85 @@
 @import "./Globals";
 
-p {
-    @include flex(center, center);
-} 
+
+.zonesSelect {
+    position: relative;
+    min-height: 700px;
+    
+    @include sm-screen {
+        
+    }
+    
+    @include md-screen {
+        height: 100vh;
+    }
+}
+
+.zones {
+  &__title {
+    margin-block-start: 40px;
+    font-weight: medium;
+  }
+
+  &__container {
+    margin-block: 60px;
+    gap: 20px;
+  }
+
+  &__link {
+    display: flex;
+    text-decoration: none;
+  }
+
+  
+
+  &__zone {
+    display: grid;
+    place-content: center;
+    height: 50px;
+    width: 200px;
+    color: white;
+    background-color: $primary;
+    border-radius: 10px;
+
+    &:hover {
+      color: $primary;
+      background-color: $secondary;
+    }
+  }
+
+  @include sm-screen {
+    padding-inline: 20px;
+
+    &__title {
+      font-size: 20px;
+    }
+
+    &__zone {
+      background-color: $primary;
+    }
+
+    &__container {
+      @include flex(center, center);
+    }
+  }
+
+  @include md-screen {
+    padding-inline: 40px;
+
+    &__title {
+      font-size: 24px;
+    }
+
+    &__container {
+      @include flex(start, center);
+    }
+  }
+
+  @include lg-screen {
+    padding-inline: 60px;
+
+    &__title {
+      font-size: 28px;
+    }
+  }
+}
