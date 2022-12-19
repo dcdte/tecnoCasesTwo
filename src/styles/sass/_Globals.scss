@@ -1,8 +1,14 @@
+$primary: #792EDE;
+$primaryHover: #42008A; 
+$secondary: #F7EDFF;
+$gray: #F5F7F9;
+
 @mixin flex($justify, $align, $dir: row) {
-  display: flex;
-  flex-direction: $dir;
-  justify-content: $justify;
-  align-items: $align;
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: wrap;
 }
 
 @mixin sm-screen {
@@ -23,4 +29,3 @@
   }
 }
 
-$primary: #F5F7F9

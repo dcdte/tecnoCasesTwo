@@ -1,0 +1,22 @@
+@import './Globals';
+
+button {
+  display: flex;
+  border: none;
+  padding: 13px;
+  color: #fff;
+  background-color: $primary;
+  border-radius: 17px;
+  font-weight: bold;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primaryHover;
+  }
+
+  .iconFilter {
+    font-size: 17px;
+    margin-right: 10px;
+  }
+}

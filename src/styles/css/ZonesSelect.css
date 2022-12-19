@@ -1,15 +1,100 @@
-p {
+.zonesSelect {
+  position: relative;
+  min-height: 700px;
+}
+@media only screen and (min-width: 835px) {
+  .zonesSelect {
+    height: 100vh;
+  }
+}
+
+.zones__title {
+  -webkit-margin-before: 40px;
+          margin-block-start: 40px;
+  font-weight: medium;
+}
+.zones__container {
+  margin-block: 60px;
+  gap: 20px;
+}
+.zones__link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  text-decoration: none;
+}
+.zones__zone {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  height: 50px;
+  width: 200px;
+  color: white;
+  background-color: #792EDE;
+  border-radius: 10px;
+}
+.zones__zone:hover {
+  color: #792EDE;
+  background-color: #F7EDFF;
+}
+@media only screen and (max-width: 834px) {
+  .zones {
+    padding-inline: 20px;
+  }
+  .zones__title {
+    font-size: 20px;
+  }
+  .zones__zone {
+    background-color: #792EDE;
+  }
+  .zones__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+@media only screen and (min-width: 835px) {
+  .zones {
+    padding-inline: 40px;
+  }
+  .zones__title {
+    font-size: 24px;
+  }
+  .zones__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .zones {
+    padding-inline: 60px;
+  }
+  .zones__title {
+    font-size: 28px;
+  }
 }

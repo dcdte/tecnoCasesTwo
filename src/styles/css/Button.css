@@ -1,0 +1,22 @@
+button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: none;
+  padding: 13px;
+  color: #fff;
+  background-color: #792EDE;
+  border-radius: 17px;
+  font-weight: bold;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #42008A;
+}
+button .iconFilter {
+  font-size: 17px;
+  margin-right: 10px;
+}
