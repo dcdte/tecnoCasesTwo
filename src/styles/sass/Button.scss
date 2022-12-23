@@ -3,7 +3,7 @@
 button {
   display: flex;
   border: none;
-  padding: 13px;
+  padding: 13px 17px;
   color: #fff;
   background-color: $primary;
   border-radius: 17px;
@@ -18,5 +18,9 @@ button {
   .iconFilter {
     font-size: 17px;
     margin-right: 10px;
+  }
+
+  .iconSearch {
+    font-size: 20px;
   }
 }

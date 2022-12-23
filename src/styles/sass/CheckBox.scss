@@ -1,0 +1,22 @@
+@import "./Globals";
+
+.containerCheck {
+
+  
+
+  &__checkbox {
+    border-radius: 0;
+    appearance: none;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid #888;
+
+    &:checked {
+      border-color: rgb(23, 17, 105);
+      background-color: $primary;
+      color: #fff;
+      background-size: cover;
+      background-image: url("../../assets/check.png");
+    }
+  }
+}

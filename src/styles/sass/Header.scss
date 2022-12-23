@@ -1,61 +1,59 @@
 @import "./Globals";
 
 header {
-    width: 100%;
-    box-sizing: border-box;
-    
-    @include flex(space-between, center); 
-    
-    @include sm-screen() {
-        padding: 20px;
-        height: 75px;
-    }
+  width: 100%;
+  box-sizing: border-box;
 
-    @include md-screen() {
-        height: 100px;
-        padding: 30px;
-    }
+  @include flex(space-between, center);
 
-    @include lg-screen() {
-        height: 121px;
-        padding: 30px 100px;
-    }
+  @include sm-screen() {
+    padding: 20px;
+    height: 75px;
+  }
 
+  @include md-screen() {
+    height: 100px;
+    padding: 30px;
+  }
+
+  @include lg-screen() {
+    height: 121px;
+    padding: 30px 100px;
+  }
 }
 
 .header {
-
-    &__container {
-        @include md-screen {
-            input {
-                width: 448px;
-            }
-        }
-
-        @include lg-screen {
-            input {
-                width: 780px;
-            }
-        }
+  &__container {
+    display: flex;
+    @include md-screen {
+      input {
+        width: 448px;
+      }
     }
 
-    @include sm-screen() {
-        &__logo {
-            height: 40px;
-        }
+    @include lg-screen {
+      display: flex;
+      input {
+        width: 780px;
+      }
     }
+  }
 
-    @include md-screen() {
-        &__logo {
-            height: 45px;
-        }
+  @include sm-screen() {
+    &__logo {
+      height: 40px;
     }
+  }
 
-    @include lg-screen() {
-        &__logo {
-            height: 50px;
-        }
+  @include md-screen() {
+    &__logo {
+      height: 45px;
     }
+  }
 
-    
+  @include lg-screen() {
+    &__logo {
+      height: 50px;
+    }
+  }
 }

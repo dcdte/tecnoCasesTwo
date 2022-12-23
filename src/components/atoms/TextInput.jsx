@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/css/TextInput.css";
 
-const TextInput = (value, setValue, placeHolder) => {
+const TextInput = ({value, setValue, placeHolder}) => {
 
   /* 
     TODO Se necesita alojar dentro de un container para asignarle su tamaño

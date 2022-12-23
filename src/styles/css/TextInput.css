@@ -6,6 +6,7 @@ input {
   border-color: transparent;
   background-color: #F5F7F9;
   outline: none;
+  margin-right: 10px;
 }
 input ::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.2);

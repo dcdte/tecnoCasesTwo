@@ -37,12 +37,22 @@ header {
   }
 }
 
+.header__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 @media only screen and (min-width: 835px) {
   .header__container input {
     width: 448px;
   }
 }
 @media only screen and (min-width: 1440px) {
+  .header__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
   .header__container input {
     width: 780px;
   }

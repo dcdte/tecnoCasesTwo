@@ -1,0 +1,32 @@
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 200px;
+}
+.container .true {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.container svg {
+  color: #792EDE;
+  font-size: 20px;
+}
+.container__dropdown {
+  border-bottom: 1px solid #f2f2f2;
+  border-radius: 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #fff;
+  color: black;
+}
+.container__dropdown:hover {
+  background-color: #fff;
+}
