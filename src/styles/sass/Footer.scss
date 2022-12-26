@@ -16,9 +16,11 @@
 
     @include sm-screen {
       padding-block: 30px;
-      gap: 15px; 
-
+      gap: 15px;
+      min-width: 300px;
+      width: 80%;
     }
+
   }
 
   &__link:first-child img {

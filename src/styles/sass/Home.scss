@@ -1,0 +1,19 @@
+@import "./Globals";
+
+.home {
+
+
+    &__container {
+        @include flex(center, center, column);
+    }
+
+    &__banner {
+        display: block;
+        width: 90%;
+        height: 120px;
+        margin-block: 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        background-color: $primary;
+    }
+}

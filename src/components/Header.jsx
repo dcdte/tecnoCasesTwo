@@ -5,7 +5,7 @@ import vector from "./../assets/tecnosuper.svg";
 function Header({ withZone = true }) {
   return (
     <header>
-      <a href="">
+      <a href="#">
         <img className="header__logo" src={vector} alt="" />
       </a>
       {withZone && (
