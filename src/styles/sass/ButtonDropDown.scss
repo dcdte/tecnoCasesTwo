@@ -1,29 +1,36 @@
 @import "./Globals";
 
-.container {
-  display: flex;
-  flex-direction: column;
-  width: 200px;
+.dropdown {
+  position: relative;
+  @include flex(start, stretch, column);
+  width: 300px;
 
-  .true {
-    transform: rotate(180deg);
-    transition: 0.4s;
+  &__btn {
+    @include flex(space-between, center);
+    font-weight: bold;
+    padding: 10px 21px;
+    background-color: white;
+    border-width: 0px 0px 1px 0px;
+    border-color: $gray;
+    cursor: pointer;
+
+    * {
+      transition: 0.2s;
+    }
+
+    &:active {
+      
+    }
   }
 
   svg {
     color: $primary;
     font-size: 20px;
   }
+  
+}
 
-  &__dropdown {
-    border-bottom: 1px solid #f2f2f2;
-    border-radius: 0;
-    justify-content: space-between;
-    background-color: #fff;
-    color: black;
-
-    &:hover {
-      background-color: #fff;
-    }
-  }
+.true {
+  transform: rotate(180deg);
+  transition: 0.4s;
 }

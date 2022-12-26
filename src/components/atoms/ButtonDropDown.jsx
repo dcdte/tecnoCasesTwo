@@ -8,14 +8,15 @@ const ButtonDropDown = ({name, children}) => {
 
   const seeDropdown = () => {
     setDropdown((prev) => !prev);
+    console.log(children);
   };
 
   const dropped = dropdown;
 
   return (
-    <div className="container">
-      <button onClick={seeDropdown} className="container__dropdown">
-        {name}
+    <div className="dropdown">
+      <button onClick={seeDropdown} className="dropdown__btn">
+        <span>{name}</span>
         <MdKeyboardArrowUp className={dropped} />
       </button>
       {dropdown && children}
