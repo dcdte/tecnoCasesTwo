@@ -2,18 +2,25 @@
 
 .home {
 
+  &__container {
+    @include flex(center, center, column);
+    max-width: 1440px;
+    margin-inline: auto;
+  }
 
-    &__container {
-        @include flex(center, center, column);
-    }
+  &__banner {
+    display: block;
+    width: 95%;
+    height: 180px;
+    margin-block: 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: $primary;
+  }
 
+  @include sm-screen {
     &__banner {
-        display: block;
         width: 90%;
-        height: 120px;
-        margin-block: 15px;
-        box-sizing: border-box;
-        border-radius: 5px;
-        background-color: $primary;
     }
+  }
 }

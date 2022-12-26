@@ -1,25 +1,26 @@
 import React from "react";
-import { RiFilter3Line } from "react-icons/ri";
+import { IoFilter } from "react-icons/io5";
 import "../../styles/css/Button.css";
-import { MdOutlineSearch } from "react-icons/md";
+import { ImSearch } from "react-icons/im";
 
-const Button = ({ handler, children, text }) => {
+const Button = ({ handler, children, text, type, isCollapse=false }) => {
   /* 
   TODO falta darle tamaño dependiendo de padre 
   TODO falta darle el manejador de onClick
   TODO mejorar el código para el renderizado
   */
-  let Icons = (text) => {
-    if (text) {
-      return <RiFilter3Line className="iconFilter" />;
-    } else {
-      return <MdOutlineSearch className="iconSearch" />;
+  let Icons = () => {
+    switch(type) {
+      case "search":
+        return <ImSearch className="iconSearch" />;
+      case "filter-dark", "filter-light":
+        return <IoFilter className="iconFilter" />
     }
   };
 
   return (
-    <button>
-      {Icons(text)}
+    <button className={`btn ${text ? "btn--text": "btn--notext"} ${isCollapse && "btn--collapse"} ${type=="filter-light" && "btn--light"}`} onClick={handler}>
+      {Icons()}
       <p>{text}</p>
     </button>
   );

@@ -42,9 +42,15 @@ header {
   display: -ms-flexbox;
   display: flex;
 }
+@media only screen and (max-width: 834px) {
+  .header__container input, .header__container button:last-of-type {
+    display: none;
+  }
+}
 @media only screen and (min-width: 835px) {
   .header__container input {
-    width: 448px;
+    width: 300px;
+    height: 15px;
   }
 }
 @media only screen and (min-width: 1440px) {
@@ -52,9 +58,6 @@ header {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-  }
-  .header__container input {
-    width: 780px;
   }
 }
 @media only screen and (max-width: 834px) {

@@ -14,14 +14,21 @@
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  max-width: 1440px;
+  margin-inline: auto;
 }
 .home__banner {
   display: block;
-  width: 90%;
-  height: 120px;
+  width: 95%;
+  height: 180px;
   margin-block: 15px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 5px;
   background-color: #792EDE;
+}
+@media only screen and (max-width: 834px) {
+  .home__banner {
+    width: 90%;
+  }
 }

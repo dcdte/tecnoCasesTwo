@@ -25,17 +25,23 @@ header {
 .header {
   &__container {
     display: flex;
+
+
+    @include sm-screen {
+      input, button:last-of-type {
+        display: none;
+      }
+    }
+
     @include md-screen {
       input {
-        width: 448px;
+        width: 300px;
+        height: 15px;
       }
     }
 
     @include lg-screen {
       display: flex;
-      input {
-        width: 780px;
-      }
     }
   }
 

@@ -1,25 +1,70 @@
-button {
+.btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border: none;
-  padding: 13px 17px;
-  color: #fff;
-  background-color: #792EDE;
-  border-radius: 17px;
-  font-weight: bold;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border: none;
+  padding: 13px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff;
+  background-color: #792EDE;
+  border-radius: 11px;
   cursor: pointer;
 }
-button:hover {
+.btn:hover {
   background-color: #42008A;
 }
-button .iconFilter {
-  font-size: 17px;
-  margin-right: 10px;
+.btn--text {
+  font-weight: bold;
 }
-button .iconSearch {
-  font-size: 20px;
+.btn--notext {
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+}
+.btn--notext:nth-last-of-type {
+  -webkit-margin-start: 10px;
+          margin-inline-start: 10px;
+}
+.btn--light {
+  color: #792EDE;
+  background-color: #F7EDFF;
+}
+@media only screen and (max-width: 834px) {
+  .btn--collapse {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .btn--collapse:first-of-type {
+    -webkit-margin-end: 10px;
+            margin-inline-end: 10px;
+  }
+}
+@media only screen and (min-width: 835px) {
+  .btn--collapse {
+    display: none;
+  }
+}
+
+.iconSearch {
+  height: 90%;
+  width: 90%;
+}
+
+.iconFilter {
+  height: 100%;
+  width: 100%;
 }

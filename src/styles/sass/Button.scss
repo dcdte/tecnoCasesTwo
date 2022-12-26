@@ -1,26 +1,61 @@
-@import './Globals';
+@import "./Globals";
 
-button {
-  display: flex;
+.btn {
+  @include flex(center, center);
   border: none;
-  padding: 13px 17px;
+  padding: 13px;
+  box-sizing: border-box;
   color: #fff;
   background-color: $primary;
-  border-radius: 17px;
-  font-weight: bold;
-  align-items: center;
+  border-radius: 11px;
   cursor: pointer;
 
   &:hover {
     background-color: $primaryHover;
   }
 
-  .iconFilter {
-    font-size: 17px;
-    margin-right: 10px;
+  &--text {
+    font-weight: bold;
   }
 
-  .iconSearch {
-    font-size: 20px;
+  &--notext {
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+
+    &:nth-last-of-type {
+      margin-inline-start: 10px;
+    }
   }
+
+  &--light {
+    color: $primary;
+    background-color: $secondary;
+  }
+
+  @include sm-screen {
+    &--collapse {
+      display: flex;
+
+      &:first-of-type {
+        margin-inline-end: 10px;
+      }
+    }
+  }
+
+  @include md-screen {
+    &--collapse {
+      display: none;
+    }
+  }
+}
+
+.iconSearch {
+  height: 90%;
+  width: 90%;
+}
+
+.iconFilter {
+  height: 100%;
+  width: 100%;
 }

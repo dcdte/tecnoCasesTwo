@@ -1,12 +1,14 @@
 input {
-  padding: 17px 0px 17px 17px;
+  padding: 15px;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 14px;
   border-radius: 11px;
-  border-color: transparent;
+  border: none;
   background-color: #F5F7F9;
   outline: none;
-  margin-right: 10px;
+  -webkit-margin-end: 10px;
+          margin-inline-end: 10px;
 }
 input ::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.2);
