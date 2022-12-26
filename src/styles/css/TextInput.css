@@ -1,0 +1,25 @@
+input {
+  padding: 17px 0px 17px 17px;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 11px;
+  border-color: transparent;
+  background-color: #F5F7F9;
+  outline: none;
+  margin-right: 10px;
+}
+input ::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.2);
+}
+input ::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.2);
+}
+input :-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.2);
+}
+input ::-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.2);
+}
+input ::placeholder {
+  color: rgba(0, 0, 0, 0.2);
+}

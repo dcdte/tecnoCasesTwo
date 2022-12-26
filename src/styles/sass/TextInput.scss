@@ -1,0 +1,16 @@
+@import "./Globals";
+
+input {
+  padding: 17px 0px 17px 17px;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 11px;
+  border-color: transparent;
+  background-color: $gray;
+  outline: none;
+  margin-right: 10px;
+
+  ::placeholder {
+    color: rgba(0, 0, 0, 0.2);
+  }
+}

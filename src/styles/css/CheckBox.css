@@ -1,0 +1,16 @@
+.containerCheck__checkbox {
+  border-radius: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid #888;
+}
+.containerCheck__checkbox:checked {
+  border-color: rgb(23, 17, 105);
+  background-color: #792EDE;
+  color: #fff;
+  background-size: cover;
+  background-image: url("../../assets/check.png");
+}

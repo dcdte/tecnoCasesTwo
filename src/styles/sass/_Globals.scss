@@ -1,5 +1,7 @@
 $primary: #792EDE;
+$primaryHover: #42008A; 
 $secondary: #F7EDFF;
+$gray: #F5F7F9;
 
 @mixin flex($justify, $align, $dir: row) {
     display: flex;
@@ -8,7 +10,6 @@ $secondary: #F7EDFF;
     align-items: $align;
     flex-wrap: wrap;
 }
-
 
 @mixin sm-screen {
   @media only screen and (max-width: 834px) {
@@ -27,3 +28,4 @@ $secondary: #F7EDFF;
     @content;
   }
 }
+

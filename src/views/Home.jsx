@@ -1,9 +1,12 @@
 import React from "react";
 import Footer from "../components/Footer";
+import Button from "../components/atoms/Button";
+import ButtonDropDown from "../components/atoms/ButtonDropDown";
 import Header from "../components/Header";
 import "./../styles/css/Home.css";
 
 function Home() {
+
 
   
 
@@ -25,6 +28,7 @@ function Home() {
       </div>
       <Footer />
     </section>
+
   );
 }
 
