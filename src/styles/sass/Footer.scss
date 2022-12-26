@@ -20,7 +20,6 @@
       min-width: 300px;
       width: 80%;
     }
-
   }
 
   &__link:first-child img {
@@ -34,9 +33,11 @@
   @include sm-screen {
     margin-block-start: 30px;
   }
-
-  @include md-screen {
-    position: absolute;
-    inset-block-end: 0;
+  
+  &--zones {
+    @include md-screen {
+      position: absolute;
+      inset-block-end: 0;
+    }
   }
 }

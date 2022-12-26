@@ -6,7 +6,7 @@ import { ImSearch } from "react-icons/im";
 const Button = ({ handler, children, text, type, isCollapse=false }) => {
   /* 
   TODO falta darle tamaño dependiendo de padre 
-  TODO falta darle el manejador de onClick
+  TODO Ea avemaría hermano
   TODO mejorar el código para el renderizado
   */
   let Icons = () => {

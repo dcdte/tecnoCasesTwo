@@ -7,7 +7,6 @@ import Button from "./atoms/Button";
 
 function Header({ withZone = true }) {
 
-
   const toggleFilter = () => {}
 
   const toggleSearch = () => {}

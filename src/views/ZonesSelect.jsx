@@ -29,7 +29,7 @@ function ZonesSelect() {
           ))}
         </div>
       </div>
-      <Footer />
+      <Footer location={true}/>
     </section>
   );
 }

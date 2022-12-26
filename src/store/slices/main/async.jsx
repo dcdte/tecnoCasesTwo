@@ -13,7 +13,7 @@ export const getZonesAsync = () => async (dispatch) => {
 };
 
 export const getDetailsAsync =
-  (
+  ({
     searchValue = null,
     ram = null,
     storage = null,
@@ -23,7 +23,7 @@ export const getDetailsAsync =
     zoneId = null,
     maxPay = null,
     page = null
-  ) =>
+  }) =>
   async (dispatch) => {
     try {
       let criteria = [];
@@ -47,7 +47,7 @@ export const getDetailsAsync =
   };
 
 export const getFiltersAsync =
-  (type = "credits", apply = "reportados", zoneId = null) =>
+  ({type = "credits", apply = "reportados", zoneId = null}) =>
   async (dispatch) => {
     try {
       let criteria = [];
