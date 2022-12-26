@@ -13,6 +13,13 @@ const initialState = {
     maxPay: null,
     searchValue: null,
   },
+  partialFilters: {
+    finances: [],
+    rams: [],
+    roms: [],
+    maxPay: null,
+    searchValue: null,
+  }
 };
 
 export const mainSlice = createSlice({
@@ -40,6 +47,9 @@ export const mainSlice = createSlice({
     setFilters: (state, action) => {
       state.filters = action.payload;
     },
+    setPartialFilters: (state, action) => {
+      state.partialFilters = action.payload;
+    }
   },
 });
 
@@ -51,6 +61,7 @@ export const {
   setFinances,
   setDetails,
   setFilters,
+  setPartialFilters
 } = mainSlice.actions;
 
 export default mainSlice.reducer;

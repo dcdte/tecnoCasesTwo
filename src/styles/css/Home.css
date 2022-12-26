@@ -20,7 +20,7 @@
 .home__banner {
   display: block;
   width: 95%;
-  height: 180px;
+  height: 280px;
   margin-block: 15px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -148,8 +148,11 @@
   background-color: #792EDE;
 }
 @media only screen and (max-width: 834px) {
-  .home__banner {
+  .home__banner, .home__layout {
     width: 90%;
+  }
+  .home__bar {
+    display: none;
   }
 }
 @media only screen and (min-width: 835px) {

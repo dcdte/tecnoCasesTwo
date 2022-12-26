@@ -1,4 +1,4 @@
-import { setDetails, setFinances, setRams, setZones } from ".";
+import { setDetails, setFinances, setRams, setRoms, setZones } from ".";
 import axios from "axios";
 const url = "http://localhost:3000";
 const urlFront = "http://localhost:3000/";
@@ -57,10 +57,10 @@ export const getFiltersAsync =
       const response = await axios.get(
         `${url}/details${criteria.length > 0 ? "?" + criteria.join("&") : ""}`
       );
-      dataProducts = response.data;
-      rams = [];
-      roms = [];
-      finances = [];
+      const dataProducts = response.data;
+      const rams = [];
+      const roms = [];
+      const finances = [];
       dataProducts.forEach((element) => {
         if (!rams.some((item) => item === element.ram)) {
           rams.push(element.ram);
@@ -79,6 +79,7 @@ export const getFiltersAsync =
       dispatch(setRams(rams))
       dispatch(setRoms(roms))
       dispatch(setFinances(finances))
+      console.log(finances);
     } catch (err) {
       console.log(err);
     }

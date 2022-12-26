@@ -7,6 +7,7 @@ import "./../styles/css/Home.css";
 import { useDispatch } from "react-redux";
 import { getFiltersAsync } from "../store/slices/main/async";
 import { useParams } from "react-router-dom";
+import Menu from "../components/Menu";
 
 function Home() {
 
@@ -27,9 +28,9 @@ function Home() {
           <img src="" alt="" />
         </div>
         <div className="home__layout">
-          <div className="home__bar">
-
-          </div>
+          <aside className="home__bar">
+            <Menu />
+          </aside>
           <div className="home__details">
             <div className="home__tags"></div>
             <div className="home__products"></div>

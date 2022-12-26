@@ -3,7 +3,7 @@ import "../../styles/css/ButtonDropDown.css";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import CheckBox from "./CheckBox";
 
-const ButtonDropDown = () => {
+const ButtonDropDown = ({name, children}) => {
   const [dropdown, setDropdown] = useState(false);
 
   const seeDropdown = () => {
@@ -15,10 +15,10 @@ const ButtonDropDown = () => {
   return (
     <div className="container">
       <button onClick={seeDropdown} className="container__dropdown">
-        Ram
+        {name}
         <MdKeyboardArrowUp className={dropped} />
       </button>
-      {dropdown === true && /*mapeo del check box */ <CheckBox />}
+      {dropdown && children}
     </div>
   );
 };

@@ -10,7 +10,7 @@
   &__banner {
     display: block;
     width: 95%;
-    height: 180px;
+    height: 280px;
     margin-block: 15px;
     box-sizing: border-box;
     border-radius: 5px;
@@ -58,8 +58,12 @@
   }
 
   @include sm-screen {
-    &__banner {
+    &__banner, &__layout {
       width: 90%;
+    }
+
+    &__bar {
+        display: none;
     }
   }
 
