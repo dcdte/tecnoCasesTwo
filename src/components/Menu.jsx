@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { setPartialFilters } from "../store/slices/main";
 import {
@@ -9,8 +10,10 @@ import {
   showRoms,
 } from "../store/slices/main/selectors";
 import "../styles/css/Menu.css";
+import Button from "./atoms/Button";
 import ButtonDropDown from "./atoms/ButtonDropDown";
 import CheckBox from "./atoms/CheckBox";
+import TextInput from "./atoms/TextInput";
 
 function Menu() {
   const dispatch = useDispatch();
@@ -20,18 +23,10 @@ function Menu() {
   const filters = useSelector(showFilters);
   const partialFilters = useSelector(showPartialFilters);
 
-  const setFilter = (type) => () => {
-    dispatch(
-      setPartialFilters({ ...partialFilters, [type]: !partialFilters[type] })
-    );
-  };
-
-  useEffect(() => {
-    console.log("finances", finances);
-  }, [filters, dispatch]);
+  const applyFilter = () => {};
 
   return (
-    <section className="menu">
+    <motion.section layout className="menu">
       <ButtonDropDown name="Financieras">
         {finances.map((item) => {
           return (
@@ -39,8 +34,6 @@ function Menu() {
               key={item.id}
               data={{ id: item.id, value: item.name }}
               type="finances"
-              status={partialFilters.finances.filter(obj => obj.id == item.id)[0]?.isSelected}
-              handler={setFilter("finances")}
             />
           );
         })}
@@ -48,17 +41,23 @@ function Menu() {
       <ButtonDropDown name="RAM">
         {rams.map((item) => {
           return (
-            <CheckBox
-              key={item}
-              data={{ id: item, value: item }}
-              type="rams"
-              status={partialFilters.rams.filter(obj => obj.id == item)[0]?.isSelected}
-              handler={setFilter("rams")}
-            />
+            <CheckBox key={item} data={{ id: item, value: item }} type="rams" />
           );
         })}
       </ButtonDropDown>
-    </section>
+      <ButtonDropDown name="Almacenamiento">
+        {roms.map((item) => {
+          return (
+            <CheckBox key={item} data={{ id: item, value: item }} type="roms" />
+          );
+        })}
+      </ButtonDropDown>
+      <div className="menu__pay">
+        <span>Cuota Máxima</span>
+        <TextInput placeholder="Cuota Máxima" />
+      </div>
+      <Button handler={applyFilter} text="Aplicar Filtros" type="filter-dark" />
+    </motion.section>
   );
 }
 

@@ -9,12 +9,14 @@
   background-color: $primary;
   border-radius: 11px;
   cursor: pointer;
+  gap: 10px;
 
   &:hover {
     background-color: $primaryHover;
   }
 
   &--text {
+    font-size: 14px;
     font-weight: bold;
   }
 
@@ -31,6 +33,10 @@
   &--light {
     color: $primary;
     background-color: $secondary;
+  }
+
+  &--dark {
+    color: white;
   }
 
   @include sm-screen {
@@ -55,7 +61,13 @@
   width: 90%;
 }
 
-.iconFilter {
+.iconFilter--noText {
   height: 100%;
   width: 100%;
 }
+
+.iconFilter--text {
+  height: 100%;
+  width: 20px;
+}
+

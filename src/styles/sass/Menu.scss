@@ -3,4 +3,36 @@
 .menu {
 
 
+
+  &__pay {
+    padding-block: 5px;
+    span {
+      font-size: 13px;
+      font-weight: bold;
+    }
+  }
+  input {
+    width: 270px;
+    height: 10px;
+    margin-block: 10px;
+  }
+
+  .btn {
+    width: 300px;
+  }
+
+  @include sm-screen {
+
+    width: 100%;
+
+    input {
+      width: calc(100% - 30px);
+      height: 10px;
+      margin-block: 10px;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
 }

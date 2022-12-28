@@ -1,4 +1,4 @@
-import { setDetails, setFinances, setRams, setRoms, setZones } from ".";
+import { setDetails, setFilters, setFinances, setPartialFilters, setRams, setRoms, setZones } from ".";
 import axios from "axios";
 const url = "http://localhost:3000";
 const urlFront = "http://localhost:3000/";
@@ -58,6 +58,7 @@ export const getFiltersAsync =
         `${url}/details${criteria.length > 0 ? "?" + criteria.join("&") : ""}`
       );
       const dataProducts = response.data;
+      console.log(dataProducts);
       const rams = [];
       const roms = [];
       const finances = [];
@@ -71,7 +72,7 @@ export const getFiltersAsync =
         }
 
         element.credits.forEach((e) => {
-          if (!finances.some((item) => item.ID === e.financeId)) {
+          if (!finances.some((item) => item.id === e.financeId)) {
             finances.push(e.finance)
           }
         });
@@ -79,7 +80,30 @@ export const getFiltersAsync =
       dispatch(setRams(rams))
       dispatch(setRoms(roms))
       dispatch(setFinances(finances))
-      console.log(finances);
+
+      const defaultFilter = {
+        maxPay: null,
+        searchValue: null,
+        finances: finances.map((item) => ({
+          id: item.id,
+          value: item.name,
+          isSelected: false,
+        })),
+        rams: rams.map((item) => ({
+          id: item,
+          value: item,
+          isSelected: false,
+        })),
+        roms: roms.map((item) => ({
+          id: item,
+          value: item,
+          isSelected: false,
+        })),
+      };
+
+      dispatch(setFilters(defaultFilter));
+      dispatch(setPartialFilters(defaultFilter));
+      console.log(rams, roms, finances);
     } catch (err) {
       console.log(err);
     }

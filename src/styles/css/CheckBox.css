@@ -1,16 +1,51 @@
-.containerCheck__checkbox {
-  border-radius: 0;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  cursor: pointer;
-  background-color: transparent;
-  border: 2px solid #888;
+.check {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 15px 30px;
+  gap: 10px;
 }
-.containerCheck__checkbox:checked {
-  border-color: rgb(23, 17, 105);
+.check__box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #792EDE;
+}
+.check__box--active {
   background-color: #792EDE;
-  color: #fff;
-  background-size: cover;
-  background-image: url("../../assets/check.png");
+}
+.check__checked {
+  height: 60%;
+  width: 60%;
+  color: white;
+  fill: white;
 }

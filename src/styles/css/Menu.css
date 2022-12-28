@@ -1,0 +1,28 @@
+.menu__pay {
+  padding-block: 5px;
+}
+.menu__pay span {
+  font-size: 13px;
+  font-weight: bold;
+}
+.menu input {
+  width: 270px;
+  height: 10px;
+  margin-block: 10px;
+}
+.menu .btn {
+  width: 300px;
+}
+@media only screen and (max-width: 834px) {
+  .menu {
+    width: 100%;
+  }
+  .menu input {
+    width: calc(100% - 30px);
+    height: 10px;
+    margin-block: 10px;
+  }
+  .menu .btn {
+    width: 100%;
+  }
+}

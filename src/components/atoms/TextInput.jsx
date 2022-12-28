@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/css/TextInput.css";
 
-const TextInput = ({value, setValue, placeHolder}) => {
+const TextInput = ({value, setValue, placeholder}) => {
 
   /* 
     TODO Se necesita alojar dentro de un container para asignarle su tamaño
@@ -15,7 +15,7 @@ const TextInput = ({value, setValue, placeHolder}) => {
     <input
       //value={value}-
       type="text"
-      placeholder='Marca o Referencia'
+      placeholder={placeholder}
       onChange={(e) => setValue(e.target.value)}
     />
   );

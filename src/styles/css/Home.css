@@ -63,7 +63,6 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 300px;
-  height: 500px;
 }
 .home__details {
   display: -webkit-box;
@@ -145,6 +144,88 @@
   width: 40%;
   height: 30px;
   background-color: #792EDE;
+}
+.home__sidebar {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  background-color: white;
+  min-height: 80vh;
+  width: 100%;
+  overflow-y: hidden;
+}
+.home__sidebar .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+}
+.home__search {
+  position: fixed;
+  z-index: 5;
+  inset: 0 0 0 0;
+}
+.home__box {
+  position: relative;
+  height: calc(100% - 75px);
+  inset-block-start: 75px;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+.home__box input {
+  width: 270px;
+}
+.home__contain {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background-color: white;
+  padding-block: 20px;
+  inset-block-start: -1px;
+}
+.home--toggle {
+  height: 100vh;
+  overflow: hidden;
 }
 @media only screen and (max-width: 834px) {
   .home__banner, .home__layout {

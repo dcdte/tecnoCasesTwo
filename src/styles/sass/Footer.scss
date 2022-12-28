@@ -3,6 +3,7 @@
 .footer {
   width: 100%;
   height: 120px;
+  margin-block-start: 50px; 
   border-block-start: 2px $primary solid;
 
   @include flex(center, center);

@@ -3,23 +3,24 @@
 .dropdown {
   position: relative;
   @include flex(start, stretch, column);
-  width: 300px;
 
   &__btn {
+    position: relative;
     @include flex(space-between, center);
-    font-weight: bold;
     padding: 10px 21px;
     background-color: white;
     border-width: 0px 0px 1px 0px;
     border-color: $gray;
+    z-index: 200;
     cursor: pointer;
 
     * {
       transition: 0.2s;
     }
 
-    &:active {
-      
+    span {
+      font-weight: bold;
+      font-size: 13px;
     }
   }
 
@@ -27,7 +28,22 @@
     color: $primary;
     font-size: 20px;
   }
-  
+
+  &__container {
+    position: relative;
+    @include flex(start, stretch, column);
+    flex-wrap: nowrap;
+    transform-origin: top;
+    overflow: hidden;
+  }
+
+  @include sm-screen {
+    width: 100%;
+  }
+
+  @include md-screen {
+    width: 300px;
+  }
 }
 
 .true {

@@ -1,20 +1,29 @@
 @import "./Globals";
 
-.containerCheck {
+.check {
+  position: relative;
+  @include flex(start, center);
+  padding: 15px 30px;
+  gap: 10px;
 
-  &__checkbox {
-    border-radius: 0;
-    appearance: none;
+  &__box {
+    @include flex(center, center);
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
     cursor: pointer;
-    background-color: transparent;
-    border: 2px solid #888;
+    border: 1px solid $primary;
 
-    &:checked {
-      border-color: rgb(23, 17, 105);
+    &--active {
       background-color: $primary;
-      color: #fff;
-      background-size: cover;
-      background-image: url("../../assets/check.png");
     }
+  }
+
+  &__checked {
+    height: 60%;
+    width: 60%;
+    color: white;
+    fill: white;
+
   }
 }

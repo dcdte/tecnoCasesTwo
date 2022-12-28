@@ -3,6 +3,8 @@
 header {
   width: 100%;
   box-sizing: border-box;
+  position: relative;
+  z-index: 20; 
 
   @include flex(space-between, center);
 

@@ -22,11 +22,13 @@
   background-color: #792EDE;
   border-radius: 11px;
   cursor: pointer;
+  gap: 10px;
 }
 .btn:hover {
   background-color: #42008A;
 }
 .btn--text {
+  font-size: 14px;
   font-weight: bold;
 }
 .btn--notext {
@@ -41,6 +43,9 @@
 .btn--light {
   color: #792EDE;
   background-color: #F7EDFF;
+}
+.btn--dark {
+  color: white;
 }
 @media only screen and (max-width: 834px) {
   .btn--collapse {
@@ -64,7 +69,12 @@
   width: 90%;
 }
 
-.iconFilter {
+.iconFilter--noText {
   height: 100%;
   width: 100%;
+}
+
+.iconFilter--text {
+  height: 100%;
+  width: 20px;
 }
