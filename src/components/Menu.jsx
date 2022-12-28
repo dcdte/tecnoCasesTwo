@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import { setPartialFilters } from "../store/slices/main";
+import { setFilters, setPartialFilters } from "../store/slices/main";
 import {
   showFilters,
   showFinances,
@@ -23,7 +23,9 @@ function Menu() {
   const filters = useSelector(showFilters);
   const partialFilters = useSelector(showPartialFilters);
 
-  const applyFilter = () => {};
+  const applyFilter = (partialFilters) => {
+    dispatch(setFilters({ ...partialFilters }));
+  };
 
   return (
     <motion.section layout className="menu">

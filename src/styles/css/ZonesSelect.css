@@ -35,7 +35,7 @@
 }
 .zones__zone:hover {
   color: #792EDE;
-  background-color: #F7EDFF;
+  background-color: #ECDCFF;
 }
 @media only screen and (max-width: 834px) {
   .zones {

@@ -15,7 +15,9 @@
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 15px 30px;
+  padding-inline: 30px;
+  -webkit-margin-before: 10px;
+          margin-block-start: 10px;
   gap: 10px;
 }
 .check__box {

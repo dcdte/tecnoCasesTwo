@@ -26,6 +26,8 @@
 }
 .btn:hover {
   background-color: #42008A;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 .btn--text {
   font-size: 14px;
@@ -42,7 +44,7 @@
 }
 .btn--light {
   color: #792EDE;
-  background-color: #F7EDFF;
+  background-color: #ECDCFF;
 }
 .btn--dark {
   color: white;

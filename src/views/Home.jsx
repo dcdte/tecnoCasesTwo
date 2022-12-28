@@ -17,6 +17,7 @@ import {
   showRoms,
 } from "../store/slices/main/selectors";
 import TextInput from "../components/atoms/TextInput";
+import Tag from "../components/atoms/Tag";
 
 function Home() {
   const dispatch = useDispatch();
@@ -33,9 +34,7 @@ function Home() {
     dispatch(getFiltersAsync({ zoneId: slug }));
   }, [dispatch]);
 
-  const search = () => {
-
-  }
+  const search = () => {};
 
   return (
     <section className={`home ${isSearchToggle && "home--toggle"}`}>
@@ -86,7 +85,30 @@ function Home() {
                 <Menu />
               </aside>
               <div className="home__details">
-                <div className="home__tags"></div>
+                <div className="home__tags">
+                  {filters.searchValue && (
+                    <Tag hover={true}>Búsqueda: {filters.searchValue}</Tag>
+                  )}
+                  {filters.finances?.some((item) => item.isSelected) &&
+                    filters.finances
+                      .map((item) => (
+                        <Tag hover={true}>Financiera: {item.value}</Tag>
+                      ))}
+                  {/* {filters.rams?.some((item) => item.isSelected) &&
+                    filters.rams
+                      .filter((item) => item.isSelected)
+                      .map((item) => <Tag hover={true}>Ram: {item.value}</Tag>)}
+                  {filters.roms?.some((item) => item.isSelected) &&
+                    filters.roms
+                      .filter((item) => item.isSelected)
+                      .map((item) => (
+                        <Tag hover={true}>Almacenamiento: {item.value}</Tag>
+                      ))} */}
+                  {filters.maxPay && (
+                    <Tag hover={true}>Cuota Máxima: ${filters.maxPay}</Tag>
+                  )}
+                  <Tag isActive={true}>Limpiar Filtros</Tag>
+                </div>
                 <div className="home__products"></div>
                 <div className="home__paging"></div>
               </div>

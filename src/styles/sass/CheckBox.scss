@@ -3,7 +3,8 @@
 .check {
   position: relative;
   @include flex(start, center);
-  padding: 15px 30px;
+  padding-inline: 30px;
+  margin-block-start: 10px;
   gap: 10px;
 
   &__box {

@@ -1,0 +1,42 @@
+@import "./Globals";
+
+.tag {
+  @include flex(center, center);
+  background-color: $secondary;
+  color: $primary;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primaryHover;
+    color: white;
+    transition: 0.4s;
+  }
+
+  &--active {
+    background-color: $primary;
+    color: white;
+
+    &:hover {
+      background-color: $primaryHover;
+    }
+  }
+
+  &__btn {
+    position: relative;
+    @include flex(end, center);
+    padding-inline-end: 20px;
+    background-color: transparent;
+    border: none;
+  }
+
+  &__icon {
+    position: absolute;
+    inset-inline-end: -5px;
+    width: 20px;
+    height: 20px;
+    color: $primary;
+    cursor: pointer;
+  }
+}
