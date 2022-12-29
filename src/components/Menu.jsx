@@ -22,10 +22,18 @@ function Menu() {
   const roms = useSelector(showRoms);
   const filters = useSelector(showFilters);
   const partialFilters = useSelector(showPartialFilters);
-  const [maxPay, setMaxPay] = useState("");
 
   const applyFilter = (partialFilters) => {
     dispatch(setFilters({ ...partialFilters }));
+  };
+
+  const setMaxPay = (value, partialFilters) => {
+    dispatch(
+      setPartialFilters({
+        ...partialFilters,
+        maxPay: value === 0 ? null : value,
+      })
+    );
   };
 
   return (
@@ -60,16 +68,12 @@ function Menu() {
         <TextInput
           placeholder="Cuota Máxima"
           field="maxPay"
-          value={maxPay}
-          setValue={setMaxPay}
+          value={partialFilters.maxPay || ""}
+          setValue={(value) => setMaxPay(value, partialFilters)}
           type="number"
         />
       </div>
-      <Button
-        handler={(partialFilters) => applyFilter(partialFilters, maxPay)}
-        text="Aplicar Filtros"
-        type="filter-dark"
-      />
+      <Button handler={applyFilter} text="Aplicar Filtros" type="filter-dark" />
     </motion.section>
   );
 }

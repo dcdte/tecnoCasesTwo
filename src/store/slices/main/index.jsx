@@ -10,14 +10,14 @@ const initialState = {
     finances: [],
     rams: [],
     roms: [],
-    maxPay: "",
+    maxPay: null,
     searchValue: "",
   },
   partialFilters: {
     finances: [],
     rams: [],
     roms: [],
-    maxPay: "",
+    maxPay: null,
     searchValue: "",
   }
 };

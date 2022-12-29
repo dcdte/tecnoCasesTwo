@@ -40,7 +40,7 @@ function Home() {
     const { searchValue, maxPay, finances, rams, roms } = filters;
     setIsFiltered(
       searchValue ||
-        (maxPay && maxPay > 0) ||
+        maxPay ||
         finances.some((item) => item.isSelected) ||
         rams.some((item) => item.isSelected) ||
         roms.some((item) => item.isSelected)
@@ -59,7 +59,7 @@ function Home() {
         finances,
         rams,
         roms,
-        maxPay: "",
+        maxPay: null,
         searchValue: "",
       })
     );
@@ -208,7 +208,7 @@ function Home() {
                           </Tag>
                         </motion.div>
                       ))}
-                    {filters.maxPay && filters.maxPay > 0 && (
+                    {filters.maxPay && (
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
