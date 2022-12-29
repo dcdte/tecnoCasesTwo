@@ -48,9 +48,10 @@
   }
 
   &__products {
-    @include flex(center, center);
+    @include flex(start, center);
     width: 100%;
     margin-block: 10px;
+    gap: 10px;
   }
 
   &__paging {

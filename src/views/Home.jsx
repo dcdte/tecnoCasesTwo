@@ -5,12 +5,13 @@ import ButtonDropDown from "../components/atoms/ButtonDropDown";
 import Header from "../components/Header";
 import "./../styles/css/Home.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getFiltersAsync } from "../store/slices/main/async";
+import { getDetailsAsync, getFiltersAsync } from "../store/slices/main/async";
 import { useParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Menu from "../components/Menu";
 import { setFilters, setPartialFilters } from "../store/slices/main";
 import {
+  showDetails,
   showFilters,
   showFinances,
   showRams,
@@ -27,6 +28,7 @@ function Home() {
   const finances = useSelector(showFinances);
   const rams = useSelector(showRams);
   const roms = useSelector(showRoms);
+  const details = useSelector(showDetails);
 
   const [isToggle, setIsToggle] = useState(false);
   const [isSearchToggle, setIsSearchToggle] = useState(false);
@@ -34,6 +36,7 @@ function Home() {
 
   useEffect(() => {
     dispatch(getFiltersAsync({ zoneId: slug }));
+    dispatch(getDetailsAsync({}));
   }, [dispatch]);
 
   useEffect(() => {
@@ -230,7 +233,7 @@ function Home() {
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         exit={{ scale: 0 }}
-                        transition={{ duration: 0.1 }}
+                        transition={{ duration: 0.2 }}
                       >
                         <Tag
                           isActive={true}
@@ -243,7 +246,8 @@ function Home() {
                   </AnimatePresence>
                 </div>
                 <div className="home__products">
-                  <Card />
+                  {details && details.map(item => <Card data={item}/>)}
+                  
                 </div>
                 <div className="home__paging"></div>
               </div>
@@ -262,7 +266,7 @@ function Home() {
           >
             <div className="home__collapse">
               <Menu >
-                
+
               </Menu>
             </div>
           </motion.aside>
