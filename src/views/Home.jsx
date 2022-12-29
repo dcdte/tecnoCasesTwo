@@ -29,10 +29,54 @@ function Home() {
 
   const [isToggle, setIsToggle] = useState(false);
   const [isSearchToggle, setIsSearchToggle] = useState(false);
+  const [isFiltered, setIsFiltered] = useState(false);
 
   useEffect(() => {
     dispatch(getFiltersAsync({ zoneId: slug }));
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(setPartialFilters({ ...filters }));
+    const { searchValue, maxPay, finances, rams, roms } = filters;
+    setIsFiltered(
+      searchValue ||
+        maxPay ||
+        finances.some((item) => item.isSelected) ||
+        rams.some((item) => item.isSelected) ||
+        roms.some((item) => item.isSelected)
+    );
+  }, [filters]);
+
+  const clearFilters = (filters) => {
+    const finances = filters.finances.map((item) => ({
+      ...item,
+      isSelected: false,
+    }));
+    const rams = filters.rams.map((item) => ({ ...item, isSelected: false }));
+    const roms = filters.roms.map((item) => ({ ...item, isSelected: false }));
+    dispatch(
+      setFilters({
+        finances,
+        rams,
+        roms,
+        maxPay: "",
+        searchValue: "",
+      })
+    );
+  };
+
+  const removeFilter = (id, type, filters) => {
+    const partial = { ...filters };
+    if (["maxPay", "searchValue"].includes(type)) {
+      partial[type] = "";
+    } else {
+      const arr = [...partial[type]];
+      const index = arr.findIndex((item) => item.id === id);
+      arr[index] = { ...arr[index], isSelected: false };
+      partial[type] = arr;
+    }
+    dispatch(setFilters(partial));
+  };
 
   const search = () => {};
 
@@ -86,28 +130,115 @@ function Home() {
               </aside>
               <div className="home__details">
                 <div className="home__tags">
-                  {filters.searchValue && (
-                    <Tag hover={true}>Búsqueda: {filters.searchValue}</Tag>
-                  )}
-                  {filters.finances?.some((item) => item.isSelected) &&
-                    filters.finances
+                  <AnimatePresence>
+                    {filters.searchValue && (
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        exit={{ scale: 0 }}
+                        transition={{ duration: 0.2 }}
+                        key="searchValue"
+                      >
+                        <Tag
+                          handler={(id) =>
+                            removeFilter(id, "searchValue", filters)
+                          }
+                          hover={true}
+                        >
+                          Búsqueda: {filters.searchValue}
+                        </Tag>
+                      </motion.div>
+                    )}
+                    {filters.finances
+                      .filter((item) => item.isSelected)
                       .map((item) => (
-                        <Tag hover={true}>Financiera: {item.value}</Tag>
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          exit={{ scale: 0 }}
+                          transition={{ duration: 0.3 }}
+                          key={item.id}
+                        >
+                          <Tag
+                            id={item.id}
+                            handler={(id) =>
+                              removeFilter(id, "finances", filters)
+                            }
+                            hover={true}
+                          >
+                            Financiera: {item.value}
+                          </Tag>
+                        </motion.div>
                       ))}
-                  {/* {filters.rams?.some((item) => item.isSelected) &&
-                    filters.rams
-                      .filter((item) => item.isSelected)
-                      .map((item) => <Tag hover={true}>Ram: {item.value}</Tag>)}
-                  {filters.roms?.some((item) => item.isSelected) &&
-                    filters.roms
+                    {filters.rams
                       .filter((item) => item.isSelected)
                       .map((item) => (
-                        <Tag hover={true}>Almacenamiento: {item.value}</Tag>
-                      ))} */}
-                  {filters.maxPay && (
-                    <Tag hover={true}>Cuota Máxima: ${filters.maxPay}</Tag>
-                  )}
-                  <Tag isActive={true}>Limpiar Filtros</Tag>
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          exit={{ scale: 0 }}
+                          transition={{ duration: 0.3 }}
+                          key={item.id}
+                        >
+                          <Tag
+                            id={item.id}
+                            handler={(id) => removeFilter(id, "rams", filters)}
+                            hover={true}
+                          >
+                            Ram: {item.value}
+                          </Tag>
+                        </motion.div>
+                      ))}
+                    {filters.roms
+                      .filter((item) => item.isSelected)
+                      .map((item) => (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          exit={{ scale: 0 }}
+                          transition={{ duration: 0.3 }}
+                          key={item.id}
+                        >
+                          <Tag
+                            id={item.id}
+                            handler={(id) => removeFilter(id, "roms", filters)}
+                            hover={true}
+                          >
+                            Almacenamiento: {item.value}
+                          </Tag>
+                        </motion.div>
+                      ))}
+                    {filters.maxPay && (
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        exit={{ scale: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Tag
+                          handler={(id) => removeFilter(id, "maxPay", filters)}
+                          hover={true}
+                        >
+                          Cuota Máxima: ${filters.maxPay}
+                        </Tag>
+                      </motion.div>
+                    )}
+                    {isFiltered && (
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        exit={{ scale: 0 }}
+                        transition={{ duration: 0.1 }}
+                      >
+                        <Tag
+                          isActive={true}
+                          handler={() => clearFilters(filters)}
+                        >
+                          Limpiar Filtros
+                        </Tag>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
                 <div className="home__products"></div>
                 <div className="home__paging"></div>

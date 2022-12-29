@@ -10,15 +10,15 @@ const initialState = {
     finances: [],
     rams: [],
     roms: [],
-    maxPay: null,
-    searchValue: null,
+    maxPay: "",
+    searchValue: "",
   },
   partialFilters: {
     finances: [],
     rams: [],
     roms: [],
-    maxPay: null,
-    searchValue: null,
+    maxPay: "",
+    searchValue: "",
   }
 };
 

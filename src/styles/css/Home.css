@@ -43,6 +43,8 @@
           align-items: start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   width: 95%;
   margin-block: 10px;
 }

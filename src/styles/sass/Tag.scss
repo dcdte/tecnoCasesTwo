@@ -2,6 +2,7 @@
 
 .tag {
   @include flex(center, center);
+  text-align: start;
   background-color: $secondary;
   color: $primary;
   font-weight: bold;

@@ -14,6 +14,7 @@
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  text-align: start;
   background-color: #ECDCFF;
   color: #792EDE;
   font-weight: bold;

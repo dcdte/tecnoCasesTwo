@@ -25,6 +25,7 @@ function Menu() {
 
   const applyFilter = (partialFilters) => {
     dispatch(setFilters({ ...partialFilters }));
+    console.log("fuck")
   };
 
   return (

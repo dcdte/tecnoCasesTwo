@@ -20,6 +20,7 @@
 
   &__layout {
     @include flex(start, start);
+    flex-wrap: nowrap;
     width: 95%;
     margin-block: 10px;
   }

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./../styles/css/Header.css";
 import vector from "./../assets/tecnosuper.svg";
 import TextInput from "./atoms/TextInput";
 import Button from "./atoms/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { setFilters } from "../store/slices/main";
+import { showFilters } from "../store/slices/main/selectors";
 
 function Header({
   isToggle,
@@ -14,12 +17,20 @@ function Header({
   const toggleFilter = () => {
     setIsToggle((prev) => !prev);
   };
+  const dispatch = useDispatch();
+  const filters = useSelector(showFilters);
+  const [searchValue, setSearchValue] = useState("");
 
   const toggleSearch = () => {
     setIsSearchToggle((prev) => !prev);
   };
 
-  const search = () => {};
+  const search = (searchValue, filters) => {
+    const partial = {...filters}
+    partial.searchValue = searchValue.trim();
+    dispatch(setFilters(partial));
+    setSearchValue("");
+  };
 
   return (
     <header>
@@ -28,7 +39,7 @@ function Header({
       </a>
       {withZone && (
         <div className="header__container">
-          <TextInput placeholder="Marca o Referencia" />
+          <TextInput value={searchValue} setValue={setSearchValue} placeholder="Marca o Referencia" />
           {!isToggle && !isSearchToggle && (
             <>
               <Button
@@ -57,7 +68,7 @@ function Header({
             />
           )}
 
-          <Button type="search" handler={search} />
+          <Button type="search" handler={() => search(searchValue, filters)} />
         </div>
       )}
     </header>
