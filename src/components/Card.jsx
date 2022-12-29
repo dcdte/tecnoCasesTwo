@@ -1,8 +1,10 @@
 import React from 'react';
 import "../styles/css/Card.css";
+import Tag from './atoms/Tag';
 
 
 function Card({data}) {
+    console.log(data);
   return (
     <article className='card'>
       <div className="card__visual">
@@ -18,7 +20,7 @@ function Card({data}) {
         <div className="card__finances">
             <span className="card__finance">Financiera:</span>
             <div className="card__tags">
-
+                {data.credits && data.credits.map(item => <Tag id={item.financeId} hover={false}>{item.finance.name}</Tag>)}
             </div>
         </div>
       </div>

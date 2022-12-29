@@ -37,10 +37,25 @@
   }
 
   &__details {
-
   }
 
   &__finances {
-    
+    @include flex(start, start, column);
+    gap: 4px;
+  }
+
+  &__finance {
+    font-size: 10px;
+  }
+
+  &__tags {
+    @include flex(start, center);
+    gap: 2px;
+
+    .tag {
+      padding: 4px 8px;
+      border-radius: 20px;
+      font-size: 10px;
+    }
   }
 }

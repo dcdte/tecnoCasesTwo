@@ -40,6 +40,8 @@ function Home() {
   }, [dispatch]);
 
   useEffect(() => {
+
+    //dispatch(getDetailsAsync{})
     dispatch(setPartialFilters({ ...filters }));
     const { searchValue, maxPay, finances, rams, roms } = filters;
     setIsFiltered(
