@@ -1,0 +1,46 @@
+@import "./Globals";
+
+.card {
+  @include flex(start, center);
+  width: 340px;
+  height: 250px;
+  padding: 12px;
+  gap: 15px;
+  box-sizing: border-box;
+  box-shadow: 0 0 9px rgba($color: #000000, $alpha: 0.25);
+  border-radius: 10px;
+
+  &__visual {
+    @include flex(start, center, column);
+    width: 125px;
+    height: calc(100%);
+    border-radius: 5px;
+    background: linear-gradient(180deg, #3a3a3b 0%, #e3e3e3 50%, #3a3a3b 100%);
+  }
+
+  &__info {
+    @include flex(start, start, column);
+    height: 100%;
+  }
+
+  &__brand {
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 13.5px;
+    color: $primary;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+  }
+
+  &__details {
+
+  }
+
+  &__finances {
+    
+  }
+}

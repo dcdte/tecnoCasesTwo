@@ -18,6 +18,7 @@ import {
 } from "../store/slices/main/selectors";
 import TextInput from "../components/atoms/TextInput";
 import Tag from "../components/atoms/Tag";
+import Card from "../components/Card";
 
 function Home() {
   const dispatch = useDispatch();
@@ -241,7 +242,9 @@ function Home() {
                     )}
                   </AnimatePresence>
                 </div>
-                <div className="home__products"></div>
+                <div className="home__products">
+                  <Card />
+                </div>
                 <div className="home__paging"></div>
               </div>
             </div>
@@ -258,7 +261,9 @@ function Home() {
             className="home__sidebar"
           >
             <div className="home__collapse">
-              <Menu />
+              <Menu >
+                
+              </Menu>
             </div>
           </motion.aside>
         )}
