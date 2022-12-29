@@ -40,7 +40,7 @@ function Home() {
     const { searchValue, maxPay, finances, rams, roms } = filters;
     setIsFiltered(
       searchValue ||
-        maxPay ||
+        (maxPay && maxPay > 0) ||
         finances.some((item) => item.isSelected) ||
         rams.some((item) => item.isSelected) ||
         roms.some((item) => item.isSelected)
@@ -208,12 +208,13 @@ function Home() {
                           </Tag>
                         </motion.div>
                       ))}
-                    {filters.maxPay && (
+                    {filters.maxPay && filters.maxPay > 0 && (
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         exit={{ scale: 0 }}
                         transition={{ duration: 0.3 }}
+                        key="maxPay"
                       >
                         <Tag
                           handler={(id) => removeFilter(id, "maxPay", filters)}
