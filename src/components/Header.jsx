@@ -26,7 +26,7 @@ function Header({
   };
 
   const search = (searchValue, filters) => {
-    const partial = {...filters}
+    const partial = { ...filters };
     partial.searchValue = searchValue.trim();
     dispatch(setFilters(partial));
     setSearchValue("");
@@ -39,7 +39,13 @@ function Header({
       </a>
       {withZone && (
         <div className="header__container">
-          <TextInput value={searchValue} setValue={setSearchValue} placeholder="Marca o Referencia" />
+          <TextInput
+            value={searchValue}
+            setValue={setSearchValue}
+            placeholder="Marca o Referencia"
+            field="searchValue"
+            type="text"
+          />
           {!isToggle && !isSearchToggle && (
             <>
               <Button

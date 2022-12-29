@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilters, setPartialFilters } from "../store/slices/main";
@@ -22,6 +22,7 @@ function Menu() {
   const roms = useSelector(showRoms);
   const filters = useSelector(showFilters);
   const partialFilters = useSelector(showPartialFilters);
+  const [maxPay, setMaxPay] = useState("");
 
   const applyFilter = (partialFilters) => {
     dispatch(setFilters({ ...partialFilters }));
@@ -56,9 +57,19 @@ function Menu() {
       </ButtonDropDown>
       <div className="menu__pay">
         <span>Cuota Máxima</span>
-        <TextInput placeholder="Cuota Máxima" />
+        <TextInput
+          placeholder="Cuota Máxima"
+          field="maxPay"
+          value={maxPay}
+          setValue={setMaxPay}
+          type="number"
+        />
       </div>
-      <Button handler={applyFilter} text="Aplicar Filtros" type="filter-dark" />
+      <Button
+        handler={(partialFilters) => applyFilter(partialFilters, maxPay)}
+        text="Aplicar Filtros"
+        type="filter-dark"
+      />
     </motion.section>
   );
 }
