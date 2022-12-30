@@ -239,6 +239,11 @@
   .home__bar {
     display: none;
   }
+  .home__products {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 @media only screen and (min-width: 835px) {
   .home__details {

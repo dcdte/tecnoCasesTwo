@@ -115,6 +115,10 @@
     &__bar {
         display: none;
     }
+
+    &__products {
+      justify-content: center;
+    }
   }
 
   @include md-screen {

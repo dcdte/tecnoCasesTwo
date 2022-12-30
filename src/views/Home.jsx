@@ -36,7 +36,7 @@ function Home() {
 
   useEffect(() => {
     dispatch(getFiltersAsync({ zoneId: slug }));
-    dispatch(getDetailsAsync({}));
+    dispatch(getDetailsAsync({zoneId: slug}));
   }, [dispatch]);
 
   useEffect(() => {
@@ -248,7 +248,7 @@ function Home() {
                   </AnimatePresence>
                 </div>
                 <div className="home__products">
-                  {details && details.map(item => <Card data={item}/>)}
+                  {details && details.map(item => <Card key={item.id} data={item}/>)}
                   
                 </div>
                 <div className="home__paging"></div>
