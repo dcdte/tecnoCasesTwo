@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/css/Card.css";
 import Tag from "./atoms/Tag";
 import small from "../assets/small.png";
@@ -12,8 +12,11 @@ import {
   MdBatteryCharging60,
 } from "react-icons/md";
 import Label from "./atoms/Label";
+import CardPay from "./atoms/CardPay";
 
 function Card({ data }) {
+  const [pays, setPays] = useState(data.credits[0]);
+
   console.log(data);
   return (
     <article className="card">
@@ -58,8 +61,14 @@ function Card({ data }) {
         </div>
       </div>
       <div className="card__pays">
-        <div className="card__row"></div>
-        <div className="card__row"></div>
+        <div className="card__row">
+          <CardPay title="Inicial" value={pays.initial} />
+          <CardPay title="8 Cuotas" value={pays.eightPays} />
+        </div>
+        <div className="card__row">
+          <CardPay title="12 Cuotas" value={pays.twelvePays} />
+          <CardPay title="16 Cuotas" value={pays.sixteenPays} />
+        </div>
       </div>
     </article>
   );

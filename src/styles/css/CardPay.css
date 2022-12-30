@@ -1,0 +1,33 @@
+.pay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 2px 3px 2px 10px;
+  border: 2px #3a3a3b solid;
+  border-radius: 20px;
+}
+.pay__title {
+  font-size: 10px;
+  font-weight: 700;
+  color: #3a3a3b;
+}
+.pay__value {
+  padding: 5px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+  background-color: #3a3a3b;
+  border-radius: 15px;
+}

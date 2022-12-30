@@ -1,0 +1,23 @@
+@import "./Globals";
+
+.pay {
+    @include flex(space-between, center);
+    padding: 2px 3px 2px 10px;
+    border: 2px $darkGray solid;
+    border-radius: 20px;
+
+    &__title {
+        font-size: 10px;
+        font-weight: 700;
+        color: $darkGray;
+    }
+
+    &__value {
+        padding: 5px 10px;
+        font-size: 10px;
+        font-weight: 700;
+        color: white;
+        background-color: $darkGray; 
+        border-radius: 15px;
+    }
+}

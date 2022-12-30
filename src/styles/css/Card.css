@@ -9,13 +9,12 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 340px;
-  height: 250px;
   padding: 12px;
   gap: 12px;
   -webkit-box-sizing: border-box;
@@ -41,7 +40,7 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 125px;
-  height: 100%;
+  height: 226px;
   border-radius: 5px;
   background: -webkit-gradient(linear, left top, left bottom, from(#3a3a3b), color-stop(50%, #e3e3e3), to(#3a3a3b));
   background: linear-gradient(180deg, #3a3a3b 0%, #e3e3e3 50%, #3a3a3b 100%);
@@ -75,6 +74,25 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
+.card__pays {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  gap: 5px;
+}
 .card__row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -83,14 +101,19 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: stretch;
-      -ms-flex-pack: stretch;
-          justify-content: stretch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  width: 100%;
+  gap: 5px;
+}
+.card__row .pay {
+  width: 43%;
 }
 .card__info {
   display: -webkit-box;
@@ -108,7 +131,6 @@
           align-items: start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  height: 100%;
   width: auto;
 }
 .card__brand {
@@ -159,7 +181,7 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: 4px;
-  margin-block: auto;
+  margin-block: 15px;
 }
 .card__finance {
   font-size: 10px;
