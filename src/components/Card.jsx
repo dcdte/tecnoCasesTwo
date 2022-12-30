@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/css/Card.css";
 import Tag from "./atoms/Tag";
+import small from "../assets/small.png"
 
 import { AiOutlineCamera } from "react-icons/ai";
 import {
@@ -17,8 +18,13 @@ function Card({ data }) {
   return (
     <article className="card">
       <div className="card__visual">
-        <div className="card__img"></div>
-        <div className="card__pays"></div>
+        <div className="card__img">
+          <img src={small} alt="" />
+        </div>
+        <div className="card__pays">
+          <div className="card__row"></div>
+          <div className="card__row"></div>
+        </div>
       </div>
       <div className="card__info">
         <h4 className="card__brand">{data.brand.brand}</h4>
@@ -48,7 +54,7 @@ function Card({ data }) {
           <div className="card__tags">
             {data.credits &&
               data.credits.map((item) => (
-                <Tag id={item.financeId} hover={false}>
+                <Tag id={item.financeId} hover={false} handler={() => {}}>
                   {item.finance.name}
                 </Tag>
               ))}

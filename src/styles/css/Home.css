@@ -85,6 +85,7 @@
   -webkit-box-flex: 2;
       -ms-flex-positive: 2;
           flex-grow: 2;
+  gap: 15px;
 }
 .home__tags {
   display: -webkit-box;
@@ -127,7 +128,6 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 100%;
-  margin-block: 10px;
   gap: 10px;
 }
 .home__paging {

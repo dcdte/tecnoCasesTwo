@@ -33,6 +33,7 @@
   &__details {
     @include flex(start, center, column);
     flex-grow: 2;
+    gap: 15px;
   }
 
   &__tags {
@@ -50,7 +51,6 @@
   &__products {
     @include flex(start, center);
     width: 100%;
-    margin-block: 10px;
     gap: 10px;
   }
 

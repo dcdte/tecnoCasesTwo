@@ -2,7 +2,7 @@
 
 .label {
   @include flex(space-between, center);
-  gap: 15px;
+  gap: 13px;
 
   &--container {
     @include flex(start, center);

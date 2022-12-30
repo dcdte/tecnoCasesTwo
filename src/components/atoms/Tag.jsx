@@ -7,7 +7,7 @@ function Tag({
   handler,
   children,
   isActive,
-  hover = false,
+  hover,
   id,
   isAction,
 }) {

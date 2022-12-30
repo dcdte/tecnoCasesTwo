@@ -45,7 +45,7 @@ function Home() {
     dispatch(setPartialFilters({ ...filters }));
     const { searchValue, maxPay, finances, rams, roms } = filters;
     setIsFiltered(
-      searchValue ||
+      (searchValue && searchValue != "") ||
         maxPay ||
         finances.some((item) => item.isSelected) ||
         rams.some((item) => item.isSelected) ||
@@ -62,19 +62,21 @@ function Home() {
     const roms = filters.roms.map((item) => ({ ...item, isSelected: false }));
     dispatch(
       setFilters({
+        searchValue: "",
         finances,
         rams,
         roms,
-        maxPay: null,
-        searchValue: "",
+        maxPay: null
       })
     );
   };
 
   const removeFilter = (id, type, filters) => {
     const partial = { ...filters };
-    if (["maxPay", "searchValue"].includes(type)) {
+    if (type === "searchValue") {
       partial[type] = "";
+    } else if(type === "maxPay"){
+      partial[type] = null;
     } else {
       const arr = [...partial[type]];
       const index = arr.findIndex((item) => item.id === id);
@@ -142,7 +144,7 @@ function Home() {
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         exit={{ scale: 0 }}
-                        transition={{ duration: 0.2 }}
+                        transition={{ duration: 0.3 }}
                         key="searchValue"
                       >
                         <Tag
@@ -236,6 +238,7 @@ function Home() {
                         animate={{ scale: 1 }}
                         exit={{ scale: 0 }}
                         transition={{ duration: 0.2 }}
+                        key="clean"
                       >
                         <Tag
                           isActive={true}
