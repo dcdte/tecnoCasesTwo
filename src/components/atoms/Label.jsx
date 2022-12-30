@@ -9,7 +9,7 @@ const Label = ({title, value, children} ) => {
         {children}
         <h6 className="label--container__title">{title}</h6>
       </div>
-      <p className="label--description">{value}</p>
+      <span className="label--description">{value}</span>
     </div>
   );
 };
