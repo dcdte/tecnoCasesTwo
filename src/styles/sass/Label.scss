@@ -1,0 +1,23 @@
+@import "./Globals";
+
+.label {
+  @include flex(space-between, center);
+
+  &--container {
+    @include flex(start, center);
+    gap: 4px;
+
+    &__title {
+      font-size: 12px;
+    }
+
+    &__icon {
+      color: $primary;
+      font-size: 20px;
+    }
+  }
+  &--description {
+    font-size: 10px;
+    text-align: right;
+  }
+}
