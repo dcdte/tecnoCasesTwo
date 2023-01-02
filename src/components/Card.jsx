@@ -53,7 +53,7 @@ function Card({ data }) {
           <div className="card__tags">
             {data.credits &&
               data.credits.map((item) => (
-                <Tag id={item.financeId} hover={false} handler={() => {}}>
+                <Tag id={item.financeId} hover={false} isActive={pays.financeId === item.financeId} handler={() => {setPays(item)}}>
                   {item.finance.name}
                 </Tag>
               ))}
