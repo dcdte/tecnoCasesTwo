@@ -17,7 +17,6 @@ import CardPay from "./atoms/CardPay";
 function Card({ data }) {
   const [pays, setPays] = useState(data.credits[0]);
 
-  console.log(data);
   return (
     <article className="card">
       <div className="card__visual">
@@ -53,7 +52,14 @@ function Card({ data }) {
           <div className="card__tags">
             {data.credits &&
               data.credits.map((item) => (
-                <Tag id={item.financeId} hover={false} isActive={pays.financeId === item.financeId} handler={() => {setPays(item)}}>
+                <Tag
+                  id={item.financeId}
+                  hover={false}
+                  isActive={pays.financeId === item.financeId}
+                  handler={() => {
+                    setPays(item);
+                  }}
+                >
                   {item.finance.name}
                 </Tag>
               ))}

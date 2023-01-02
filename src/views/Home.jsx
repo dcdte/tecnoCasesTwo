@@ -36,14 +36,31 @@ function Home() {
 
   useEffect(() => {
     dispatch(getFiltersAsync({ zoneId: slug }));
-    dispatch(getDetailsAsync({zoneId: slug}));
+    dispatch(getDetailsAsync({ zoneId: slug }));
   }, [dispatch]);
 
   useEffect(() => {
-
-    //dispatch(getDetailsAsync{})
-    dispatch(setPartialFilters({ ...filters }));
+    const options = { zoneId: slug };
     const { searchValue, maxPay, finances, rams, roms } = filters;
+    if (searchValue) options.searchValue = searchValue;
+    if (maxPay) options.maxPay = maxPay;
+    options.ram = rams
+      .filter((item) => item.isSelected)
+      .reduce((prev, next) => {
+        return `${prev}${prev && ","}${next.id}`;
+      }, "");
+    options.storage = roms
+      .filter((item) => item.isSelected)
+      .reduce((prev, next) => {
+        return `${prev}${prev && ","}${next.id}`;
+      }, "");
+    options.financeId = finances
+      .filter((item) => item.isSelected)
+      .reduce((prev, next) => {
+        return `${prev}${prev && ","}${next.id}`;
+      }, "");
+    dispatch(getDetailsAsync(options));
+    dispatch(setPartialFilters({ ...filters }));
     setIsFiltered(
       (searchValue && searchValue != "") ||
         maxPay ||
@@ -66,7 +83,7 @@ function Home() {
         finances,
         rams,
         roms,
-        maxPay: null
+        maxPay: null,
       })
     );
   };
@@ -75,7 +92,7 @@ function Home() {
     const partial = { ...filters };
     if (type === "searchValue") {
       partial[type] = "";
-    } else if(type === "maxPay"){
+    } else if (type === "maxPay") {
       partial[type] = null;
     } else {
       const arr = [...partial[type]];
@@ -251,8 +268,8 @@ function Home() {
                   </AnimatePresence>
                 </div>
                 <div className="home__products">
-                  {details && details.map(item => <Card key={item.id} data={item}/>)}
-                  
+                  {details &&
+                    details.map((item) => <Card key={item.id} data={item} />)}
                 </div>
                 <div className="home__paging"></div>
               </div>
@@ -270,9 +287,7 @@ function Home() {
             className="home__sidebar"
           >
             <div className="home__collapse">
-              <Menu >
-
-              </Menu>
+              <Menu></Menu>
             </div>
           </motion.aside>
         )}
