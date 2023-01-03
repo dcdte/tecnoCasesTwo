@@ -44,6 +44,7 @@
   border-radius: 5px;
   background: -webkit-gradient(linear, left top, left bottom, from(#3a3a3b), color-stop(50%, #e3e3e3), to(#3a3a3b));
   background: linear-gradient(180deg, #3a3a3b 0%, #e3e3e3 50%, #3a3a3b 100%);
+  cursor: pointer;
 }
 .card__img {
   position: relative;
@@ -64,6 +65,8 @@
       flex-wrap: wrap;
   width: 100%;
   height: 100%;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 .card__img img {
   position: relative;

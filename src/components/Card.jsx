@@ -4,6 +4,8 @@ import Tag from "./atoms/Tag";
 import small from "../assets/small.png";
 
 import { AiOutlineCamera } from "react-icons/ai";
+import { AnimatePresence, motion } from "framer-motion";
+
 import {
   MdOutlineSdStorage,
   MdMemory,
@@ -22,7 +24,11 @@ function Card({ data }) {
     <article className="card">
       <div className="card__visual">
         <div className="card__img">
-          <img src={small} alt="" />
+          <motion.img
+            src={small}
+            alt=""
+            whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
+          />
         </div>
       </div>
       <div className="card__info">
@@ -53,7 +59,14 @@ function Card({ data }) {
           <div className="card__tags">
             {data.credits &&
               data.credits.map((item) => (
-                <Tag id={item.financeId} hover={false} isActive={pays.financeId === item.financeId} handler={() => {setPays(item)}}>
+                <Tag
+                  id={item.financeId}
+                  hover={false}
+                  isActive={pays.financeId === item.financeId}
+                  handler={() => {
+                    setPays(item);
+                  }}
+                >
                   {item.finance.name}
                 </Tag>
               ))}
