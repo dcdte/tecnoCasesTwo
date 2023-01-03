@@ -19,7 +19,6 @@ const TextInput = ({ value, setValue, placeholder, field, type }) => {
 
   const submit = (e, filters) => {
     if (field === "searchValue" && e.keyCode == 13) {
-      console.log(e.target.value);
       const partial = { ...filters };
       partial[field] = e.target.value.trim();
       dispatch(setFilters(partial));

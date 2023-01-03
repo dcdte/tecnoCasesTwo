@@ -33,17 +33,35 @@ function Home() {
   const [isToggle, setIsToggle] = useState(false);
   const [isSearchToggle, setIsSearchToggle] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     dispatch(getFiltersAsync({ zoneId: slug }));
-    dispatch(getDetailsAsync({zoneId: slug}));
+    dispatch(getDetailsAsync({ zoneId: slug }));
   }, [dispatch]);
 
   useEffect(() => {
-
-    //dispatch(getDetailsAsync{})
-    dispatch(setPartialFilters({ ...filters }));
+    const options = { zoneId: slug };
     const { searchValue, maxPay, finances, rams, roms } = filters;
+    if (searchValue) options.searchValue = searchValue;
+    if (maxPay) options.maxPay = maxPay;
+    options.ram = rams
+      .filter((item) => item.isSelected)
+      .reduce((prev, next) => {
+        return `${prev}${prev && ","}${next.id}`;
+      }, "");
+    options.storage = roms
+      .filter((item) => item.isSelected)
+      .reduce((prev, next) => {
+        return `${prev}${prev && ","}${next.id}`;
+      }, "");
+    options.financeId = finances
+      .filter((item) => item.isSelected)
+      .reduce((prev, next) => {
+        return `${prev}${prev && ","}${next.id}`;
+      }, "");
+    dispatch(getDetailsAsync(options));
+    dispatch(setPartialFilters({ ...filters }));
     setIsFiltered(
       (searchValue && searchValue != "") ||
         maxPay ||
@@ -66,7 +84,7 @@ function Home() {
         finances,
         rams,
         roms,
-        maxPay: null
+        maxPay: null,
       })
     );
   };
@@ -75,7 +93,7 @@ function Home() {
     const partial = { ...filters };
     if (type === "searchValue") {
       partial[type] = "";
-    } else if(type === "maxPay"){
+    } else if (type === "maxPay") {
       partial[type] = null;
     } else {
       const arr = [...partial[type]];
@@ -86,7 +104,13 @@ function Home() {
     dispatch(setFilters(partial));
   };
 
-  const search = () => {};
+  const search = (searchValue, filters) => {
+    const partial = { ...filters };
+    partial.searchValue = searchValue.trim();
+    dispatch(setFilters(partial));
+    setSearchValue("");
+    setIsSearchToggle(false);
+  };
 
   return (
     <section className={`home ${isSearchToggle && "home--toggle"}`}>
@@ -95,6 +119,9 @@ function Home() {
         setIsToggle={setIsToggle}
         isSearchToggle={isSearchToggle}
         setIsSearchToggle={setIsSearchToggle}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+        search={search}
       />
       <AnimatePresence>
         {isSearchToggle && (
@@ -113,8 +140,14 @@ function Home() {
                 transition={{ duration: 0.3 }}
                 className="home__contain"
               >
-                <TextInput placeholder="Marca o Referencia" />
-                <Button type="search" handler={search} />
+                <TextInput
+                  value={searchValue}
+                  setValue={setSearchValue}
+                  placeholder="Marca o Referencia"
+                  field="searchValue"
+                  type="text"
+                />
+                <Button type="search" handler={() => search(searchValue, filters)} />
               </motion.div>
             </div>
           </motion.div>
@@ -251,8 +284,8 @@ function Home() {
                   </AnimatePresence>
                 </div>
                 <div className="home__products">
-                  {details && details.map(item => <Card key={item.id} data={item}/>)}
-                  
+                  {details &&
+                    details.map((item) => <Card key={item.id} data={item} />)}
                 </div>
                 <div className="home__paging"></div>
               </div>
@@ -270,9 +303,7 @@ function Home() {
             className="home__sidebar"
           >
             <div className="home__collapse">
-              <Menu >
-
-              </Menu>
+              <Menu isToggle={isToggle} setIsToggle={setIsToggle}></Menu>
             </div>
           </motion.aside>
         )}

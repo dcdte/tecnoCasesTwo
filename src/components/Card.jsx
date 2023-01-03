@@ -19,7 +19,6 @@ import CardPay from "./atoms/CardPay";
 function Card({ data }) {
   const [pays, setPays] = useState(data.credits[0]);
 
-  console.log(data);
   return (
     <article className="card">
       <div className="card__visual">
