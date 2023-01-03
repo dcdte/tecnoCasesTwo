@@ -33,6 +33,7 @@ function Home() {
   const [isToggle, setIsToggle] = useState(false);
   const [isSearchToggle, setIsSearchToggle] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     dispatch(getFiltersAsync({ zoneId: slug }));
@@ -103,7 +104,13 @@ function Home() {
     dispatch(setFilters(partial));
   };
 
-  const search = () => {};
+  const search = (searchValue, filters) => {
+    const partial = { ...filters };
+    partial.searchValue = searchValue.trim();
+    dispatch(setFilters(partial));
+    setSearchValue("");
+    setIsSearchToggle(false);
+  };
 
   return (
     <section className={`home ${isSearchToggle && "home--toggle"}`}>
@@ -112,6 +119,9 @@ function Home() {
         setIsToggle={setIsToggle}
         isSearchToggle={isSearchToggle}
         setIsSearchToggle={setIsSearchToggle}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+        search={search}
       />
       <AnimatePresence>
         {isSearchToggle && (
@@ -130,8 +140,14 @@ function Home() {
                 transition={{ duration: 0.3 }}
                 className="home__contain"
               >
-                <TextInput placeholder="Marca o Referencia" />
-                <Button type="search" handler={search} />
+                <TextInput
+                  value={searchValue}
+                  setValue={setSearchValue}
+                  placeholder="Marca o Referencia"
+                  field="searchValue"
+                  type="text"
+                />
+                <Button type="search" handler={() => search(searchValue, filters)} />
               </motion.div>
             </div>
           </motion.div>
@@ -287,7 +303,7 @@ function Home() {
             className="home__sidebar"
           >
             <div className="home__collapse">
-              <Menu></Menu>
+              <Menu isToggle={isToggle} setIsToggle={setIsToggle}></Menu>
             </div>
           </motion.aside>
         )}

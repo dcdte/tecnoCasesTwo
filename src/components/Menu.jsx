@@ -15,7 +15,7 @@ import ButtonDropDown from "./atoms/ButtonDropDown";
 import CheckBox from "./atoms/CheckBox";
 import TextInput from "./atoms/TextInput";
 
-function Menu() {
+function Menu({isToggle = null, setIsToggle}) {
   const dispatch = useDispatch();
   const finances = useSelector(showFinances);
   const rams = useSelector(showRams);
@@ -25,6 +25,9 @@ function Menu() {
 
   const applyFilter = (partialFilters) => {
     dispatch(setFilters({ ...partialFilters }));
+    if(isToggle != null) {
+      setIsToggle(false);
+    }
   };
 
   const setMaxPay = (value, partialFilters) => {

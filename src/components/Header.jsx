@@ -13,23 +13,17 @@ function Header({
   isSearchToggle,
   setIsSearchToggle,
   withZone = true,
+  searchValue,
+  setSearchValue,
+  search
 }) {
   const toggleFilter = () => {
     setIsToggle((prev) => !prev);
   };
-  const dispatch = useDispatch();
   const filters = useSelector(showFilters);
-  const [searchValue, setSearchValue] = useState("");
 
   const toggleSearch = () => {
     setIsSearchToggle((prev) => !prev);
-  };
-
-  const search = (searchValue, filters) => {
-    const partial = { ...filters };
-    partial.searchValue = searchValue.trim();
-    dispatch(setFilters(partial));
-    setSearchValue("");
   };
 
   return (
