@@ -6,6 +6,7 @@ const initialState = {
   roms: [],
   finances: [],
   details: [],
+  pages: [],
   filters: {
     finances: [],
     rams: [],
@@ -49,6 +50,9 @@ export const mainSlice = createSlice({
     },
     setPartialFilters: (state, action) => {
       state.partialFilters = action.payload;
+    },
+    setPages: (state, action) => {
+      state.setPages = action.payload;
     }
   },
 });
@@ -61,7 +65,8 @@ export const {
   setFinances,
   setDetails,
   setFilters,
-  setPartialFilters
+  setPartialFilters,
+  setPages
 } = mainSlice.actions;
 
 export default mainSlice.reducer;

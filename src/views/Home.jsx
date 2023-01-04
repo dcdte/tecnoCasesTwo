@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Button from "../components/atoms/Button";
-import ButtonDropDown from "../components/atoms/ButtonDropDown";
 import Header from "../components/Header";
 import "./../styles/css/Home.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,13 +8,11 @@ import { getDetailsAsync, getFiltersAsync } from "../store/slices/main/async";
 import { useParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Menu from "../components/Menu";
-import { setFilters, setPartialFilters } from "../store/slices/main";
+import { setDetails, setFilters, setPartialFilters } from "../store/slices/main";
 import {
   showDetails,
   showFilters,
-  showFinances,
-  showRams,
-  showRoms,
+  showPages,
 } from "../store/slices/main/selectors";
 import TextInput from "../components/atoms/TextInput";
 import Tag from "../components/atoms/Tag";
@@ -25,15 +22,14 @@ function Home() {
   const dispatch = useDispatch();
   const { slug } = useParams();
   const filters = useSelector(showFilters);
-  const finances = useSelector(showFinances);
-  const rams = useSelector(showRams);
-  const roms = useSelector(showRoms);
   const details = useSelector(showDetails);
+  const pages = useSelector(showPages);
 
   const [isToggle, setIsToggle] = useState(false);
   const [isSearchToggle, setIsSearchToggle] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     dispatch(getFiltersAsync({ zoneId: slug }));
@@ -60,6 +56,8 @@ function Home() {
       .reduce((prev, next) => {
         return `${prev}${prev && ","}${next.id}`;
       }, "");
+    setPage(1);
+    options.page = page;
     dispatch(getDetailsAsync(options));
     dispatch(setPartialFilters({ ...filters }));
     setIsFiltered(
@@ -112,6 +110,14 @@ function Home() {
     setIsSearchToggle(false);
   };
 
+  const getNumbers = (number) => {
+    const numbersArr = [];
+    for (let i = 1; i <= number; i++) {
+      numbersArr.push(i);
+    }
+    return numbersArr;
+  };
+
   return (
     <section className={`home ${isSearchToggle && "home--toggle"}`}>
       <Header
@@ -147,7 +153,10 @@ function Home() {
                   field="searchValue"
                   type="text"
                 />
-                <Button type="search" handler={() => search(searchValue, filters)} />
+                <Button
+                  type="search"
+                  handler={() => search(searchValue, filters)}
+                />
               </motion.div>
             </div>
           </motion.div>
@@ -287,7 +296,20 @@ function Home() {
                   {details &&
                     details.map((item) => <Card key={item.id} data={item} />)}
                 </div>
-                <div className="home__paging"></div>
+                <div className="home__paging">
+                  {details &&
+                    getNumbers(pages).map((item) => (
+                      <Button
+                        text={item}
+                        light={page === item ? "dark" : "light"}
+                        handler={() => {
+                          setPage(item);
+                          const options = {...filters, page}
+                          dispatch(getDetailsAsync(options));
+                        }}
+                      />
+                    ))}
+                </div>
               </div>
             </div>
           </motion.div>

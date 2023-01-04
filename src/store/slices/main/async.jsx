@@ -1,4 +1,13 @@
-import { setDetails, setFilters, setFinances, setPartialFilters, setRams, setRoms, setZones } from ".";
+import {
+  setDetails,
+  setFilters,
+  setFinances,
+  setPartialFilters,
+  setRams,
+  setRoms,
+  setZones,
+  setPages
+} from ".";
 import axios from "axios";
 const url = "http://localhost:3000";
 const urlFront = "http://localhost:3000/";
@@ -22,7 +31,7 @@ export const getDetailsAsync =
     apply = "reportados",
     zoneId = null,
     maxPay = null,
-    page = null
+    page = null,
   }) =>
   async (dispatch) => {
     try {
@@ -35,19 +44,25 @@ export const getDetailsAsync =
       if (apply) criteria.push(`apply=${apply}`);
       if (zoneId) criteria.push(`zoneId=${zoneId}`);
       if (maxPay) criteria.push(`maxPay=${maxPay}`);
-      if (page) criteria.push(`page=${page}`);
 
       const response = await axios.get(
         `${url}/details${criteria.length > 0 ? "?" + criteria.join("&") : ""}`
       );
-      dispatch(setDetails(response.data));
+      const notPaged = response.data;
+      const pages = Math.floor(notPaged.length / 10);
+      dispatch(setPages(notPaged.length%10 == 0 ? pages : pages + 1));
+      if (page) criteria.push(`page=${page}`);
+      const realResponse = await axios.get(
+        `${url}/details${criteria.length > 0 ? "?" + criteria.join("&") : ""}`
+      );
+      dispatch(setDetails(realResponse.data));
     } catch (err) {
       console.log(err);
     }
   };
 
 export const getFiltersAsync =
-  ({type = "credits", apply = "reportados", zoneId = null}) =>
+  ({ type = "credits", apply = "reportados", zoneId = null }) =>
   async (dispatch) => {
     try {
       let criteria = [];
@@ -73,13 +88,13 @@ export const getFiltersAsync =
 
         element.credits.forEach((e) => {
           if (!finances.some((item) => item.id === e.financeId)) {
-            finances.push(e.finance)
+            finances.push(e.finance);
           }
         });
       });
-      dispatch(setRams(rams))
-      dispatch(setRoms(roms))
-      dispatch(setFinances(finances))
+      dispatch(setRams(rams));
+      dispatch(setRoms(roms));
+      dispatch(setFinances(finances));
 
       const defaultFilter = {
         maxPay: null,

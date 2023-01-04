@@ -8,7 +8,6 @@ import { showPartialFilters } from "../../store/slices/main/selectors";
 
 const Button = ({
   handler,
-  children,
   text,
   type,
   light,
