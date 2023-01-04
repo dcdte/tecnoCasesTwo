@@ -4,6 +4,8 @@ import Tag from "./atoms/Tag";
 import small from "../assets/small.png";
 
 import { AiOutlineCamera } from "react-icons/ai";
+import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
+import { IoCloseCircleOutline } from "react-icons/io5";
 import {
   MdOutlineSdStorage,
   MdMemory,
@@ -16,12 +18,40 @@ import CardPay from "./atoms/CardPay";
 
 function Card({ data }) {
   const [pays, setPays] = useState(data.credits[0]);
+  const [zoom, setZoom] = useState(false);
+
+  let renderZoom = () => {
+    if (zoom === true) {
+      return (
+        <motion.div
+          className="img__visible"
+          initial={{ x: -350 }}
+          animate={{ x: 0 }}
+          exit={{ x: -350 }}
+        >
+          <img src={small} alt="" />
+          <button className="button__close">
+            <IoCloseCircleOutline
+              className="closeIcon"
+              onClick={() => setZoom(false)}
+            />
+          </button>
+        </motion.div>
+      );
+    } else {
+      <></>;
+    }
+  };
 
   return (
     <article className="card">
       <div className="card__visual">
-        <div className="card__img">
-          <img src={small} alt="" />
+        <div className="card__img" onClick={() => setZoom(true)}>
+          <motion.img
+            src={small}
+            alt=""
+            whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
+          />
         </div>
       </div>
       <div className="card__info">
@@ -76,6 +106,7 @@ function Card({ data }) {
           <CardPay title="16 Cuotas" value={pays.sixteenPays} />
         </div>
       </div>
+      <AnimatePresence>{renderZoom()}</AnimatePresence>
     </article>
   );
 }

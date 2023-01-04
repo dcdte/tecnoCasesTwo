@@ -2,12 +2,15 @@
 
 .card {
   @include flex(start, start);
+  position: relative;
   width: 340px;
+  height: auto;
   padding: 12px;
   gap: 12px;
   box-sizing: border-box;
   box-shadow: 0 0 9px rgba($color: #000000, $alpha: 0.25);
   border-radius: 10px;
+  overflow: hidden;
 
   &__visual {
     @include flex(start, center, column);
@@ -15,6 +18,7 @@
     height: 226px;
     border-radius: 5px;
     background: linear-gradient(180deg, #3a3a3b 0%, #e3e3e3 50%, #3a3a3b 100%);
+    cursor: pointer;
   }
 
   &__img {
@@ -22,10 +26,11 @@
     @include flex(center, start);
     width: 100%;
     height: 100%;
+    transform: scale(1);
 
     img {
       position: relative;
-      inset-block-start: -23px; 
+      inset-block-start: -20px;
       inset-inline-start: 3px;
       height: 120%;
       width: 100%;
@@ -93,5 +98,37 @@
       font-size: 10px;
     }
   }
+}
 
+.img__visible {
+  position: absolute;
+  inset: 0 0 0 0;
+
+  img {
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    background-color: #fff;
+  }
+}
+
+.button__close {
+  position: absolute;
+  inset-block-start: 5px;
+  inset-inline-start: 2px;
+  border: none;
+  background-color: transparent;
+
+  @include sm-screen() {
+    inset-inline-start: unset;
+
+    inset-inline-end: 0px;
+  }
+
+  .closeIcon {
+    font-size: 25px;
+    color: $primary;
+    cursor: pointer;
+  }
 }
