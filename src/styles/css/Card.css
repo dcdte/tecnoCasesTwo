@@ -14,7 +14,9 @@
           align-items: start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  position: relative;
   width: 340px;
+  height: auto;
   padding: 12px;
   gap: 12px;
   -webkit-box-sizing: border-box;
@@ -22,6 +24,7 @@
   -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.25);
           box-shadow: 0 0 9px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  overflow: hidden;
 }
 .card__visual {
   display: -webkit-box;
@@ -70,7 +73,7 @@
 }
 .card__img img {
   position: relative;
-  inset-block-start: -23px;
+  inset-block-start: -20px;
   inset-inline-start: 3px;
   height: 120%;
   width: 100%;
@@ -211,4 +214,36 @@
   padding: 4px 8px;
   border-radius: 20px;
   font-size: 10px;
+}
+
+.img__visible {
+  position: absolute;
+  inset: 0 0 0 0;
+}
+.img__visible img {
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-color: #fff;
+}
+
+.button__close {
+  position: absolute;
+  inset-block-start: 5px;
+  inset-inline-start: 2px;
+  border: none;
+  background-color: transparent;
+}
+@media only screen and (max-width: 834px) {
+  .button__close {
+    inset-inline-start: unset;
+    inset-inline-end: 0px;
+  }
+}
+.button__close .closeIcon {
+  font-size: 25px;
+  color: #792EDE;
+  cursor: pointer;
 }
