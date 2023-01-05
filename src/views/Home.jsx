@@ -297,7 +297,7 @@ function Home() {
                     details.map((item) => <Card key={item.id} data={item} />)}
                 </div>
                 <div className="home__paging">
-                  {details &&
+                  {
                     getNumbers(pages).map((item) => (
                       <Button
                         text={item}

@@ -15,7 +15,9 @@
     margin-block: 15px;
     box-sizing: border-box;
     border-radius: 5px;
-    background-color: $primary;
+    background-image: url("../../assets/desktop.png");
+    background-size: cover;
+    background-position: center center;
   }
 
   &__layout {
