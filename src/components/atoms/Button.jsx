@@ -13,11 +13,6 @@ const Button = ({
   light,
   isCollapse = false,
 }) => {
-  /* 
-  TODO falta darle tamaño dependiendo de padre 
-  TODO Ea avemaría hermano
-  TODO mejorar el código para el renderizado
-  */
 
   const partialFilters = useSelector(showPartialFilters);
 
