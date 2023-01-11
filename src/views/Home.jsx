@@ -8,7 +8,11 @@ import { getDetailsAsync, getFiltersAsync } from "../store/slices/main/async";
 import { useParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Menu from "../components/Menu";
-import { setDetails, setFilters, setPartialFilters } from "../store/slices/main";
+import {
+  setDetails,
+  setFilters,
+  setPartialFilters,
+} from "../store/slices/main";
 import {
   showDetails,
   showFilters,
@@ -38,7 +42,8 @@ function Home() {
 
   useEffect(() => {
     const options = { zoneId: slug };
-    const { searchValue, maxPay, finances, rams, roms } = filters;
+    const { searchValue, maxPay, finances, rams, roms, batterys, cameras } =
+      filters;
     if (searchValue) options.searchValue = searchValue;
     if (maxPay) options.maxPay = maxPay;
     options.ram = rams
@@ -56,6 +61,16 @@ function Home() {
       .reduce((prev, next) => {
         return `${prev}${prev && ","}${next.id}`;
       }, "");
+    options.batterys = batterys
+      .filter((item) => item.isSelected)
+      .reduce((prev, next) => {
+        return `${prev}${prev && ","}${next.id}`;
+      }, "");
+    options.cameras = cameras
+      .filter((item) => item.isSelected)
+      .reduce((prev, next) => {
+        return `${prev}${prev && ","}${next.id}`;
+      }, "");
     setPage(1);
     options.page = page;
     dispatch(getDetailsAsync(options));
@@ -65,7 +80,9 @@ function Home() {
         maxPay ||
         finances.some((item) => item.isSelected) ||
         rams.some((item) => item.isSelected) ||
-        roms.some((item) => item.isSelected)
+        roms.some((item) => item.isSelected) ||
+        batterys.some((item) => item.isSelected) ||
+        cameras.some((item) => item.isSelected)
     );
   }, [filters]);
 
@@ -76,12 +93,22 @@ function Home() {
     }));
     const rams = filters.rams.map((item) => ({ ...item, isSelected: false }));
     const roms = filters.roms.map((item) => ({ ...item, isSelected: false }));
+    const batterys = filters.batterys.map((item) => ({
+      ...item,
+      isSelected: false,
+    }));
+    const cameras = filters.cameras.map((item) => ({
+      ...item,
+      isSelected: false,
+    }));
     dispatch(
       setFilters({
         searchValue: "",
         finances,
         rams,
         roms,
+        batterys,
+        cameras,
         maxPay: null,
       })
     );
@@ -258,6 +285,48 @@ function Home() {
                           </Tag>
                         </motion.div>
                       ))}
+                    {filters.batterys
+                      .filter((item) => item.isSelected)
+                      .map((item) => (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          exit={{ scale: 0 }}
+                          transition={{ duration: 0.3 }}
+                          key={item.id}
+                        >
+                          <Tag
+                            id={item.id}
+                            handler={(id) =>
+                              removeFilter(id, "batterys", filters)
+                            }
+                            hover={true}
+                          >
+                            Batería: {item.value}
+                          </Tag>
+                        </motion.div>
+                      ))}
+                    {filters.cameras
+                      .filter((item) => item.isSelected)
+                      .map((item) => (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          exit={{ scale: 0 }}
+                          transition={{ duration: 0.3 }}
+                          key={item.id}
+                        >
+                          <Tag
+                            id={item.id}
+                            handler={(id) =>
+                              removeFilter(id, "cameras", filters)
+                            }
+                            hover={true}
+                          >
+                            Cámara: {item.value}
+                          </Tag>
+                        </motion.div>
+                      ))}
                     {filters.maxPay && (
                       <motion.div
                         initial={{ scale: 0 }}
@@ -297,18 +366,17 @@ function Home() {
                     details.map((item) => <Card key={item.id} data={item} />)}
                 </div>
                 <div className="home__paging">
-                  {
-                    getNumbers(pages).map((item) => (
-                      <Button
-                        text={item}
-                        light={page === item ? "dark" : "light"}
-                        handler={() => {
-                          setPage(item);
-                          const options = {...filters, page}
-                          dispatch(getDetailsAsync(options));
-                        }}
-                      />
-                    ))}
+                  {getNumbers(pages).map((item) => (
+                    <Button
+                      text={item}
+                      light={page === item ? "dark" : "light"}
+                      handler={() => {
+                        setPage(item);
+                        const options = { ...filters, page };
+                        dispatch(getDetailsAsync(options));
+                      }}
+                    />
+                  ))}
                 </div>
               </div>
             </div>

@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { MdStarRate } from "react-icons/md";
 const initialState = {
   zones: [],
   zoneId: null,
   rams: [],
   roms: [],
+  batterys: [],
+  cameras: [],
   finances: [],
   details: [],
   pages: [],
@@ -11,6 +14,8 @@ const initialState = {
     finances: [],
     rams: [],
     roms: [],
+    batterys: [],
+    cameras: [],
     maxPay: null,
     searchValue: "",
   },
@@ -18,9 +23,11 @@ const initialState = {
     finances: [],
     rams: [],
     roms: [],
+    batterys: [],
+    cameras: [],
     maxPay: null,
     searchValue: "",
-  }
+  },
 };
 
 export const mainSlice = createSlice({
@@ -53,7 +60,13 @@ export const mainSlice = createSlice({
     },
     setPages: (state, action) => {
       state.setPages = action.payload;
-    }
+    },
+    setBatterys: (state, action) => {
+      state.batterys = action.payload;
+    },
+    setCameras: (state, action) => {
+      state.cameras = action.payload;
+    },
   },
 });
 
@@ -66,7 +79,9 @@ export const {
   setDetails,
   setFilters,
   setPartialFilters,
-  setPages
+  setPages,
+  setBatterys,
+  setCameras,
 } = mainSlice.actions;
 
 export default mainSlice.reducer;
