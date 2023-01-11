@@ -73,7 +73,6 @@ export const getFiltersAsync =
         `${url}/details${criteria.length > 0 ? "?" + criteria.join("&") : ""}`
       );
       const dataProducts = response.data;
-      console.log(dataProducts);
       const rams = [];
       const roms = [];
       const finances = [];
@@ -118,7 +117,6 @@ export const getFiltersAsync =
 
       dispatch(setFilters(defaultFilter));
       dispatch(setPartialFilters(defaultFilter));
-      console.log(rams, roms, finances);
     } catch (err) {
       console.log(err);
     }
