@@ -51,7 +51,7 @@ header {
 }
 @media only screen and (min-width: 835px) {
   .header__container input {
-    width: 600px;
+    width: 500px;
     height: 15px;
   }
 }
