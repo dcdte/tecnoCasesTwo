@@ -11,7 +11,7 @@ import {
   setCameras,
 } from ".";
 import axios from "axios";
-const url = "http://localhost:3000";
+const url = "https://tecnocredits.herokuapp.com";
 const urlFront = "http://localhost:3000/";
 
 export const getZonesAsync = () => async (dispatch) => {
