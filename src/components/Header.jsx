@@ -15,7 +15,7 @@ function Header({
   withZone = true,
   searchValue,
   setSearchValue,
-  search
+  search,
 }) {
   const toggleFilter = () => {
     setIsToggle((prev) => !prev);

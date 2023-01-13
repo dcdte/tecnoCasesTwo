@@ -24,10 +24,10 @@ header {
   }
 }
 
+
 .header {
   &__container {
     display: flex;
-
 
     @include sm-screen {
       input, button:last-of-type {
@@ -37,13 +37,16 @@ header {
 
     @include md-screen {
       input {
-        width: 300px;
+        width: 600px;
         height: 15px;
       }
     }
 
     @include lg-screen {
       display: flex;
+      input {
+        width: 700px;
+      };
     }
   }
 

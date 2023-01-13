@@ -20,6 +20,7 @@ import currencyFormat from "../utils/currencyFormat";
 function Card({ data }) {
   const [pays, setPays] = useState(data.credits[0]);
   const [zoom, setZoom] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   let renderZoom = () => {
     if (zoom === true) {
@@ -30,7 +31,10 @@ function Card({ data }) {
           animate={{ x: 0 }}
           exit={{ x: -350 }}
         >
-          <img src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/Productos_General_Report/${data.id}/preview/image-download/qe6WhYfEhFASK7SDr3NE5EVztWUOSZnTdwg10Xe1AZOTdehEZEfvEWeqeSYv6yp0wFKJHyNSgdpQN3tAf3nQH1rxGgrxbMP3YdyZ?filepath=/${data.preview}`} alt="" />
+          <img
+            src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/Productos_General_Report/${data.id}/preview/image-download/qe6WhYfEhFASK7SDr3NE5EVztWUOSZnTdwg10Xe1AZOTdehEZEfvEWeqeSYv6yp0wFKJHyNSgdpQN3tAf3nQH1rxGgrxbMP3YdyZ?filepath=/${data.preview}`}
+            alt=""
+          />
           <button className="button__close">
             <IoCloseCircleOutline
               className="closeIcon"
@@ -41,6 +45,18 @@ function Card({ data }) {
       );
     } else {
       <></>;
+    }
+  };
+
+  const loader = () => {
+    if (loading === true) {
+      return (
+        <article className="card">
+          <div className="card__visual">
+            <Skeleton />
+          </div>
+        </article>
+      );
     }
   };
 
