@@ -71,7 +71,6 @@ function Header({
           <Button type="search" handler={() => search(searchValue, filters)} />
         </div>
       )}
-      <div style={{ width: "125px" }}></div>
     </header>
   );
 }
