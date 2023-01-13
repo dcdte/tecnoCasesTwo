@@ -34,11 +34,22 @@ function Home() {
   const [isFiltered, setIsFiltered] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const [test, setTest] = useState("cargando");
 
   useEffect(() => {
     dispatch(getFiltersAsync({ zoneId: slug }));
     dispatch(getDetailsAsync({ zoneId: slug }));
   }, [dispatch]);
+
+  useEffect(() => {
+    if (isLoading) {
+      if (details.length > 0){
+        setIsLoading(false);
+      }
+    }
+  }, [details]);
 
   useEffect(() => {
     const options = { zoneId: slug };
@@ -61,18 +72,18 @@ function Home() {
       .reduce((prev, next) => {
         return `${prev}${prev && ","}${next.id}`;
       }, "");
-    options.batterys = batterys
+    options.battery = batterys
       .filter((item) => item.isSelected)
       .reduce((prev, next) => {
         return `${prev}${prev && ","}${next.id}`;
       }, "");
-    options.cameras = cameras
+    options.camera = cameras
       .filter((item) => item.isSelected)
       .reduce((prev, next) => {
-        return `${prev}${prev && ","}${next.id}`;
+        return `${prev}${prev && "."}${next.id}`;
       }, "");
     setPage(1);
-    options.page = page;
+    options.page = 1;
     dispatch(getDetailsAsync(options));
     dispatch(setPartialFilters({ ...filters }));
     setIsFiltered(
@@ -362,8 +373,11 @@ function Home() {
                   </AnimatePresence>
                 </div>
                 <div className="home__products">
-                  {details &&
-                    details.map((item) => <Card key={item.id} data={item} />)}
+                  {!isLoading ? (
+                    details.map((item) => <Card key={item.id} data={item} />)
+                  ) : (
+                    <p>{test}</p>
+                  )}
                 </div>
                 <div className="home__paging">
                   {getNumbers(pages).map((item) => (
