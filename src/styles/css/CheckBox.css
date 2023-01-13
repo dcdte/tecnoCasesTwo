@@ -51,3 +51,6 @@
   color: white;
   fill: white;
 }
+.check__label {
+  inline-size: 200px;
+}

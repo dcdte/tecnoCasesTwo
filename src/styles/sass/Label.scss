@@ -2,14 +2,16 @@
 
 .label {
   @include flex(space-between, center);
-  gap: 13px;
+  height: 25px; 
 
   &--container {
     @include flex(start, center);
     gap: 4px;
 
     &__title {
-      font-size: 12px;
+      flex-grow: 1;
+      font-size: 10px;
+      font-weight: 700;
     }
 
     &__icon {
@@ -18,7 +20,9 @@
     }
   }
   &--description {
+    flex-grow: 2;
     font-size: 10px;
-    text-align: right;
+    inline-size: 50px;
+    text-align: end;
   }
 }

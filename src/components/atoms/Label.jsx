@@ -7,7 +7,7 @@ const Label = ({title, value, children} ) => {
     <div className="label">
       <div className="label--container">
         {children}
-        <h6 className="label--container__title">{title}</h6>
+        {/* <h6 className="label--container__title">{title}</h6> */}
       </div>
       <span className="label--description">{value}</span>
     </div>

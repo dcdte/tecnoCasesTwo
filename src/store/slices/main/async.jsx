@@ -32,7 +32,7 @@ export const getDetailsAsync =
     camera = null,
     type = "credits",
     financeId = null,
-    apply = "reportados",
+    apply = "Reportados",
     zoneId = null,
     maxPay = null,
     page = null,
@@ -61,14 +61,16 @@ export const getDetailsAsync =
       const realResponse = await axios.get(
         `${url}/details${criteria.length > 0 ? "?" + criteria.join("&") : ""}`
       );
-      dispatch(setDetails(realResponse.data));
+      setTimeout(() => {
+        dispatch(setDetails(realResponse.data));
+      }, 100);
     } catch (err) {
       console.log(err);
     }
   };
 
 export const getFiltersAsync =
-  ({ type = "credits", apply = "reportados", zoneId = null }) =>
+  ({ type = "credits", apply = "Reportados", zoneId = null }) =>
   async (dispatch) => {
     try {
       let criteria = [];
@@ -85,19 +87,19 @@ export const getFiltersAsync =
       const batterys = [];
       const cameras = [];
       dataProducts.forEach((element) => {
-        if (!rams.some((item) => item === element.ram)) {
+        if (!rams.some((item) => item.trim() === element.ram.trim())) {
           rams.push(element.ram);
         }
 
-        if (!roms.some((item) => item === element.storage)) {
+        if (!roms.some((item) => item.trim() === element.storage.trim())) {
           roms.push(element.storage);
         }
 
-        if (!batterys.some((item) => item === element.battery)) {
+        if (!batterys.some((item) => item.trim() === element.battery.trim())) {
           batterys.push(element.battery);
         }
 
-        if (!cameras.some((item) => item === element.camera)) {
+        if (!cameras.some((item) => item.trim() === element.camera.trim())) {
           cameras.push(element.camera);
         }
 
@@ -107,11 +109,27 @@ export const getFiltersAsync =
           }
         });
       });
-      dispatch(setRams(rams));
-      dispatch(setRoms(roms));
+      dispatch(
+        setRams(
+          rams.sort((a, b) => {
+            return a.match(/\d+/g)[0] - b.match(/\d+/g)[0];
+          })
+        )
+      );
+      dispatch(
+        setRoms(
+          roms.sort((a, b) => {
+            return a.match(/\d+/g)[0] - b.match(/\d+/g)[0];
+          })
+        )
+      );
       dispatch(setFinances(finances));
-      dispatch(setBatterys(batterys));
-      dispatch(setCameras(cameras));
+      dispatch(setBatterys(batterys.sort((a, b) => {
+        return a.match(/\d+/g)[0] - b.match(/\d+/g)[0];
+      })));
+      dispatch(setCameras(cameras.sort((a, b) => {
+        return a.match(/\d+/g)[0] - b.match(/\d+/g)[0];
+      })));
 
       const defaultFilter = {
         maxPay: null,

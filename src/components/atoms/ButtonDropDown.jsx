@@ -9,7 +9,6 @@ const ButtonDropDown = ({ name, children }) => {
 
   const seeDropdown = () => {
     setDropdown((prev) => !prev);
-    console.log(children);
   };
 
   const dropped = dropdown;

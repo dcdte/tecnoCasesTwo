@@ -29,7 +29,7 @@ function Card({ data }) {
           animate={{ x: 0 }}
           exit={{ x: -350 }}
         >
-          <img src={small} alt="" />
+          <img src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/Productos_General_Report/${data.id}/preview/image-download/qe6WhYfEhFASK7SDr3NE5EVztWUOSZnTdwg10Xe1AZOTdehEZEfvEWeqeSYv6yp0wFKJHyNSgdpQN3tAf3nQH1rxGgrxbMP3YdyZ?filepath=/${data.preview}`} alt="" />
           <button className="button__close">
             <IoCloseCircleOutline
               className="closeIcon"
@@ -48,7 +48,7 @@ function Card({ data }) {
       <div className="card__visual">
         <div className="card__img" onClick={() => setZoom(true)}>
           <motion.img
-            src={small}
+            src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/Productos_General_Report/${data.id}/preview/image-download/qe6WhYfEhFASK7SDr3NE5EVztWUOSZnTdwg10Xe1AZOTdehEZEfvEWeqeSYv6yp0wFKJHyNSgdpQN3tAf3nQH1rxGgrxbMP3YdyZ?filepath=/${data.preview}`}
             alt=""
             whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
           />
