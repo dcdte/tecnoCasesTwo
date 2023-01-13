@@ -51,7 +51,7 @@ header {
 }
 @media only screen and (min-width: 835px) {
   .header__container input {
-    width: 300px;
+    width: 600px;
     height: 15px;
   }
 }
@@ -60,6 +60,9 @@ header {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+  .header__container input {
+    width: 700px;
   }
 }
 @media only screen and (max-width: 834px) {
