@@ -15,6 +15,7 @@ import {
 } from "react-icons/md";
 import Label from "./atoms/Label";
 import CardPay from "./atoms/CardPay";
+import currencyFormat from "../utils/currencyFormat";
 
 function Card({ data }) {
   const [pays, setPays] = useState(data.credits[0]);
@@ -98,12 +99,12 @@ function Card({ data }) {
       </div>
       <div className="card__pays">
         <div className="card__row">
-          <CardPay title="Inicial" value={pays.initial} />
-          <CardPay title="8 Cuotas" value={pays.eightPays} />
+          <CardPay title="Inicial" value={currencyFormat(pays.initial)} />
+          <CardPay title="8 Cuotas" value={currencyFormat(pays.eightPays)} />
         </div>
         <div className="card__row">
-          <CardPay title="12 Cuotas" value={pays.twelvePays} />
-          <CardPay title="16 Cuotas" value={pays.sixteenPays} />
+          <CardPay title="12 Cuotas" value={currencyFormat(pays.twelvePays)} />
+          <CardPay title="16 Cuotas" value={currencyFormat(pays.sixteenPays)} />
         </div>
       </div>
       <AnimatePresence>{renderZoom()}</AnimatePresence>

@@ -35,7 +35,7 @@ export const getDetailsAsync =
     apply = "Reportados",
     zoneId = null,
     maxPay = null,
-    page = null,
+    page = 1,
   }) =>
   async (dispatch) => {
     try {
@@ -55,15 +55,15 @@ export const getDetailsAsync =
         `${url}/details${criteria.length > 0 ? "?" + criteria.join("&") : ""}`
       );
       const notPaged = response.data;
-      const pages = Math.floor(notPaged.length / 10);
-      dispatch(setPages(notPaged.length % 10 == 0 ? pages : pages + 1));
+      const pages = Math.floor(notPaged.length / 12);
+      console.log(pages);
+      dispatch(setPages(notPaged.length % 12 == 0 ? pages : pages + 1));
       if (page) criteria.push(`page=${page}`);
       const realResponse = await axios.get(
         `${url}/details${criteria.length > 0 ? "?" + criteria.join("&") : ""}`
       );
-      setTimeout(() => {
-        dispatch(setDetails(realResponse.data));
-      }, 100);
+
+      dispatch(setDetails(realResponse.data));
     } catch (err) {
       console.log(err);
     }
@@ -124,12 +124,20 @@ export const getFiltersAsync =
         )
       );
       dispatch(setFinances(finances));
-      dispatch(setBatterys(batterys.sort((a, b) => {
-        return a.match(/\d+/g)[0] - b.match(/\d+/g)[0];
-      })));
-      dispatch(setCameras(cameras.sort((a, b) => {
-        return a.match(/\d+/g)[0] - b.match(/\d+/g)[0];
-      })));
+      dispatch(
+        setBatterys(
+          batterys.sort((a, b) => {
+            return a.match(/\d+/g)[0] - b.match(/\d+/g)[0];
+          })
+        )
+      );
+      dispatch(
+        setCameras(
+          cameras.sort((a, b) => {
+            return a.match(/\d+/g)[0] - b.match(/\d+/g)[0];
+          })
+        )
+      );
 
       const defaultFilter = {
         maxPay: null,
