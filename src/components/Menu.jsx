@@ -26,8 +26,6 @@ function Menu({ isToggle = null, setIsToggle }) {
   const cameras = useSelector(showCameras);
   const filters = useSelector(showFilters);
   const partialFilters = useSelector(showPartialFilters);
-  console.log(cameras);
-  console.log(batterys);
 
   const applyFilter = (partialFilters) => {
     dispatch(setFilters({ ...partialFilters }));

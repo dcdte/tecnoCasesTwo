@@ -9,7 +9,7 @@ const initialState = {
   cameras: [],
   finances: [],
   details: [],
-  pages: [],
+  pages: null,
   filters: {
     finances: [],
     rams: [],
@@ -18,6 +18,7 @@ const initialState = {
     cameras: [],
     maxPay: null,
     searchValue: "",
+    page: 1
   },
   partialFilters: {
     finances: [],
@@ -27,6 +28,7 @@ const initialState = {
     cameras: [],
     maxPay: null,
     searchValue: "",
+    page: 1
   },
 };
 
@@ -59,7 +61,7 @@ export const mainSlice = createSlice({
       state.partialFilters = action.payload;
     },
     setPages: (state, action) => {
-      state.setPages = action.payload;
+      state.pages = action.payload;
     },
     setBatterys: (state, action) => {
       state.batterys = action.payload;

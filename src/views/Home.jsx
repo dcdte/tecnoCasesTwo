@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Footer from "../components/Footer";
 import Button from "../components/atoms/Button";
 import Header from "../components/Header";
@@ -17,15 +17,18 @@ import {
   showDetails,
   showFilters,
   showPages,
+  showPartialFilters,
 } from "../store/slices/main/selectors";
 import TextInput from "../components/atoms/TextInput";
 import Tag from "../components/atoms/Tag";
 import Card from "../components/Card";
+import currencyFormat from "../utils/currencyFormat";
 
 function Home() {
   const dispatch = useDispatch();
   const { slug } = useParams();
   const filters = useSelector(showFilters);
+  const partialFilters = useSelector(showPartialFilters);
   const details = useSelector(showDetails);
   const pages = useSelector(showPages);
 
@@ -53,8 +56,9 @@ function Home() {
 
   useEffect(() => {
     const options = { zoneId: slug };
-    const { searchValue, maxPay, finances, rams, roms, batterys, cameras } =
+    const { searchValue, maxPay, finances, rams, roms, batterys, cameras, page } =
       filters;
+    const partialPage = partialFilters.page;
     if (searchValue) options.searchValue = searchValue;
     if (maxPay) options.maxPay = maxPay;
     options.ram = rams
@@ -82,8 +86,13 @@ function Home() {
       .reduce((prev, next) => {
         return `${prev}${prev && "."}${next.id}`;
       }, "");
-    setPage(1);
-    options.page = 1;
+    if(page != partialPage) {
+      setPage(page);
+      options.page = page;
+    } else {
+      setPage(1);
+      options.page = 1;
+    }
     dispatch(getDetailsAsync(options));
     dispatch(setPartialFilters({ ...filters }));
     setIsFiltered(
@@ -121,6 +130,7 @@ function Home() {
         batterys,
         cameras,
         maxPay: null,
+        page: 1
       })
     );
   };
@@ -148,12 +158,25 @@ function Home() {
     setIsSearchToggle(false);
   };
 
-  const getNumbers = (number) => {
+  const getNumbers = (page, pages) => {
     const numbersArr = [];
-    for (let i = 1; i <= number; i++) {
+    for (let i = 1; i <= pages; i++) {
       numbersArr.push(i);
     }
-    return numbersArr;
+
+    let prevPage, postPage = 0;
+    if(page > 1) {
+      if(page == pages){
+        prevPage = page - 3;
+      } else {
+        prevPage = page-2;
+      }
+      postPage = page + 1;
+    } else {
+      prevPage = page - 1;
+      postPage = page + 2;
+    }
+    return numbersArr.slice(prevPage, postPage);
   };
 
   return (
@@ -350,7 +373,7 @@ function Home() {
                           handler={(id) => removeFilter(id, "maxPay", filters)}
                           hover={true}
                         >
-                          Cuota Máxima: ${filters.maxPay}
+                          Cuota Máxima: {currencyFormat(filters.maxPay)}
                         </Tag>
                       </motion.div>
                     )}
@@ -380,17 +403,10 @@ function Home() {
                   )}
                 </div>
                 <div className="home__paging">
-                  {getNumbers(pages).map((item) => (
-                    <Button
-                      text={item}
-                      light={page === item ? "dark" : "light"}
-                      handler={() => {
-                        setPage(item);
-                        const options = { ...filters, page };
-                        dispatch(getDetailsAsync(options));
-                      }}
-                    />
-                  ))}
+                  {!isLoading && details && (getNumbers(page, pages).map(item => (<Button
+                   text={item} light={page === item ? "dark": "light"} handler={()=>{
+                    dispatch(setFilters({...filters, page: item}));
+                   }}></Button>)))}
                 </div>
               </div>
             </div>

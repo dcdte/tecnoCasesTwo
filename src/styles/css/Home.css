@@ -150,6 +150,10 @@
       flex-wrap: wrap;
   width: 40%;
   height: 30px;
+  gap: 10px;
+}
+.home__paging button {
+  width: 40px;
 }
 .home__sidebar {
   position: relative;

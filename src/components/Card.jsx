@@ -15,7 +15,7 @@ import {
 } from "react-icons/md";
 import Label from "./atoms/Label";
 import CardPay from "./atoms/CardPay";
-import Skeleton from "react-loading-skeleton";
+import currencyFormat from "../utils/currencyFormat";
 
 function Card({ data }) {
   const [pays, setPays] = useState(data.credits[0]);
@@ -65,7 +65,7 @@ function Card({ data }) {
       <div className="card__visual">
         <div className="card__img" onClick={() => setZoom(true)}>
           <motion.img
-            src={small}
+            src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/Productos_General_Report/${data.id}/preview/image-download/qe6WhYfEhFASK7SDr3NE5EVztWUOSZnTdwg10Xe1AZOTdehEZEfvEWeqeSYv6yp0wFKJHyNSgdpQN3tAf3nQH1rxGgrxbMP3YdyZ?filepath=/${data.preview}`}
             alt=""
             whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
           />
@@ -115,12 +115,12 @@ function Card({ data }) {
       </div>
       <div className="card__pays">
         <div className="card__row">
-          <CardPay title="Inicial" value={pays.initial} />
-          <CardPay title="8 Cuotas" value={pays.eightPays} />
+          <CardPay title="Inicial" value={currencyFormat(pays.initial)} />
+          <CardPay title="8 Cuotas" value={currencyFormat(pays.eightPays)} />
         </div>
         <div className="card__row">
-          <CardPay title="12 Cuotas" value={pays.twelvePays} />
-          <CardPay title="16 Cuotas" value={pays.sixteenPays} />
+          <CardPay title="12 Cuotas" value={currencyFormat(pays.twelvePays)} />
+          <CardPay title="16 Cuotas" value={currencyFormat(pays.sixteenPays)} />
         </div>
       </div>
       <AnimatePresence>{renderZoom()}</AnimatePresence>
