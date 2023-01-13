@@ -1,0 +1,33 @@
+@import "./Globals";
+
+
+@keyframes skeleton {
+    0%{
+        transform: translateX(-170px);
+    }
+    100% {
+        transform: translateX(340px);
+    }
+}
+
+.skeleton {
+  width: 340px;
+  height: 370px;
+  box-shadow: 0 0 9px rgba($color: #000000, $alpha: 0.25);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: $gray;
+
+  &__line {
+    width: 200px;
+    height: 100%;
+    transform: skew(90deg, 45deg);
+    background: linear-gradient(
+        90deg,
+        $gray 40%,
+        rgb(215, 215, 218) 60%,
+        $gray 100%
+    );
+    animation: skeleton infinite 1s linear;
+  }
+}

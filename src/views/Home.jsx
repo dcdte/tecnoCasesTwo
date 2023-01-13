@@ -23,6 +23,7 @@ import TextInput from "../components/atoms/TextInput";
 import Tag from "../components/atoms/Tag";
 import Card from "../components/Card";
 import currencyFormat from "../utils/currencyFormat";
+import Skeleton from "../components/atoms/Skeleton";
 
 function Home() {
   const dispatch = useDispatch();
@@ -38,8 +39,7 @@ function Home() {
   const [searchValue, setSearchValue] = useState("");
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
-
-  const [test, setTest] = useState("cargando");
+  const [isEmpty, setIsEmpty] = useState(false);
 
   useEffect(() => {
     dispatch(getFiltersAsync({ zoneId: slug }));
@@ -50,11 +50,21 @@ function Home() {
     if (isLoading) {
       if (details.length > 0){
         setIsLoading(false);
-      }
+        setIsEmpty(false);
+      } 
+      setTimeout(()=>{
+        setIsLoading(false);
+        if(details.length == 0) {
+          setIsEmpty(true);
+        }
+      }, 4000)
     }
   }, [details]);
 
   useEffect(() => {
+    if(!isLoading) {
+      setIsLoading(true);
+    }
     const options = { zoneId: slug };
     const { searchValue, maxPay, finances, rams, roms, batterys, cameras, page } =
       filters;
@@ -166,7 +176,7 @@ function Home() {
 
     let prevPage, postPage = 0;
     if(page > 1) {
-      if(page == pages){
+      if(page == pages && pages > 2){
         prevPage = page - 3;
       } else {
         prevPage = page-2;
@@ -398,13 +408,18 @@ function Home() {
                 <div className="home__products">
                   {!isLoading ? (
                     details.map((item) => <Card key={item.id} data={item} />)
-                  ) : (
-                    <p>{test}</p>
+                  ): (
+                    [1,2,3,4,5,6].map(item => (<Skeleton></Skeleton>))
                   )}
+                  {isEmpty && (<p>no hay ni chimba</p>)}
                 </div>
                 <div className="home__paging">
                   {!isLoading && details && (getNumbers(page, pages).map(item => (<Button
                    text={item} light={page === item ? "dark": "light"} handler={()=>{
+                     window.scroll({
+                       top: 0,
+                       behavior: 'smooth'
+                     });
                     dispatch(setFilters({...filters, page: item}));
                    }}></Button>)))}
                 </div>

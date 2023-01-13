@@ -56,7 +56,6 @@ export const getDetailsAsync =
       );
       const notPaged = response.data;
       const pages = Math.floor(notPaged.length / 12);
-      console.log(pages);
       dispatch(setPages(notPaged.length % 12 == 0 ? pages : pages + 1));
       if (page) criteria.push(`page=${page}`);
       const realResponse = await axios.get(
