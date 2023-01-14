@@ -48,26 +48,40 @@ function Home() {
 
   useEffect(() => {
     if (isLoading) {
-      if (details.length > 0){
+      if (details.length > 0) {
         setIsLoading(false);
         setIsEmpty(false);
-      } 
-      setTimeout(()=>{
-        setIsLoading(false);
-        if(details.length == 0) {
-          setIsEmpty(true);
-        }
-      }, 4000)
+      } else {
+        setTimeout(() => {
+          if (details.length == 0) {
+            setIsLoading(false);
+          }
+        }, 3000);
+      }
     }
   }, [details]);
 
   useEffect(() => {
-    if(!isLoading) {
+    if (!isLoading && details.length == 0) {
+      setIsEmpty(true);
+    }
+  }, [isLoading]);
+
+  useEffect(() => {
+    if (!isLoading) {
       setIsLoading(true);
     }
     const options = { zoneId: slug };
-    const { searchValue, maxPay, finances, rams, roms, batterys, cameras, page } =
-      filters;
+    const {
+      searchValue,
+      maxPay,
+      finances,
+      rams,
+      roms,
+      batterys,
+      cameras,
+      page,
+    } = filters;
     const partialPage = partialFilters.page;
     if (searchValue) options.searchValue = searchValue;
     if (maxPay) options.maxPay = maxPay;
@@ -96,7 +110,7 @@ function Home() {
       .reduce((prev, next) => {
         return `${prev}${prev && "."}${next.id}`;
       }, "");
-    if(page != partialPage) {
+    if (page != partialPage) {
       setPage(page);
       options.page = page;
     } else {
@@ -140,7 +154,7 @@ function Home() {
         batterys,
         cameras,
         maxPay: null,
-        page: 1
+        page: 1,
       })
     );
   };
@@ -174,12 +188,13 @@ function Home() {
       numbersArr.push(i);
     }
 
-    let prevPage, postPage = 0;
-    if(page > 1) {
-      if(page == pages && pages > 2){
+    let prevPage,
+      postPage = 0;
+    if (page > 1) {
+      if (page == pages && pages > 2) {
         prevPage = page - 3;
       } else {
-        prevPage = page-2;
+        prevPage = page - 2;
       }
       postPage = page + 1;
     } else {
@@ -406,22 +421,27 @@ function Home() {
                   </AnimatePresence>
                 </div>
                 <div className="home__products">
-                  {!isLoading ? (
-                    details.map((item) => <Card key={item.id} data={item} />)
-                  ): (
-                    [1,2,3,4,5,6].map(item => (<Skeleton></Skeleton>))
-                  )}
-                  {isEmpty && (<p>no hay ni chimba</p>)}
+                  {!isLoading
+                    ? details.map((item) => <Card key={item.id} data={item} />)
+                    : [1, 2, 3, 4, 5, 6].map((item) => <Skeleton></Skeleton>)}
+                  {isEmpty && <p>no hay ni chimba</p>}
                 </div>
                 <div className="home__paging">
-                  {!isLoading && details && (getNumbers(page, pages).map(item => (<Button
-                   text={item} light={page === item ? "dark": "light"} handler={()=>{
-                     window.scroll({
-                       top: 0,
-                       behavior: 'smooth'
-                     });
-                    dispatch(setFilters({...filters, page: item}));
-                   }}></Button>)))}
+                  {!isLoading &&
+                    details &&
+                    getNumbers(page, pages).map((item) => (
+                      <Button
+                        text={item}
+                        light={page === item ? "dark" : "light"}
+                        handler={() => {
+                          window.scroll({
+                            top: 0,
+                            behavior: "smooth",
+                          });
+                          dispatch(setFilters({ ...filters, page: item }));
+                        }}
+                      ></Button>
+                    ))}
                 </div>
               </div>
             </div>

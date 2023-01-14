@@ -51,7 +51,7 @@ header {
 }
 @media only screen and (min-width: 835px) {
   .header__container input {
-    width: 500px;
+    width: 400px;
     height: 15px;
   }
 }
@@ -62,7 +62,7 @@ header {
     display: flex;
   }
   .header__container input {
-    width: 700px;
+    width: 600px;
   }
 }
 @media only screen and (max-width: 834px) {
@@ -71,6 +71,11 @@ header {
   }
 }
 @media only screen and (min-width: 835px) {
+  .header {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
   .header__logo {
     height: 45px;
   }

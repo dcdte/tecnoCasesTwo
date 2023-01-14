@@ -37,7 +37,7 @@ header {
 
     @include md-screen {
       input {
-        width: 500px;
+        width: 400px;
         height: 15px;
       }
     }
@@ -45,7 +45,7 @@ header {
     @include lg-screen {
       display: flex;
       input {
-        width: 700px;
+        width: 600px;
       };
     }
   }
@@ -60,11 +60,14 @@ header {
     &__logo {
       height: 45px;
     }
+
+    justify-content: start;
   }
 
   @include lg-screen() {
     &__logo {
       height: 50px;
     }
+    
   }
 }
