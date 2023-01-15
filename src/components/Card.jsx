@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/css/Card.css";
 import Tag from "./atoms/Tag";
-import small from "../assets/small.png";
 
 import { AiOutlineCamera } from "react-icons/ai";
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
