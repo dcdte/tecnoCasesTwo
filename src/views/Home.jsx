@@ -109,7 +109,7 @@ function Home() {
     options.camera = cameras
       .filter((item) => item.isSelected)
       .reduce((prev, next) => {
-        return `${prev}${prev && ","}${next.id}`;
+        return `${prev}${prev && ","}${next.id.replace(/\s+/, '')}`;
       }, "");
     if (page != partialPage) {
       setPage(page);
