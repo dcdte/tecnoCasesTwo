@@ -27,7 +27,7 @@ function Header({
   };
 
   return (
-    <header>
+    <header className="header">
       <a href="#">
         <img className="header__logo" src={vector} alt="" />
       </a>
@@ -36,7 +36,7 @@ function Header({
           <TextInput
             value={searchValue}
             setValue={setSearchValue}
-            placeholder="Marca o Referencia"
+            placeholder="Buscar por marca o referencia"
             field="searchValue"
             type="text"
           />

@@ -109,7 +109,7 @@ function Home() {
     options.camera = cameras
       .filter((item) => item.isSelected)
       .reduce((prev, next) => {
-        return `${prev}${prev && "."}${next.id}`;
+        return `${prev}${prev && ","}${next.id}`;
       }, "");
     if (page != partialPage) {
       setPage(page);
@@ -236,7 +236,7 @@ function Home() {
                 <TextInput
                   value={searchValue}
                   setValue={setSearchValue}
-                  placeholder="Marca o Referencia"
+                  placeholder="Buscar por marca o referencia"
                   field="searchValue"
                   type="text"
                 />
@@ -258,9 +258,7 @@ function Home() {
             transition={{ duration: 0.3 }}
             className="home__container"
           >
-            <div className="home__banner">
-              <img src="" alt="" />
-            </div>
+            <div className="home__banner"></div>
             <div className="home__layout">
               <aside className="home__bar">
                 <Menu />

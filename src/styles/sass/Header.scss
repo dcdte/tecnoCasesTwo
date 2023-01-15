@@ -1,14 +1,15 @@
 @import "./Globals";
 
 header {
+  @include flex(center, center);
   width: 100%;
   box-sizing: border-box;
   position: sticky;
   z-index: 20; 
 
-  @include flex(space-between, center);
 
   @include sm-screen() {
+    justify-content: space-between;
     padding: 20px;
     height: 75px;
   }
@@ -16,18 +17,30 @@ header {
   @include md-screen() {
     height: 100px;
     padding: 30px;
+
+    a {
+      position: absolute;
+      inset-inline-start: 30px;
+    }
   }
 
   @include lg-screen() {
     height: 121px;
     padding: 30px 100px;
+
+    a {
+      inset-inline-start: 100px;
+    }
   }
+
+  
 }
 
 
 .header {
+
   &__container {
-    display: flex;
+    @include flex(start, start);
 
     @include sm-screen {
       input, button:last-of-type {
@@ -57,11 +70,12 @@ header {
   }
 
   @include md-screen() {
+    display:  flex;
+    justify-self: center;
+
     &__logo {
       height: 45px;
     }
-
-    justify-content: start;
   }
 
   @include lg-screen() {
@@ -70,4 +84,6 @@ header {
     }
     
   }
+
+  
 }

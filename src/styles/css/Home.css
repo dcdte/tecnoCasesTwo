@@ -20,12 +20,10 @@
 .home__banner {
   display: block;
   width: 95%;
-  height: 280px;
   margin-block: 15px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 5px;
-  background-image: url("../../assets/desktop.png");
   background-size: cover;
   background-position: center center;
 }
@@ -241,6 +239,10 @@
   .home__banner, .home__layout {
     width: 90%;
   }
+  .home__banner {
+    background-image: url("../../assets/mobile-banner.png");
+    height: 190px;
+  }
   .home__bar {
     display: none;
   }
@@ -254,5 +256,15 @@
   .home__details {
     -webkit-margin-start: 20px;
             margin-inline-start: 20px;
+  }
+  .home__banner {
+    background-image: url("../../assets/desktop-banner.png");
+    height: 280px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .home__banner {
+    background-image: url("../../assets/desktopLg-banner.png");
+    height: 370px;
   }
 }

@@ -1,9 +1,4 @@
 header {
-  width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  position: sticky;
-  z-index: 20;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,17 +6,25 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: sticky;
+  z-index: 20;
 }
 @media only screen and (max-width: 834px) {
   header {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding: 20px;
     height: 75px;
   }
@@ -31,11 +34,18 @@ header {
     height: 100px;
     padding: 30px;
   }
+  header a {
+    position: absolute;
+    inset-inline-start: 30px;
+  }
 }
 @media only screen and (min-width: 1440px) {
   header {
     height: 121px;
     padding: 30px 100px;
+  }
+  header a {
+    inset-inline-start: 100px;
   }
 }
 
@@ -43,6 +53,18 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 @media only screen and (max-width: 834px) {
   .header__container input, .header__container button:last-of-type {
@@ -72,9 +94,11 @@ header {
 }
 @media only screen and (min-width: 835px) {
   .header {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: start;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-grid-column-align: center;
+        justify-self: center;
   }
   .header__logo {
     height: 45px;

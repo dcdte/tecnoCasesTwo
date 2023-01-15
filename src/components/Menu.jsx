@@ -28,6 +28,10 @@ function Menu({ isToggle = null, setIsToggle }) {
   const partialFilters = useSelector(showPartialFilters);
 
   const applyFilter = (partialFilters) => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
     dispatch(setFilters({ ...partialFilters }));
     if (isToggle != null) {
       setIsToggle(false);

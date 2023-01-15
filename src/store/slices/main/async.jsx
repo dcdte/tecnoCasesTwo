@@ -11,6 +11,7 @@ import {
   setCameras,
 } from ".";
 import axios from "axios";
+import extractPixels from "../../../utils/extractPixels";
 const url = "https://tecnocredits.herokuapp.com";
 const urlFront = "http://localhost:3000/";
 
@@ -98,8 +99,8 @@ export const getFiltersAsync =
           batterys.push(element.battery);
         }
 
-        if (!cameras.some((item) => item.trim() === element.camera.trim())) {
-          cameras.push(element.camera);
+        if (!cameras.some((item) => item === extractPixels(element.camera))) {
+          cameras.push(extractPixels(element.camera));
         }
 
         element.credits.forEach((e) => {
