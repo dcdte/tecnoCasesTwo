@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import "./../styles/css/Home.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetailsAsync, getFiltersAsync } from "../store/slices/main/async";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Menu from "../components/Menu";
 import {
@@ -28,7 +28,9 @@ import NotFound from "../components/atoms/NotFound";
 
 function Home() {
   const dispatch = useDispatch();
-  const { slug } = useParams();
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+  const slug = query.get(zone);
   const filters = useSelector(showFilters);
   const partialFilters = useSelector(showPartialFilters);
   const details = useSelector(showDetails);
@@ -109,7 +111,7 @@ function Home() {
     options.camera = cameras
       .filter((item) => item.isSelected)
       .reduce((prev, next) => {
-        return `${prev}${prev && ","}${next.id.replace(/\s+/, '')}`;
+        return `${prev}${prev && ","}${next.id.replace(/\s+/, "")}`;
       }, "");
     if (page != partialPage) {
       setPage(page);

@@ -23,7 +23,7 @@ function ZonesSelect() {
         <h1 className="zones__title">Elige la zona en la que te encuentras</h1>
         <div className="zones__container">
           {zones.map((item) => (
-            <Link to={`/${item.id}`} className="zones__link">
+            <Link to={`?zone=${id}`} className="zones__link">
               <div className="zones__zone">{item.subzone}</div>
             </Link>
           ))}
