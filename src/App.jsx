@@ -7,7 +7,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<ZonesSelect />} />
-        <Route path=":slug" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </BrowserRouter>

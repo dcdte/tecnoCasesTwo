@@ -30,7 +30,7 @@ function Home() {
   const dispatch = useDispatch();
   const location = useLocation();
   const query = new URLSearchParams(location.search);
-  const slug = query.get(zone);
+  const slug = query.get('zone');
   const filters = useSelector(showFilters);
   const partialFilters = useSelector(showPartialFilters);
   const details = useSelector(showDetails);
