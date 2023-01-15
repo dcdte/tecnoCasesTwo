@@ -1,0 +1,19 @@
+@import "./Globals";
+
+.notFound {
+    @include flex(center, center, column);
+    width: 80%;
+    height: 350px;
+    gap: 30px;
+    margin-inline: auto;
+
+    span {
+        font-size: 20px;
+        line-height: 29px;
+        text-align: center;
+    }   
+
+    svg {
+        height: 70px;
+    }
+}

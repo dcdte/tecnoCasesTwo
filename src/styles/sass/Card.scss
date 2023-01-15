@@ -12,6 +12,17 @@
   border-radius: 10px;
   overflow: hidden;
 
+  &__featured {
+    position: absolute;
+    padding: 2px 5px;
+    inset-block-start: 7px;
+    inset-inline-end: 12px;
+    font-size: 12px;
+    background-color: $primary;
+    color: white;
+    border-radius: 10px
+  }
+
   &__visual {
     @include flex(start, center, column);
     width: 125px;

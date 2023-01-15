@@ -24,6 +24,7 @@ import Tag from "../components/atoms/Tag";
 import Card from "../components/Card";
 import currencyFormat from "../utils/currencyFormat";
 import Skeleton from "../components/atoms/Skeleton";
+import NotFound from "../components/atoms/NotFound";
 
 function Home() {
   const dispatch = useDispatch();
@@ -424,7 +425,7 @@ function Home() {
                   {!isLoading
                     ? details.map((item) => <Card key={item.id} data={item} />)
                     : [1, 2, 3, 4, 5, 6].map((item) => <Skeleton></Skeleton>)}
-                  {isEmpty && <p>no hay ni chimba</p>}
+                  {isEmpty && <NotFound />}
                 </div>
                 <div className="home__paging">
                   {!isLoading &&
