@@ -425,7 +425,7 @@ function Home() {
                   {!isLoading
                     ? details.map((item) => <Card key={item.id} data={item} />)
                     : [1, 2, 3, 4, 5, 6].map((item) => <Skeleton></Skeleton>)}
-                  {isEmpty && <NotFound />}
+                  {isEmpty && details.length == 0 && <NotFound />}
                 </div>
                 <div className="home__paging">
                   {!isLoading &&
