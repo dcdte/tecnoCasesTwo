@@ -41,7 +41,7 @@ function Home() {
   const [isFiltered, setIsFiltered] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [isEmpty, setIsEmpty] = useState(false);
 
   useEffect(() => {
@@ -71,9 +71,7 @@ function Home() {
   }, [isLoading]);
 
   useEffect(() => {
-    if (!isLoading) {
-      setIsLoading(true);
-    }
+    
     const options = { zoneId: slug };
     const {
       searchValue,
@@ -120,7 +118,13 @@ function Home() {
       setPage(1);
       options.page = 1;
     }
-    dispatch(getDetailsAsync(options));
+    if(filters != partialFilters) {
+      if (!isLoading) {
+        setIsLoading(true);
+      }
+      dispatch(getDetailsAsync(options));
+    }
+    
     dispatch(setPartialFilters({ ...filters }));
     setIsFiltered(
       (searchValue && searchValue != "") ||
