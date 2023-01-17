@@ -117,8 +117,8 @@
     }
 
     &__banner {
-      background-image: url("../../assets/mobile-banner.png");
-      height: 190px;
+      background-image: url("../../assets/desktop-banner.png");
+      height: 175px;
     }
 
     &__bar {
@@ -128,8 +128,6 @@
     &__products {
       justify-content: center;
     }
-
-   
   }
 
   @include md-screen {
@@ -139,14 +137,14 @@
 
     &__banner {
       background-image: url("../../assets/desktop-banner.png");
-      height: 280px;
+      height: 230px;
     }
   }
 
   @include lg-screen {
     &__banner {
       background-image: url("../../assets/desktopLg-banner.png");
-      height: 370px;
+      height: 200px;
     }
   }
 }
