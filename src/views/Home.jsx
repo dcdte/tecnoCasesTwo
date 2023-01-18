@@ -25,12 +25,13 @@ import Card from "../components/Card";
 import currencyFormat from "../utils/currencyFormat";
 import Skeleton from "../components/atoms/Skeleton";
 import NotFound from "../components/atoms/NotFound";
+import WppImage from '../assets/whatsapp.png'
 
 function Home() {
   const dispatch = useDispatch();
   const location = useLocation();
   const query = new URLSearchParams(location.search);
-  const slug = query.get('zone');
+  const slug = query.get("zone");
   const filters = useSelector(showFilters);
   const partialFilters = useSelector(showPartialFilters);
   const details = useSelector(showDetails);
@@ -71,7 +72,6 @@ function Home() {
   }, [isLoading]);
 
   useEffect(() => {
-    
     const options = { zoneId: slug };
     const {
       searchValue,
@@ -118,13 +118,13 @@ function Home() {
       setPage(1);
       options.page = 1;
     }
-    if(filters != partialFilters) {
+    if (filters != partialFilters) {
       if (!isLoading) {
         setIsLoading(true);
       }
       dispatch(getDetailsAsync(options));
     }
-    
+
     dispatch(setPartialFilters({ ...filters }));
     setIsFiltered(
       (searchValue && searchValue != "") ||
@@ -469,6 +469,14 @@ function Home() {
         )}
       </AnimatePresence>
       <Footer />
+      <div className="WPP">
+        <a
+          href="https://wa.me/573001534037?text=Hola!%20Quiero%20información%20de%20sus%20productos"
+          target="_blank"
+        >
+          <img src={WppImage} alt="" />
+        </a>
+      </div>
     </section>
   );
 }

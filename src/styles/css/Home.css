@@ -268,3 +268,34 @@
     height: 200px;
   }
 }
+
+.WPP {
+  position: fixed;
+  z-index: 999;
+  border-radius: 20px;
+  bottom: 30px;
+  right: 30px;
+  padding: 10px;
+  -webkit-transition: ease 0.3s;
+  transition: ease 0.3s;
+  -webkit-animation: efecto 1.2s infinite;
+          animation: efecto 1.2s infinite;
+}
+.WPP img {
+  width: 60px;
+}
+.WPP img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@media only screen and (max-width: 834px) {
+  .WPP {
+    bottom: 10px;
+    right: 10px;
+  }
+  .WPP img {
+    width: 50px;
+  }
+}

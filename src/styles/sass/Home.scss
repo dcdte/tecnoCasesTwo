@@ -148,3 +148,28 @@
     }
   }
 }
+
+.WPP {
+  position: fixed;
+  z-index: 999;
+  border-radius: 20px;
+  bottom: 30px;
+  right: 30px; 
+  padding: 10px;
+  transition: ease 0.3s;
+  animation: efecto 1.2s infinite;
+  img {
+    width: 60px;
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.3s;
+    }
+  }
+  @include sm-screen {
+    bottom: 10px;
+    right: 10px;
+    img {
+      width: 50px;
+    }
+  }
+}
