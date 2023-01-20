@@ -29,12 +29,13 @@
 .card__featured {
   position: absolute;
   padding: 2px 5px;
-  inset-block-start: 7px;
-  inset-inline-end: 12px;
-  font-size: 12px;
-  background-color: #792EDE;
+  inset-block-start: 0px;
+  inset-inline-end: 0;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #F94E4E;
   color: white;
-  border-radius: 10px;
+  border-radius: 0px 10px 0 10px;
 }
 .card__visual {
   display: -webkit-box;
