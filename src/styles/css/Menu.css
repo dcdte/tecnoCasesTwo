@@ -1,9 +1,27 @@
 .menu__pay {
   padding-block: 15px;
 }
+.menu__pay div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.menu__pay div p {
+  font-size: 13px;
+  font-weight: 600;
+}
 .menu__pay span {
   font-size: 13px;
   font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 .menu input {
   width: 270px;

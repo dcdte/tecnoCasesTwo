@@ -5,9 +5,21 @@
   &__pay {
     padding-block: 15px;
 
+    div {
+      display: flex;
+      justify-content: space-around;
+
+      p {
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+
     span {
       font-size: 13px;
       font-weight: bold;
+      display: flex;
+      flex-direction: row;
     }
   }
   input {

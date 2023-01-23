@@ -428,7 +428,7 @@ function Home() {
                 <div className="home__products">
                   {!isLoading
                     ? details.map((item) => <Card key={item.id} data={item} />)
-                    : [1, 2, 3, 4, 5, 6].map((item) => <Skeleton></Skeleton>)}
+                    : [1, 2, 3, 4, 5, 6].map((item) => <Skeleton key={item}></Skeleton>)}
                   {isEmpty && details.length == 0 && <NotFound />}
                 </div>
                 <div className="home__paging">
@@ -445,6 +445,7 @@ function Home() {
                           });
                           dispatch(setFilters({ ...filters, page: item }));
                         }}
+                        key={item}
                       ></Button>
                     ))}
                 </div>
@@ -471,7 +472,7 @@ function Home() {
       <Footer />
       <div className="WPP">
         <a
-          href="https://wa.me/573001534037?text=Hola!%20Quiero%20información%20de%20sus%20productos"
+          href="https://wa.me/573116853300?text=Hola!%20Quiero%20información%20de%20sus%20productos"
           target="_blank"
         >
           <img src={WppImage} alt="" />

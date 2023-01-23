@@ -15,7 +15,6 @@ import {
 import Label from "./atoms/Label";
 import CardPay from "./atoms/CardPay";
 import currencyFormat from "../utils/currencyFormat";
-
 function Card({ data }) {
   const [pays, setPays] = useState(data.credits[0]);
   const [zoom, setZoom] = useState(false);
@@ -71,7 +70,9 @@ function Card({ data }) {
         </div>
       </div>
       <div className="card__info">
-        {data.credits.some(item => item.featured) && <span className="card__featured">Promoción</span>}
+        {data.credits.some((item) => item.featured) && (
+          <span className="card__featured">Promoción</span>
+        )}
         <h4 className="card__brand">{data.brand.brand}</h4>
         <h3 className="card__title">{data.reference}</h3>
         <div className="card__details">
@@ -106,6 +107,7 @@ function Card({ data }) {
                   handler={() => {
                     setPays(item);
                   }}
+                  key={item.financeId}
                 >
                   {item.finance.name}
                 </Tag>

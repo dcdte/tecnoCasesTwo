@@ -5,6 +5,7 @@ import { setFilters, setPartialFilters } from "../store/slices/main";
 import {
   showBatterys,
   showCameras,
+  showDetails,
   showFilters,
   showFinances,
   showPartialFilters,
@@ -16,6 +17,7 @@ import Button from "./atoms/Button";
 import ButtonDropDown from "./atoms/ButtonDropDown";
 import CheckBox from "./atoms/CheckBox";
 import TextInput from "./atoms/TextInput";
+import currencyFormat from "../utils/currencyFormat";
 
 function Menu({ isToggle = null, setIsToggle }) {
   const dispatch = useDispatch();
@@ -26,7 +28,8 @@ function Menu({ isToggle = null, setIsToggle }) {
   const cameras = useSelector(showCameras);
   const filters = useSelector(showFilters);
   const partialFilters = useSelector(showPartialFilters);
-
+  const details = useSelector(showDetails);
+  const [minPrice, setMinPrice] = useState(0);
   const applyFilter = (partialFilters) => {
     window.scroll({
       top: 0,
@@ -46,6 +49,18 @@ function Menu({ isToggle = null, setIsToggle }) {
       })
     );
   };
+
+  const MinPay = () => {
+    details.map((element) => {
+      element.credits.map((item) => {
+        if (minPrice > item.sixteenPays || minPrice === 0) {
+          setMinPrice(item.sixteenPays);
+        }
+      });
+    });
+  };
+
+  MinPay();
 
   return (
     <motion.section layout className="menu">
@@ -99,7 +114,10 @@ function Menu({ isToggle = null, setIsToggle }) {
         })}
       </ButtonDropDown>
       <div className="menu__pay">
-        <span>Cuota Máxima</span>
+        <div>
+          <span>Cuota Máxima</span>
+          <p>Cuota Mínima - {currencyFormat(minPrice)}</p>
+        </div>
         <TextInput
           placeholder="Cuota Máxima"
           field="maxPay"

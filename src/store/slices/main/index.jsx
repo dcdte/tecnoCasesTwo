@@ -69,6 +69,9 @@ export const mainSlice = createSlice({
     setCameras: (state, action) => {
       state.cameras = action.payload;
     },
+    setMinPrices: (state, action) => {
+      state.minPrice = action.payload
+    }
   },
 });
 
@@ -84,6 +87,7 @@ export const {
   setPages,
   setBatterys,
   setCameras,
+  setMinPrices
 } = mainSlice.actions;
 
 export default mainSlice.reducer;
