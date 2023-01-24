@@ -58,6 +58,8 @@ function Card({ data }) {
     }
   };
 
+  console.log(data)
+
   return (
     <article className="card">
       <div className="card__visual">

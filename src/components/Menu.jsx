@@ -53,7 +53,10 @@ function Menu({ isToggle = null, setIsToggle }) {
   const MinPay = () => {
     details.map((element) => {
       element.credits.map((item) => {
-        if (minPrice > item.sixteenPays || minPrice === 0) {
+        if (
+          (minPrice > item.sixteenPays || minPrice === 0) &&
+          item.sixteenPays !== 0
+        ) {
           setMinPrice(item.sixteenPays);
         }
       });
@@ -116,7 +119,7 @@ function Menu({ isToggle = null, setIsToggle }) {
       <div className="menu__pay">
         <div>
           <span>Cuota Máxima</span>
-          <p>Cuota Mínima - {currencyFormat(minPrice)}</p>
+          <p>Cuota Mínima - {minPrice}</p>
         </div>
         <TextInput
           placeholder="Cuota Máxima"
