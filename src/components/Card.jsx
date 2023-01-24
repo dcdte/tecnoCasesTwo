@@ -58,7 +58,7 @@ function Card({ data }) {
     }
   };
 
-  console.log(data)
+
 
   return (
     <article className="card">
