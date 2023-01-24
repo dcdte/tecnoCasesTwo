@@ -119,7 +119,7 @@ function Menu({ isToggle = null, setIsToggle }) {
       <div className="menu__pay">
         <div>
           <span>Cuota Máxima</span>
-          <p>Cuota Mínima - {minPrice}</p>
+          <p>{`(Cuota Mínima: ${currencyFormat(minPrice)})`}</p>
         </div>
         <TextInput
           placeholder="Cuota Máxima"

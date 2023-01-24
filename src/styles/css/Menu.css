@@ -9,7 +9,8 @@
       justify-content: space-around;
 }
 .menu__pay div p {
-  font-size: 13px;
+  color: #999898;
+  font-size: 12px;
   font-weight: 600;
 }
 .menu__pay span {
