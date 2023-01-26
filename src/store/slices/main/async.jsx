@@ -9,6 +9,7 @@ import {
   setPages,
   setBatterys,
   setCameras,
+  setMinPrices,
 } from ".";
 import axios from "axios";
 import extractPixels from "../../../utils/extractPixels";
@@ -81,6 +82,7 @@ export const getFiltersAsync =
         `${url}/details${criteria.length > 0 ? "?" + criteria.join("&") : ""}`
       );
       const dataProducts = response.data;
+      const minPrice = [];
       const rams = [];
       const roms = [];
       const finances = [];
@@ -107,8 +109,18 @@ export const getFiltersAsync =
           if (!finances.some((item) => item.id === e.financeId)) {
             finances.push(e.finance);
           }
+
+          if (
+            !minPrice.some((item) => item === e.sixteenPays) &&
+            e.sixteenPays !== 0
+          ) {
+            minPrice.push(e.sixteenPays);
+          }
         });
       });
+
+      dispatch(setMinPrices(Math.min(...minPrice)));
+
       dispatch(
         setRams(
           rams.sort((a, b) => {

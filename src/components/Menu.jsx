@@ -11,6 +11,7 @@ import {
   showPartialFilters,
   showRams,
   showRoms,
+  showMinPrices
 } from "../store/slices/main/selectors";
 import "../styles/css/Menu.css";
 import Button from "./atoms/Button";
@@ -28,8 +29,7 @@ function Menu({ isToggle = null, setIsToggle }) {
   const cameras = useSelector(showCameras);
   const filters = useSelector(showFilters);
   const partialFilters = useSelector(showPartialFilters);
-  const details = useSelector(showDetails);
-  const [minPrice, setMinPrice] = useState(0);
+  const minPrice = useSelector(showMinPrices);
   const applyFilter = (partialFilters) => {
     window.scroll({
       top: 0,
@@ -49,21 +49,6 @@ function Menu({ isToggle = null, setIsToggle }) {
       })
     );
   };
-
-  const MinPay = () => {
-    details.map((element) => {
-      element.credits.map((item) => {
-        if (
-          (minPrice > item.sixteenPays || minPrice === 0) &&
-          item.sixteenPays !== 0
-        ) {
-          setMinPrice(item.sixteenPays);
-        }
-      });
-    });
-  };
-
-  MinPay();
 
   return (
     <motion.section layout className="menu">

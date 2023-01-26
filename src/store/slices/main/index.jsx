@@ -30,6 +30,7 @@ const initialState = {
     searchValue: "",
     page: 1
   },
+  minPrice: null,
 };
 
 export const mainSlice = createSlice({
