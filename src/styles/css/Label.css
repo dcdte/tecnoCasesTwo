@@ -32,7 +32,7 @@
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 4px;
+  gap: 5px;
 }
 .label--container__title {
   -webkit-box-flex: 1;

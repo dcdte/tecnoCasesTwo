@@ -2,11 +2,11 @@
 
 .label {
   @include flex(space-between, center);
-  height: 25px; 
+  height: 25px;
 
   &--container {
     @include flex(start, center);
-    gap: 4px;
+    gap: 5px;
 
     &__title {
       flex-grow: 1;
@@ -19,6 +19,7 @@
       font-size: 20px;
     }
   }
+
   &--description {
     flex-grow: 2;
     font-size: 11px; 

@@ -18,7 +18,6 @@ import currencyFormat from "../utils/currencyFormat";
 function Card({ data }) {
   const [pays, setPays] = useState(data.credits[0]);
   const [zoom, setZoom] = useState(false);
-  const [loading, setLoading] = useState(true);
 
   let renderZoom = () => {
     if (zoom === true) {
@@ -45,20 +44,6 @@ function Card({ data }) {
       <></>;
     }
   };
-
-  const loader = () => {
-    if (loading === true) {
-      return (
-        <article className="card">
-          <div className="card__visual">
-            <Skeleton />
-          </div>
-        </article>
-      );
-    }
-  };
-
-
 
   return (
     <article className="card">

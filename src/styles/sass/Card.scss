@@ -84,7 +84,7 @@
   }
 
   &__details {
-    @include flex(start, stretch, column);
+    @include flex(space-between, stretch, column);
     margin-block-start: 5px;
     gap: 1px;
     width: 175px;
