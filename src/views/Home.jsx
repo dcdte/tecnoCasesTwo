@@ -25,7 +25,7 @@ import Card from "../components/Card";
 import currencyFormat from "../utils/currencyFormat";
 import Skeleton from "../components/atoms/Skeleton";
 import NotFound from "../components/atoms/NotFound";
-import WppImage from '../assets/whatsapp.png'
+import WppImage from "../assets/whatsapp.png";
 
 function Home() {
   const dispatch = useDispatch();
@@ -36,7 +36,6 @@ function Home() {
   const partialFilters = useSelector(showPartialFilters);
   const details = useSelector(showDetails);
   const pages = useSelector(showPages);
-
   const [isToggle, setIsToggle] = useState(false);
   const [isSearchToggle, setIsSearchToggle] = useState(false);
   const [isFiltered, setIsFiltered] = useState(false);
@@ -44,6 +43,95 @@ function Home() {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [isEmpty, setIsEmpty] = useState(false);
+
+  /* Esto es reemplazable en el futuro */
+
+  const numberZones = [
+    {
+      code: "1889220000014412537",
+      number: 3209803927,
+      name: "Bucaramanga",
+    },
+    {
+      code: "1889220000014516540",
+      number: 3115955500,
+      name: "Ring",
+    },
+    {
+      code: "1889220000014516544",
+      number: 3016898733,
+      name: "Cucuta",
+    },
+    {
+      code: "1889220000014516548",
+      number: 3152069395,
+      name: "Cali",
+    },
+    {
+      code: "1889220000017603296",
+      number: 3138990343,
+      name: "Ocaña",
+    },
+    {
+      code: "1889220000019320168",
+      number: 3133222511,
+      name: "Enrique",
+    },
+    {
+      code: "1889220000020055600",
+      number: 3042086719,
+      name: "Milenio",
+    },
+    {
+      code: "1889220000022792008",
+      number: 3209665983,
+      name: "Fusa",
+    },
+    {
+      code: "1889220000022792022",
+      number: 3023655644,
+      name: "Chia",
+    },
+    {
+      code: "1889220000024650220",
+      number: 3045546736,
+      name: "Medellín",
+    },
+    {
+      code: "1889220000050192018",
+      number: 3106944901,
+      name: "La Ceja",
+    },
+    {
+      code: "1889220000051630250",
+      number: 3202030308,
+      name: "Villavicencio",
+    },
+    {
+      code: "1889220000051630288",
+      number: 0,
+    },
+    {
+      code: "1889220000064528671",
+      number: 3132000555,
+      name: "San José del Guaviare",
+    },
+    {
+      code: "1889220000072262093",
+      number: 3133222511,
+      name: "Pamplona",
+    },
+    {
+      code: "1889220000074148003",
+      number: 3052011112,
+      name: "Funza",
+    },
+  ];
+
+  const zoneSelection = numberZones.find((item) => item.code === slug)
+  console.log(zoneSelection)
+
+  /* Código hardcodeado arriba */
 
   useEffect(() => {
     dispatch(getFiltersAsync({ zoneId: slug }));
@@ -428,7 +516,9 @@ function Home() {
                 <div className="home__products">
                   {!isLoading
                     ? details.map((item) => <Card key={item.id} data={item} />)
-                    : [1, 2, 3, 4, 5, 6].map((item) => <Skeleton key={item}></Skeleton>)}
+                    : [1, 2, 3, 4, 5, 6].map((item) => (
+                        <Skeleton key={item}></Skeleton>
+                      ))}
                   {isEmpty && details.length == 0 && <NotFound />}
                 </div>
                 <div className="home__paging">
@@ -472,7 +562,7 @@ function Home() {
       <Footer />
       <div className="WPP">
         <a
-          href="https://wa.me/573116853300?text=Hola!%20Quiero%20información%20de%20sus%20productos"
+          href={`https://wa.me/57${zoneSelection.number}?text=Hola!%20Quiero%20información%20de%20sus%20productos`} 
           target="_blank"
         >
           <img src={WppImage} alt="" />

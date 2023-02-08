@@ -10,7 +10,7 @@ import "./../styles/css/ZonesSelect.css";
 function ZonesSelect() {
   const zones = useSelector(showZones);
   const dispatch = useDispatch();
-
+  console.log(zones)
   useEffect(() => {
     dispatch(getZonesAsync());
     console.log(zones);
