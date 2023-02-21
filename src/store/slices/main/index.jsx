@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { MdStarRate } from "react-icons/md";
 const initialState = {
   zones: [],
   zoneId: null,

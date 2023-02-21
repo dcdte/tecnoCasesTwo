@@ -88,7 +88,6 @@ export const getFiltersAsync =
       const finances = [];
       const batterys = [];
       const cameras = [];
-      console.log(dataProducts)
       dataProducts.forEach((element) => {
         if (!rams.some((item) => item.trim() === element.ram.trim())) {
           rams.push(element.ram);

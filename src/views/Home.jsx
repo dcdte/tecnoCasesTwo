@@ -129,7 +129,6 @@ function Home() {
   ];
 
   const zoneSelection = numberZones.find((item) => item.code === slug)
-  console.log(zoneSelection)
 
   /* Código hardcodeado arriba */
 
