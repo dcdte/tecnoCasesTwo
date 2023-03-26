@@ -44,94 +44,6 @@ function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [isEmpty, setIsEmpty] = useState(false);
 
-  /* Esto es reemplazable en el futuro */
-
-  const numberZones = [
-    {
-      code: "1889220000014412537",
-      number: 3209803927,
-      name: "Bucaramanga",
-    },
-    {
-      code: "1889220000014516540",
-      number: 3115955500,
-      name: "Ring",
-    },
-    {
-      code: "1889220000014516544",
-      number: 3016898733,
-      name: "Cucuta",
-    },
-    {
-      code: "1889220000014516548",
-      number: 3152069395,
-      name: "Cali",
-    },
-    {
-      code: "1889220000017603296",
-      number: 3138990343,
-      name: "Ocaña",
-    },
-    {
-      code: "1889220000019320168",
-      number: 3133222511,
-      name: "Enrique",
-    },
-    {
-      code: "1889220000020055600",
-      number: 3042086719,
-      name: "Milenio",
-    },
-    {
-      code: "1889220000022792008",
-      number: 3209665983,
-      name: "Fusa",
-    },
-    {
-      code: "1889220000022792022",
-      number: 3023655644,
-      name: "Chia",
-    },
-    {
-      code: "1889220000024650220",
-      number: 3045546736,
-      name: "Medellín",
-    },
-    {
-      code: "1889220000050192018",
-      number: 3106944901,
-      name: "La Ceja",
-    },
-    {
-      code: "1889220000051630250",
-      number: 3244603341,
-      name: "Villavicencio",
-    },
-    {
-      code: "1889220000051630288",
-      number: 0,
-    },
-    {
-      code: "1889220000064528671",
-      number: 3132000555,
-      name: "San José del Guaviare",
-    },
-    {
-      code: "1889220000072262093",
-      number: 3133222511,
-      name: "Pamplona",
-    },
-    {
-      code: "1889220000074148003",
-      number: 3052011112,
-      name: "Funza",
-    },
-  ];
-
-  const zoneSelection = numberZones.find((item) => item.code === slug)
-
-  /* Código hardcodeado arriba */
-
   useEffect(() => {
     dispatch(getFiltersAsync({ zoneId: slug }));
     dispatch(getDetailsAsync({ zoneId: slug }));
@@ -297,6 +209,19 @@ function Home() {
     }
     return numbersArr.slice(prevPage, postPage);
   };
+
+  (function (d, s, t, id) {
+    var js,
+      fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = t;
+    js.src =
+      "https://app.plazbot.com/Widget/plazbot-archivos/plazbot-chat/Plazbot.frame.js?version=3.3.0.0&var1=" +
+      id;
+    js.defer = true;
+    fjs.parentNode.insertBefore(js, fjs);
+  })(document, "script", "id-chat-plazbot", "7da22a7ffb41841bd5d81db7f45f989a");
 
   return (
     <section className={`home ${isSearchToggle && "home--toggle"}`}>
@@ -559,14 +484,15 @@ function Home() {
         )}
       </AnimatePresence>
       <Footer />
-      <div className="WPP">
+      {/*  <div className="WPP">
         <a
           href={`https://wa.me/57${zoneSelection.number}?text=Hola!%20Quiero%20información%20de%20sus%20productos`} 
           target="_blank"
         >
           <img src={WppImage} alt="" />
         </a>
-      </div>
+      </div> */}
+      <div id="api-chat-bot"></div>
     </section>
   );
 }
