@@ -70,6 +70,8 @@ function Home() {
     }
   }, [isLoading]);
 
+  const numZone = { zoneId: slug };
+
   useEffect(() => {
     const options = { zoneId: slug };
     const {
@@ -209,19 +211,38 @@ function Home() {
     }
     return numbersArr.slice(prevPage, postPage);
   };
-
-  (function (d, s, t, id) {
-    var js,
-      fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s);
-    js.id = t;
-    js.src =
-      "https://app.plazbot.com/Widget/plazbot-archivos/plazbot-chat/Plazbot.frame.js?version=3.3.0.0&var1=" +
-      id;
-    js.defer = true;
-    fjs.parentNode.insertBefore(js, fjs);
-  })(document, "script", "id-chat-plazbot", "7da22a7ffb41841bd5d81db7f45f989a");
+  function numeroZona() {
+    if (numZone.zoneId == "1889220000019320168") {
+      return (
+        <div className="WPP">
+          <a
+            href={`https://wa.me/message/NONM6JLQVSJXL1`}
+            target="_blank"
+          >
+            <img src={WppImage} alt="" />
+          </a>
+        </div>
+      );
+    } else {
+      (function (d, s, t, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = t;
+        js.src =
+          "https://app.plazbot.com/Widget/plazbot-archivos/plazbot-chat/Plazbot.frame.js?version=3.3.0.0&var1=" +
+          id;
+        js.defer = true;
+        fjs.parentNode.insertBefore(js, fjs);
+      })(
+        document,
+        "script",
+        "id-chat-plazbot",
+        "7da22a7ffb41841bd5d81db7f45f989a"
+      );
+    }
+  }
 
   return (
     <section className={`home ${isSearchToggle && "home--toggle"}`}>
@@ -484,15 +505,9 @@ function Home() {
         )}
       </AnimatePresence>
       <Footer />
-      {/*  <div className="WPP">
-        <a
-          href={`https://wa.me/57${zoneSelection.number}?text=Hola!%20Quiero%20información%20de%20sus%20productos`} 
-          target="_blank"
-        >
-          <img src={WppImage} alt="" />
-        </a>
-      </div> */}
-      <div id="api-chat-bot"></div>
+      {/* enriqueNum() */}
+      {numeroZona()}
+      {/* <div id="api-chat-bot"></div> */}
     </section>
   );
 }
