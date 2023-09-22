@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./../styles/css/Header.css";
-import vector from "./../assets/tecnosuper.svg";
+import vector from "./../assets/LogoCases2.svg";
 import TextInput from "./atoms/TextInput";
 import Button from "./atoms/Button";
 import { useDispatch, useSelector } from "react-redux";

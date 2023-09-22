@@ -24,9 +24,9 @@ function Card({ data }) {
       return (
         <motion.div
           className="img__visible"
-          initial={{ x: -350 }}
+          initial={{ x: -330 }}
           animate={{ x: 0 }}
-          exit={{ x: -350 }}
+          exit={{ x: -330 }}
         >
           <img
             src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/Productos_General_Report/${data.id}/preview/image-download/qe6WhYfEhFASK7SDr3NE5EVztWUOSZnTdwg10Xe1AZOTdehEZEfvEWeqeSYv6yp0wFKJHyNSgdpQN3tAf3nQH1rxGgrxbMP3YdyZ?filepath=/${data.preview}`}
@@ -58,7 +58,20 @@ function Card({ data }) {
           />
         </div>
       </div>
-      <div className="card__info"></div>
+      <div className="card__info">
+        <div className="card__row">
+          <div className="pay">
+            <span className="pay__title">Referencia: </span>
+            <div className="pay__value">Moto g20 estuche Reforzado</div>
+          </div>
+          <div className="card__row">
+            <div className="pay">
+              <span className="pay__title">Precio:</span>
+              <div className="pay__value">9000</div>
+            </div>
+          </div>
+        </div>
+      </div>
       <AnimatePresence>{renderZoom()}</AnimatePresence>
     </article>
   );

@@ -3,7 +3,7 @@
 .card {
   @include flex(start, start);
   position: relative;
-  width: 222px;
+  width: 295px;
   height: auto;
   padding: 12px;
   gap: 12px;
@@ -19,28 +19,29 @@
     inset-inline-end: 0;
     font-size: 14px;
     font-weight: 600;
-    background-color: #F94E4E;
+    background-color: #f94e4e;
     color: white;
-    border-radius: 0px 10px 0 10px
+    border-radius: 0px 10px 0 10px;
   }
 
   &__visual {
     @include flex(start, center, column);
-    width: 200px;
+    width: 260px;
     height: 300px;
+    padding: 5px;
     border-radius: 5px;
-    background: linear-gradient(180deg, #3a3a3b 0%, #e3e3e3 50%, #3a3a3b 100%);
+    background: linear-gradient(200deg, #f2f2f2 0%, #24b0bf 100%);
     cursor: pointer;
   }
 
   &__img {
     position: relative;
     @include flex(center, start);
-    transform: scale(1);
+    transform: scale(1.1);
 
     img {
       position: relative;
-      inset-block-start: -5px;
+      inset-block-start: 0px;
       inset-inline-start: 3px;
       height: 100%;
       width: 100%;
@@ -55,30 +56,35 @@
   }
 
   &__row {
-    @include flex(center, center);
+    @include flex(center, center, row);
     width: 100%;
     gap: 5px;
 
     .pay {
-      width: 43%;
+      width: 100%;
     }
   }
 
   &__info {
     @include flex(start, start, column);
+    width: 100%;
   }
 
   &__brand {
     font-size: 11px;
     font-weight: 600;
     line-height: 13.5px;
-    color: $primary;
+    text-align: left;
+    width: 100%;
+    color: #000000;
   }
 
   &__title {
     font-size: 20px;
     font-weight: 600;
     inline-size: 175px;
+    text-align: center;
+    color: #000000;
   }
 
   &__details {
@@ -86,7 +92,7 @@
     margin-block-start: 5px;
     gap: 1px;
     width: 175px;
-    height: 160px; 
+    height: 160px;
   }
 
   &__finances {

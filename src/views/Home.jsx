@@ -215,10 +215,7 @@ function Home() {
     if (numZone.zoneId == "1889220000019320168") {
       return (
         <div className="WPP">
-          <a
-            href={`https://wa.me/message/NONM6JLQVSJXL1`}
-            target="_blank"
-          >
+          <a href={`https://wa.me/message/NONM6JLQVSJXL1`} target="_blank">
             <img src={WppImage} alt="" />
           </a>
         </div>

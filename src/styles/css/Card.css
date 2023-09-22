@@ -15,7 +15,7 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   position: relative;
-  width: 222px;
+  width: 295px;
   height: auto;
   padding: 12px;
   gap: 12px;
@@ -33,7 +33,7 @@
   inset-inline-end: 0;
   font-size: 14px;
   font-weight: 600;
-  background-color: #F94E4E;
+  background-color: #f94e4e;
   color: white;
   border-radius: 0px 10px 0 10px;
 }
@@ -53,11 +53,11 @@
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 200px;
+  width: 260px;
   height: 300px;
+  padding: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#3a3a3b), color-stop(50%, #e3e3e3), to(#3a3a3b));
-  background: linear-gradient(180deg, #3a3a3b 0%, #e3e3e3 50%, #3a3a3b 100%);
+  background: linear-gradient(200deg, #f2f2f2 0%, #24b0bf 100%);
   cursor: pointer;
 }
 .card__img {
@@ -77,12 +77,12 @@
           align-items: start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .card__img img {
   position: relative;
-  inset-block-start: -5px;
+  inset-block-start: 0px;
   inset-inline-start: 3px;
   height: 100%;
   width: 100%;
@@ -128,7 +128,7 @@
   gap: 5px;
 }
 .card__row .pay {
-  width: 43%;
+  width: 100%;
 }
 .card__info {
   display: -webkit-box;
@@ -146,17 +146,22 @@
           align-items: start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  width: 100%;
 }
 .card__brand {
   font-size: 11px;
   font-weight: 600;
   line-height: 13.5px;
-  color: #792EDE;
+  text-align: left;
+  width: 100%;
+  color: #000000;
 }
 .card__title {
   font-size: 20px;
   font-weight: 600;
   inline-size: 175px;
+  text-align: center;
+  color: #000000;
 }
 .card__details {
   display: -webkit-box;
@@ -254,6 +259,6 @@
 }
 .button__close .closeIcon {
   font-size: 25px;
-  color: #792EDE;
+  color: #042f40;
   cursor: pointer;
 }

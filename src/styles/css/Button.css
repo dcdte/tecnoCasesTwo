@@ -19,13 +19,13 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: #fff;
-  background-color: #792EDE;
+  background-color: #042f40;
   border-radius: 11px;
   cursor: pointer;
   gap: 10px;
 }
 .btn:hover {
-  background-color: #42008A;
+  background-color: #073041;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -43,8 +43,8 @@
           margin-inline-start: 10px;
 }
 .btn--light {
-  color: #792EDE;
-  background-color: #ECDCFF;
+  color: #042f40;
+  background-color: #24b0bf;
 }
 .btn--dark {
   color: white;
