@@ -5,12 +5,11 @@ import ZonesSelect from "./views/ZonesSelect";
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<ZonesSelect />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="*" element={<Navigate replace to="/" />} />
-      </Routes>
+      <Router>
+        
+      </Router>
     </BrowserRouter>
+    
   );
 }
 
