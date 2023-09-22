@@ -9,7 +9,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Menu from "../components/Menu";
 import {
-  setDetails,
+  setCases,
   setFilters,
   setPartialFilters,
 } from "../store/slices/main";
