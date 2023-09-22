@@ -1,0 +1,74 @@
+@import "./Globals";
+
+.btn {
+  @include flex(center, center);
+  border: none;
+  padding: 13px;
+  box-sizing: border-box;
+  color: #fff;
+  background-color: $primary;
+  border-radius: 11px;
+  cursor: pointer;
+  gap: 10px;
+
+  &:hover {
+    background-color: $primaryHover;
+    transition: 0.4s;
+  }
+
+  &--text {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &--notext {
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+
+    &:nth-last-of-type {
+      margin-inline-start: 10px;
+    }
+  }
+
+  &--light {
+    color: $primary;
+    background-color: $secondary;
+  }
+
+  &--dark {
+    color: white;
+  }
+
+  @include sm-screen {
+    &--collapse {
+      display: flex;
+
+      &:first-of-type {
+        margin-inline-end: 10px;
+      }
+    }
+  }
+
+  @include md-screen {
+    &--collapse {
+      display: none;
+    }
+  }
+}
+
+.iconSearch {
+  height: 90%;
+  width: 90%;
+}
+
+.iconFilter--noText {
+  height: 100%;
+  width: 100%;
+}
+
+.iconFilter--text {
+  height: 100%;
+  width: 20px;
+}
+

@@ -27,7 +27,7 @@ import Skeleton from "../components/atoms/Skeleton";
 import NotFound from "../components/atoms/NotFound";
 import WppImage from "../assets/whatsapp.png";
 
-function Home() {
+function Cases() {
   const dispatch = useDispatch();
   const filters = useSelector(showFilters);
   const partialFilters = useSelector(showPartialFilters);
@@ -509,4 +509,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Cases;

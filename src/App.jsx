@@ -1,15 +1,24 @@
-import { BrowserRouter, Navigate, Route, Router, Routes } from "react-router-dom";
-import Home from "./views/Home";
-import ZonesSelect from "./views/ZonesSelect";
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Router,
+  Routes,
+} from "react-router-dom";
+import Main from "./views";
+import Cases from "./views/Cases";
 
 function App() {
   return (
     <BrowserRouter>
-      <Router>
-        
-      </Router>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/1hora" element={<UnaHora />}></Route>
+        <Route path="/supercase" element={<Cases />} />
+        <Route path="/ubicacionaliados" element={<Aliados />}></Route>
+        <Route path="*" element={<Navigate replace to="/" />} />
+      </Routes>
     </BrowserRouter>
-    
   );
 }
 
