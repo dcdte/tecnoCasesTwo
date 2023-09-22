@@ -10,7 +10,7 @@ import extractPixels from "../../../utils/extractPixels";
 const url = "https://tecnocredits.herokuapp.com";
 const urlFront = "http://localhost:3000/";
 
-export const getDetailsAsync =
+export const getCasesAsync =
   ({ searchValue = null, models = null, maxPay = null, page = 1 }) =>
   async (dispatch) => {
     try {
