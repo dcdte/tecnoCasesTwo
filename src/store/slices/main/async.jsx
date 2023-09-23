@@ -6,7 +6,6 @@ import {
   setModels,
 } from ".";
 import axios from "axios";
-import extractPixels from "../../../utils/extractPixels";
 const url = "https://tecnocredits.herokuapp.com";
 const urlFront = "http://localhost:3000/";
 
