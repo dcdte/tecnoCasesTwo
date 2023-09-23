@@ -4,17 +4,12 @@ import Button from "../components/atoms/Button";
 import Header from "../components/Header";
 import "./../styles/css/Home.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetailsAsync, getFiltersAsync } from "../store/slices/main/async";
-import { useLocation, useParams } from "react-router-dom";
+import { getCasesAsync, getFiltersAsync } from "../store/slices/main/async";
 import { AnimatePresence, motion } from "framer-motion";
 import Menu from "../components/Menu";
+import { setCases, setFilters, setPartialFilters } from "../store/slices/main";
 import {
-  setDetails,
-  setFilters,
-  setPartialFilters,
-} from "../store/slices/main";
-import {
-  showDetails,
+  showCases,
   showFilters,
   showPages,
   showPartialFilters,
@@ -27,14 +22,11 @@ import Skeleton from "../components/atoms/Skeleton";
 import NotFound from "../components/atoms/NotFound";
 import WppImage from "../assets/whatsapp.png";
 
-function Home() {
+function Cases() {
   const dispatch = useDispatch();
-  const location = useLocation();
-  const query = new URLSearchParams(location.search);
-  const slug = query.get("zone");
   const filters = useSelector(showFilters);
   const partialFilters = useSelector(showPartialFilters);
-  const details = useSelector(showDetails);
+  const cases = useSelector(showCases);
   const pages = useSelector(showPages);
   const [isToggle, setIsToggle] = useState(false);
   const [isSearchToggle, setIsSearchToggle] = useState(false);
@@ -45,72 +37,44 @@ function Home() {
   const [isEmpty, setIsEmpty] = useState(false);
 
   useEffect(() => {
-    dispatch(getFiltersAsync({ zoneId: slug }));
-    dispatch(getDetailsAsync({ zoneId: slug }));
+    dispatch(getFiltersAsync());
+    dispatch(getDetailsAsync());
   }, [dispatch]);
 
   useEffect(() => {
     if (isLoading) {
-      if (details.length > 0) {
+      if (cases.length > 0) {
         setIsLoading(false);
         setIsEmpty(false);
       } else {
         setTimeout(() => {
-          if (details.length == 0) {
+          if (cases.length == 0) {
             setIsLoading(false);
           }
         }, 3000);
       }
     }
-  }, [details]);
+  }, [cases]);
 
   useEffect(() => {
-    if (!isLoading && details.length == 0) {
+    if (!isLoading && cases.length == 0) {
       setIsEmpty(true);
     }
   }, [isLoading]);
 
+  //validar numzone Federico
   const numZone = { zoneId: slug };
 
   useEffect(() => {
-    const options = { zoneId: slug };
-    const {
-      searchValue,
-      maxPay,
-      finances,
-      rams,
-      roms,
-      batterys,
-      cameras,
-      page,
-    } = filters;
+    const options = {};
+    const { searchValue, maxPay, models, page } = filters;
     const partialPage = partialFilters.page;
     if (searchValue) options.searchValue = searchValue;
     if (maxPay) options.maxPay = maxPay;
-    options.ram = rams
+    options.models = models
       .filter((item) => item.isSelected)
       .reduce((prev, next) => {
         return `${prev}${prev && ","}${next.id}`;
-      }, "");
-    options.storage = roms
-      .filter((item) => item.isSelected)
-      .reduce((prev, next) => {
-        return `${prev}${prev && ","}${next.id}`;
-      }, "");
-    options.financeId = finances
-      .filter((item) => item.isSelected)
-      .reduce((prev, next) => {
-        return `${prev}${prev && ","}${next.id}`;
-      }, "");
-    options.battery = batterys
-      .filter((item) => item.isSelected)
-      .reduce((prev, next) => {
-        return `${prev}${prev && ","}${next.id}`;
-      }, "");
-    options.camera = cameras
-      .filter((item) => item.isSelected)
-      .reduce((prev, next) => {
-        return `${prev}${prev && ","}${next.id.replace(/\s+/, "")}`;
       }, "");
     if (page != partialPage) {
       setPage(page);
@@ -123,44 +87,26 @@ function Home() {
       if (!isLoading) {
         setIsLoading(true);
       }
-      dispatch(getDetailsAsync(options));
+      dispatch(getModelsAsync(options));
     }
 
     dispatch(setPartialFilters({ ...filters }));
     setIsFiltered(
       (searchValue && searchValue != "") ||
         maxPay ||
-        finances.some((item) => item.isSelected) ||
-        rams.some((item) => item.isSelected) ||
-        roms.some((item) => item.isSelected) ||
-        batterys.some((item) => item.isSelected) ||
-        cameras.some((item) => item.isSelected)
+        models.some((item) => item.isSelected)
     );
   }, [filters]);
 
   const clearFilters = (filters) => {
-    const finances = filters.finances.map((item) => ({
-      ...item,
-      isSelected: false,
-    }));
-    const rams = filters.rams.map((item) => ({ ...item, isSelected: false }));
-    const roms = filters.roms.map((item) => ({ ...item, isSelected: false }));
-    const batterys = filters.batterys.map((item) => ({
-      ...item,
-      isSelected: false,
-    }));
-    const cameras = filters.cameras.map((item) => ({
+    const models = filters.models.map((item) => ({
       ...item,
       isSelected: false,
     }));
     dispatch(
       setFilters({
         searchValue: "",
-        finances,
-        rams,
-        roms,
-        batterys,
-        cameras,
+        models,
         maxPay: null,
         page: 1,
       })
@@ -211,7 +157,9 @@ function Home() {
     }
     return numbersArr.slice(prevPage, postPage);
   };
-  function numeroZona() {
+
+  //No sé qué hace esta mierda, eso lo hizo federico
+  /* function numeroZona() {
     if (numZone.zoneId == "1889220000019320168") {
       return (
         <div className="WPP">
@@ -239,7 +187,7 @@ function Home() {
         "7da22a7ffb41841bd5d81db7f45f989a"
       );
     }
-  }
+  } */
 
   return (
     <section className={`home ${isSearchToggle && "home--toggle"}`}>
@@ -320,7 +268,7 @@ function Home() {
                         </Tag>
                       </motion.div>
                     )}
-                    {filters.finances
+                    {filters.models
                       .filter((item) => item.isSelected)
                       .map((item) => (
                         <motion.div
@@ -333,91 +281,11 @@ function Home() {
                           <Tag
                             id={item.id}
                             handler={(id) =>
-                              removeFilter(id, "finances", filters)
+                              removeFilter(id, "models", filters)
                             }
                             hover={true}
                           >
-                            Financiera: {item.value}
-                          </Tag>
-                        </motion.div>
-                      ))}
-                    {filters.rams
-                      .filter((item) => item.isSelected)
-                      .map((item) => (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          exit={{ scale: 0 }}
-                          transition={{ duration: 0.3 }}
-                          key={item.id}
-                        >
-                          <Tag
-                            id={item.id}
-                            handler={(id) => removeFilter(id, "rams", filters)}
-                            hover={true}
-                          >
-                            Ram: {item.value}
-                          </Tag>
-                        </motion.div>
-                      ))}
-                    {filters.roms
-                      .filter((item) => item.isSelected)
-                      .map((item) => (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          exit={{ scale: 0 }}
-                          transition={{ duration: 0.3 }}
-                          key={item.id}
-                        >
-                          <Tag
-                            id={item.id}
-                            handler={(id) => removeFilter(id, "roms", filters)}
-                            hover={true}
-                          >
-                            Almacenamiento: {item.value}
-                          </Tag>
-                        </motion.div>
-                      ))}
-                    {filters.batterys
-                      .filter((item) => item.isSelected)
-                      .map((item) => (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          exit={{ scale: 0 }}
-                          transition={{ duration: 0.3 }}
-                          key={item.id}
-                        >
-                          <Tag
-                            id={item.id}
-                            handler={(id) =>
-                              removeFilter(id, "batterys", filters)
-                            }
-                            hover={true}
-                          >
-                            Batería: {item.value}
-                          </Tag>
-                        </motion.div>
-                      ))}
-                    {filters.cameras
-                      .filter((item) => item.isSelected)
-                      .map((item) => (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          exit={{ scale: 0 }}
-                          transition={{ duration: 0.3 }}
-                          key={item.id}
-                        >
-                          <Tag
-                            id={item.id}
-                            handler={(id) =>
-                              removeFilter(id, "cameras", filters)
-                            }
-                            hover={true}
-                          >
-                            Cámara: {item.value}
+                            Modelo: {item.value}
                           </Tag>
                         </motion.div>
                       ))}
@@ -433,7 +301,7 @@ function Home() {
                           handler={(id) => removeFilter(id, "maxPay", filters)}
                           hover={true}
                         >
-                          Cuota Máxima: {currencyFormat(filters.maxPay)}
+                          Precio Máximo: {currencyFormat(filters.maxPay)}
                         </Tag>
                       </motion.div>
                     )}
@@ -457,15 +325,15 @@ function Home() {
                 </div>
                 <div className="home__products">
                   {!isLoading
-                    ? details.map((item) => <Card key={item.id} data={item} />)
+                    ? cases.map((item) => <Card key={item.id} data={item} />)
                     : [1, 2, 3, 4, 5, 6].map((item) => (
                         <Skeleton key={item}></Skeleton>
                       ))}
-                  {isEmpty && details.length == 0 && <NotFound />}
+                  {isEmpty && cases.length == 0 && <NotFound />}
                 </div>
                 <div className="home__paging">
                   {!isLoading &&
-                    details &&
+                    cases &&
                     getNumbers(page, pages).map((item) => (
                       <Button
                         text={item}
@@ -503,10 +371,11 @@ function Home() {
       </AnimatePresence>
       <Footer />
       {/* enriqueNum() */}
-      {numeroZona()}
+      {/*       {numeroZona()}
+       */}{" "}
       {/* <div id="api-chat-bot"></div> */}
     </section>
   );
 }
 
-export default Home;
+export default Cases;
