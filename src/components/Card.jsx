@@ -16,7 +16,6 @@ import Label from "./atoms/Label";
 import CardPay from "./atoms/CardPay";
 import currencyFormat from "../utils/currencyFormat";
 function Card({ data }) {
-  const [pays, setPays] = useState(data.credits[0]);
   const [zoom, setZoom] = useState(false);
 
   let renderZoom = () => {
@@ -48,8 +47,8 @@ function Card({ data }) {
   return (
     <article className="card">
       <div className="card__visual">
-        <h4 className="card__brand">{data.brand.brand}</h4>
-        <h3 className="card__title">{data.reference}</h3>
+{/*         <h4 className="card__brand">{data.brand.brand}</h4>
+ */}        <h3 className="card__title">{data.model}</h3>
         <div className="card__img" onClick={() => setZoom(true)}>
           <motion.img
             src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/Productos_General_Report/${data.id}/preview/image-download/qe6WhYfEhFASK7SDr3NE5EVztWUOSZnTdwg10Xe1AZOTdehEZEfvEWeqeSYv6yp0wFKJHyNSgdpQN3tAf3nQH1rxGgrxbMP3YdyZ?filepath=/${data.preview}`}
@@ -62,12 +61,12 @@ function Card({ data }) {
         <div className="card__row">
           <div className="pay">
             <span className="pay__title">Referencia: </span>
-            <div className="pay__value">Moto g20 estuche Reforzado</div>
+            <div className="pay__value">{data.reference}</div>
           </div>
           <div className="card__row">
             <div className="pay">
               <span className="pay__title">Precio:</span>
-              <div className="pay__value">9000</div>
+              <div className="pay__value">{currencyFormat(data.price)}</div>
             </div>
           </div>
         </div>

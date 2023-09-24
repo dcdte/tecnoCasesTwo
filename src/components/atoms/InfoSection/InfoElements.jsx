@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import grandfhater from "../../images/grandfhater.png";
-import women1 from "../../images/women.png";
-import women2 from "../../images/women2.png";
-import EquipmentImage from "../../images/Equipment.png";
+import grandfhater from "../../../assets/grandfhater.png";
+import women1 from "../../../assets/women.png";
+import women2 from "../../../assets/women2.png";
+import EquipmentImage from "../../../assets/Equipment.png";
 
 export const InfoContainer = styled.div`
   display: flex;

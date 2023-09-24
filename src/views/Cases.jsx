@@ -38,7 +38,7 @@ function Cases() {
 
   useEffect(() => {
     dispatch(getFiltersAsync());
-    dispatch(getDetailsAsync());
+    dispatch(getCasesAsync({}));
   }, [dispatch]);
 
   useEffect(() => {
@@ -63,7 +63,7 @@ function Cases() {
   }, [isLoading]);
 
   //validar numzone Federico
-  const numZone = { zoneId: slug };
+  //const numZone = { zoneId: slug };
 
   useEffect(() => {
     const options = {};
@@ -87,7 +87,7 @@ function Cases() {
       if (!isLoading) {
         setIsLoading(true);
       }
-      dispatch(getModelsAsync(options));
+      dispatch(getCasesAsync(options));
     }
 
     dispatch(setPartialFilters({ ...filters }));

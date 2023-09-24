@@ -1,5 +1,6 @@
 import React from "react";
 import { HeroContainer, HeroBg, HeroContent, HeroH1, HeroP, HeroContentImage, HeroContentText } from "./HeroElements";
+import man from "../../../assets/man.png"
 
 const HeroSection = () => {
 
@@ -14,7 +15,7 @@ const HeroSection = () => {
           </HeroP>
         </HeroContentText>
         <HeroContentImage>
-          <img src={require("../../../assets/man.png")} alt="" />  
+          <img src={man} alt="" />  
         </HeroContentImage>
       </HeroContent>
     </HeroContainer>

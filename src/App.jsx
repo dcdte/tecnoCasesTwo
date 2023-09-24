@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import Main from "./views";
 import Cases from "./views/Cases";
+import UnaHora from "./components/UnaHora"
+import Aliados from "./components/Aliados"
 
 function App() {
   return (

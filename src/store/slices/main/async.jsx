@@ -6,7 +6,7 @@ import {
   setModels,
 } from ".";
 import axios from "axios";
-const url = "https://tecnocredits.herokuapp.com";
+const url = "http://localhost:3000";
 const urlFront = "http://localhost:3000/";
 
 export const getCasesAsync =
@@ -26,7 +26,7 @@ export const getCasesAsync =
       dispatch(setPages(notPaged.length % 12 == 0 ? pages : pages + 1));
       if (page) criteria.push(`page=${page}`);
       const realResponse = await axios.get(
-        `${url}/details${criteria.length > 0 ? "?" + criteria.join("&") : ""}`
+        `${url}/cases${criteria.length > 0 ? "?" + criteria.join("&") : ""}`
       );
 
       dispatch(setCases(realResponse.data));

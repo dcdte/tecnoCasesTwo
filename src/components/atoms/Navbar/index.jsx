@@ -11,6 +11,8 @@ import {
   NavLinks2
 } from "./NavbarElements";
 
+import logo2 from "../../../assets/Logo_2.png"
+
 const Navbar = ({ toggle, Users }) => {
 
   function openZoho(e) {
@@ -24,7 +26,7 @@ const Navbar = ({ toggle, Users }) => {
           <NavLogo 
                 to="H/"
                 >
-            <img src={require("../../../assets/Logo_2.png")} alt="" />
+            <img src={logo2} alt="" />
           </NavLogo>
           <MobileIcons onClick={toggle}>
             <FaBars />
