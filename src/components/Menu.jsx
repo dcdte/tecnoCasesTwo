@@ -3,15 +3,10 @@ import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilters, setPartialFilters } from "../store/slices/main";
 import {
-  showBatterys,
-  showCameras,
-  showDetails,
+  showModels,
+  showCases,
   showFilters,
-  showFinances,
   showPartialFilters,
-  showRams,
-  showRoms,
-  showMinPrices
 } from "../store/slices/main/selectors";
 import "../styles/css/Menu.css";
 import Button from "./atoms/Button";
@@ -22,14 +17,9 @@ import currencyFormat from "../utils/currencyFormat";
 
 function Menu({ isToggle = null, setIsToggle }) {
   const dispatch = useDispatch();
-  const finances = useSelector(showFinances);
-  const rams = useSelector(showRams);
-  const roms = useSelector(showRoms);
-  const batterys = useSelector(showBatterys);
-  const cameras = useSelector(showCameras);
+  const models = useSelector(showModels);
   const filters = useSelector(showFilters);
   const partialFilters = useSelector(showPartialFilters);
-  const minPrice = useSelector(showMinPrices);
   const applyFilter = (partialFilters) => {
     window.scroll({
       top: 0,
@@ -52,59 +42,21 @@ function Menu({ isToggle = null, setIsToggle }) {
 
   return (
     <motion.section layout className="menu">
-      <ButtonDropDown name="Financieras">
-        {finances.map((item) => {
-          return (
-            <CheckBox
-              key={item.id}
-              data={{ id: item.id, value: item.name }}
-              type="finances"
-            />
-          );
-        })}
-      </ButtonDropDown>
-      <ButtonDropDown name="RAM">
-        {rams.map((item) => {
-          return (
-            <CheckBox key={item} data={{ id: item, value: item }} type="rams" />
-          );
-        })}
-      </ButtonDropDown>
-      <ButtonDropDown name="Almacenamiento">
-        {roms.map((item) => {
-          return (
-            <CheckBox key={item} data={{ id: item, value: item }} type="roms" />
-          );
-        })}
-      </ButtonDropDown>
-
-      <ButtonDropDown name="Cámara">
-        {cameras.map((item) => {
+      <ButtonDropDown name="Modelo">
+        {models.map((item) => {
           return (
             <CheckBox
               key={item}
               data={{ id: item, value: item }}
-              type="cameras"
+              type="models"
             />
           );
         })}
       </ButtonDropDown>
 
-      <ButtonDropDown name="Batería">
-        {batterys.map((item) => {
-          return (
-            <CheckBox
-              key={item}
-              data={{ id: item, value: item }}
-              type="batterys"
-            />
-          );
-        })}
-      </ButtonDropDown>
       <div className="menu__pay">
         <div>
           <span>Cuota Máxima</span>
-          <p>{`(Cuota Mínima: ${currencyFormat(minPrice)})`}</p>
         </div>
         <TextInput
           placeholder="Cuota Máxima"
