@@ -6,8 +6,9 @@ import {
   setModels,
 } from ".";
 import axios from "axios";
-const url = "http://localhost:3000";
-const urlFront = "http://localhost:3000/";
+//const url = "http://localhost:3000";
+const url = "https://tecnocredits.herokuapp.com";
+
 
 export const getCasesAsync =
   ({ searchValue = null, models = null, maxPay = null, page = 1 }) =>
