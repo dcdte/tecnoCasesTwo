@@ -13,7 +13,6 @@ import Button from "./atoms/Button";
 import ButtonDropDown from "./atoms/ButtonDropDown";
 import CheckBox from "./atoms/CheckBox";
 import TextInput from "./atoms/TextInput";
-import currencyFormat from "../utils/currencyFormat";
 
 function Menu({ isToggle = null, setIsToggle }) {
   const dispatch = useDispatch();
@@ -54,18 +53,7 @@ function Menu({ isToggle = null, setIsToggle }) {
         })}
       </ButtonDropDown>
 
-      <div className="menu__pay">
-        <div>
-          <span>Cuota Máxima</span>
-        </div>
-        <TextInput
-          placeholder="Cuota Máxima"
-          field="maxPay"
-          value={partialFilters.maxPay || ""}
-          setValue={(value) => setMaxPay(value, partialFilters)}
-          type="number"
-        />
-      </div>
+      <div className="menu__pay"></div>
       <Button handler={applyFilter} text="Aplicar Filtros" type="filter-dark" />
     </motion.section>
   );

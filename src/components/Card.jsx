@@ -1,20 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../styles/css/Card.css";
-import Tag from "./atoms/Tag";
+import "../styles/css/CardPay.css"
 
-import { AiOutlineCamera } from "react-icons/ai";
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import { IoCloseCircleOutline } from "react-icons/io5";
-import {
-  MdOutlineSdStorage,
-  MdMemory,
-  MdDeveloperBoard,
-  MdOutlineScreenshot,
-  MdBatteryCharging60,
-} from "react-icons/md";
-import Label from "./atoms/Label";
-import CardPay from "./atoms/CardPay";
 import currencyFormat from "../utils/currencyFormat";
+import Case from "../assets/case.png";
 function Card({ data }) {
   const [zoom, setZoom] = useState(false);
 
@@ -28,7 +19,7 @@ function Card({ data }) {
           exit={{ x: -330 }}
         >
           <img
-            src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/Productos_General_Report/${data.id}/preview/image-download/qe6WhYfEhFASK7SDr3NE5EVztWUOSZnTdwg10Xe1AZOTdehEZEfvEWeqeSYv6yp0wFKJHyNSgdpQN3tAf3nQH1rxGgrxbMP3YdyZ?filepath=/${data.preview}`}
+            src={Case}
             alt=""
           />
           <button className="button__close">
@@ -51,7 +42,7 @@ function Card({ data }) {
  */}        <h3 className="card__title">{data.model}</h3>
         <div className="card__img" onClick={() => setZoom(true)}>
           <motion.img
-            src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/Productos_General_Report/${data.id}/preview/image-download/qe6WhYfEhFASK7SDr3NE5EVztWUOSZnTdwg10Xe1AZOTdehEZEfvEWeqeSYv6yp0wFKJHyNSgdpQN3tAf3nQH1rxGgrxbMP3YdyZ?filepath=/${data.preview}`}
+            src={Case}
             alt=""
             whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
           />

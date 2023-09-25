@@ -162,6 +162,7 @@
   inline-size: 175px;
   text-align: center;
   color: #000000;
+  width: 100%;
 }
 .card__details {
   display: -webkit-box;
@@ -259,6 +260,6 @@
 }
 .button__close .closeIcon {
   font-size: 25px;
-  color: #042f40;
+  color: #f27405;
   cursor: pointer;
 }

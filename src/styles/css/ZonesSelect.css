@@ -30,12 +30,12 @@
   height: 50px;
   width: 200px;
   color: white;
-  background-color: #042f40;
+  background-color: #f27405;
   border-radius: 10px;
 }
 .zones__zone:hover {
-  color: #042f40;
-  background-color: #24b0bf;
+  color: #f27405;
+  background-color: #f2af00;
 }
 @media only screen and (max-width: 834px) {
   .zones {
@@ -45,7 +45,7 @@
     font-size: 20px;
   }
   .zones__zone {
-    background-color: #042f40;
+    background-color: #f27405;
   }
   .zones__container {
     display: -webkit-box;

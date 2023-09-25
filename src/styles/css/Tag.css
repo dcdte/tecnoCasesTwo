@@ -15,24 +15,24 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   text-align: start;
-  background-color: #24b0bf;
-  color: #042f40;
+  background-color: #f2af00;
+  color: #f27405;
   font-weight: bold;
   border: none;
   cursor: pointer;
 }
 .tag:hover {
-  background-color: #073041;
+  background-color: #f28a00;
   color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 .tag--active {
-  background-color: #042f40;
+  background-color: #f27405;
   color: white;
 }
 .tag--active:hover {
-  background-color: #073041;
+  background-color: #f28a00;
 }
 .tag__btn {
   position: relative;
@@ -61,6 +61,6 @@
   inset-inline-end: -5px;
   width: 20px;
   height: 20px;
-  color: #042f40;
+  color: #f27405;
   cursor: pointer;
 }
