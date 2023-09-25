@@ -53,6 +53,7 @@
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  overflow: hidden;
   width: 260px;
   height: 300px;
   padding: 5px;
@@ -77,8 +78,8 @@
           align-items: start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 .card__img img {
   position: relative;

@@ -19,7 +19,7 @@ function Card({ data }) {
           exit={{ x: -330 }}
         >
           <img
-            src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/Productos_General_Report/${data.id}/preview/image-download/qe6WhYfEhFASK7SDr3NE5EVztWUOSZnTdwg10Xe1AZOTdehEZEfvEWeqeSYv6yp0wFKJHyNSgdpQN3tAf3nQH1rxGgrxbMP3YdyZ?filepath=/${data.preview}`}
+            src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/SuperCaseReporte/${data.id}/previewTecnoCase/image-download/SXb8BYBmSkxhtOb0543AUQ2hBwdbdG3hCHf6nQmvkAAYGQx4sXC3tDpAbpZ1OenrdSfxsHxCF54aObOhm3pdpETErG0CpTteH33D?filepath=/${data.preview}`}
             alt=""
           />
           <button className="button__close">
@@ -42,7 +42,7 @@ function Card({ data }) {
  */}        <h3 className="card__title">{data.model}</h3>
         <div className="card__img" onClick={() => setZoom(true)}>
           <motion.img
-            src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/Productos_General_Report/${data.id}/preview/image-download/qe6WhYfEhFASK7SDr3NE5EVztWUOSZnTdwg10Xe1AZOTdehEZEfvEWeqeSYv6yp0wFKJHyNSgdpQN3tAf3nQH1rxGgrxbMP3YdyZ?filepath=/${data.preview}`}
+            src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/SuperCaseReporte/${data.id}/previewTecnoCase/image-download/SXb8BYBmSkxhtOb0543AUQ2hBwdbdG3hCHf6nQmvkAAYGQx4sXC3tDpAbpZ1OenrdSfxsHxCF54aObOhm3pdpETErG0CpTteH33D?filepath=/${data.preview}`}
             alt=""
             whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
           />
