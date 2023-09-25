@@ -21,6 +21,7 @@ import currencyFormat from "../utils/currencyFormat";
 import Skeleton from "../components/atoms/Skeleton";
 import NotFound from "../components/atoms/NotFound";
 import WppImage from "../assets/whatsapp.png";
+import { useLocation } from "react-router";
 
 function Cases() {
   const dispatch = useDispatch();
@@ -188,6 +189,33 @@ function Cases() {
       );
     }
   } */
+
+  const location = useLocation();
+
+  useEffect(() => {
+    // Define una función para cambiar el favicon en función de la ruta actual
+    const changeFavicon = () => {
+      const faviconPath =
+        location.pathname === "/supercase" ? "/icon.svg" : "/fav-icon.png "; // Cambia los nombres de los archivos según tus necesidades
+      const name =
+        location.pathname === "/supercase" ? "SuperCase" : "Tecnosuper";
+      const link = document.querySelector("link[rel~='icon']");
+      if (link) {
+        link.href = faviconPath;
+      } else {
+        const newLink = document.createElement("link");
+        newLink.rel = "icon";
+        newLink.href = faviconPath;
+
+        document.head.appendChild(newLink);
+      }
+      document.title = name;
+    };
+    // Llama a la función para cambiar el favicon cada vez que cambie la ubicación
+    changeFavicon();
+  }, [location]);
+
+  console.log(location.pathname);
 
   return (
     <section className={`home ${isSearchToggle && "home--toggle"}`}>

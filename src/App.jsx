@@ -9,8 +9,11 @@ import Main from "./views";
 import Cases from "./views/Cases";
 import UnaHora from "./components/UnaHora"
 import Aliados from "./components/Aliados"
+import { useLocation } from 'react-router-dom';
+
 
 function App() {
+
   return (
     <BrowserRouter>
       <Routes>
