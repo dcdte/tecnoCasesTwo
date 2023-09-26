@@ -5,8 +5,7 @@ header {
   width: 100%;
   box-sizing: border-box;
   position: sticky;
-  z-index: 20; 
-
+  z-index: 20;
 
   @include sm-screen() {
     justify-content: space-between;
@@ -32,18 +31,15 @@ header {
       inset-inline-start: 100px;
     }
   }
-
-  
 }
 
-
 .header {
-
   &__container {
     @include flex(start, start);
 
     @include sm-screen {
-      input, button:last-of-type {
+      input,
+      button:last-of-type {
         display: none;
       }
     }
@@ -59,7 +55,108 @@ header {
       display: flex;
       input {
         width: 600px;
-      };
+      }
+    }
+  }
+
+  &__personality {
+    font-size: 16px;
+    font-weight: bold;
+    margin-inline-end: 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @include sm-screen {
+      gap: 8px;
+      font-size: 12px;
+      margin-inline-end: 8px;
+      margin-block-start: -10px;
+    }
+  }
+
+  &__case {
+    width: 34px;
+    height: 66px;
+
+    img {
+      width: 110%;
+      height: 110%;
+
+      -webkit-animation-name: colorsize;
+      animation-name: colorsize;
+      -webkit-animation-duration: 15s;
+      animation-duration: 15s;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      -webkit-transition: ease-in-out;
+      transition: ease-in-out;
+    }
+
+    @include sm-screen {
+      width: 34px;
+      height: 66px;
+    }
+  }
+
+  @-webkit-keyframes colorsize {
+    0% {
+      -webkit-filter: none;
+      filter: none;
+    }
+    20% {
+      -webkit-filter: contrast(40%) sepia(1) hue-rotate(90deg) saturate(1000%);
+      filter: contrast(40%) sepia(1) hue-rotate(90deg) saturate(100%);
+    }
+    40% {
+      -webkit-filter: contrast(40%) sepia(1) hue-rotate(180deg) saturate(1000%);
+      filter: contrast(40%) sepia(1) hue-rotate(180deg) saturate(100%);
+    }
+    60% {
+      -webkit-filter: contrast(40%) sepia(1) hue-rotate(270deg) saturate(1000%);
+      filter: contrast(40%) sepia(1) hue-rotate(270deg) saturate(100%);
+    }
+    80% {
+      -webkit-filter: contrast(40%) sepia(1) hue-rotate(360deg) saturate(1000%);
+      filter: contrast(40%) sepia(1) hue-rotate(360deg) saturate(100%);
+    }
+    90% {
+      -webkit-filter: contrast(40%) sepia(0) hue-rotate(360deg) saturate(100%);
+      filter: contrast(40%) sepia(0) hue-rotate(360deg) saturate(100%);
+    }
+    100% {
+      -webkit-filter: none;
+      filter: none;
+    }
+  }
+  @keyframes colorsize {
+    0% {
+      -webkit-filter: none;
+      filter: none;
+    }
+    20% {
+      -webkit-filter: contrast(40%) sepia(1) hue-rotate(90deg) saturate(1000%);
+      filter: contrast(40%) sepia(1) hue-rotate(90deg) saturate(100%);
+    }
+    40% {
+      -webkit-filter: contrast(40%) sepia(1) hue-rotate(180deg) saturate(1000%);
+      filter: contrast(40%) sepia(1) hue-rotate(180deg) saturate(100%);
+    }
+    60% {
+      -webkit-filter: contrast(40%) sepia(1) hue-rotate(270deg) saturate(1000%);
+      filter: contrast(40%) sepia(1) hue-rotate(270deg) saturate(100%);
+    }
+    80% {
+      -webkit-filter: contrast(40%) sepia(1) hue-rotate(360deg) saturate(1000%);
+      filter: contrast(40%) sepia(1) hue-rotate(360deg) saturate(100%);
+    }
+    90% {
+      -webkit-filter: contrast(40%) sepia(0) hue-rotate(360deg) saturate(100%);
+      filter: contrast(40%) sepia(0) hue-rotate(360deg) saturate(100%);
+    }
+    100% {
+      -webkit-filter: none;
+      filter: none;
     }
   }
 
@@ -70,7 +167,7 @@ header {
   }
 
   @include md-screen() {
-    display:  flex;
+    display: flex;
     justify-self: center;
 
     &__logo {
@@ -82,8 +179,5 @@ header {
     &__logo {
       height: 50px;
     }
-    
   }
-
-  
 }

@@ -6,6 +6,7 @@ import Button from "./atoms/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilters } from "../store/slices/main";
 import { showFilters } from "../store/slices/main/selectors";
+import Iphone from '../assets/casephone.png'
 
 function Header({
   isToggle,
@@ -31,6 +32,13 @@ function Header({
       <a href="#">
         <img className="header__logo" src={vector} alt="" />
       </a>
+      <div className="header__personality">
+        <div className="header__case">
+          <img src={Iphone} alt="" />
+        </div>
+        ¡FABRICAMOS<br />
+        A MAYORISTAS!
+      </div>
       {withZone && (
         <div className="header__container">
           <TextInput

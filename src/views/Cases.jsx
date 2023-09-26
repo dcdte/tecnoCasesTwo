@@ -402,6 +402,14 @@ function Cases() {
       {/*       {numeroZona()}
        */}{" "}
       {/* <div id="api-chat-bot"></div> */}
+      <div className="WPP">
+        <a
+          href={`https://api.whatsapp.com/send?phone=573014000996`}
+          target="_blank"
+        >
+          <img src={WppImage} alt="" />
+        </a>
+      </div>
     </section>
   );
 }

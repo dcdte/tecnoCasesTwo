@@ -41,7 +41,7 @@ const Main = () => {
       id;
     js.defer = true;
     fjs.parentNode.insertBefore(js, fjs);
-  })(document, "script", "id-chat-plazbot", "7da22a7ffb41841bd5d81db7f45f989a");
+  })(document, "script", "id-chat-plazbot","7da22a7ffb41841bd5d81db7f45f989a");
   return (
     <>
       <Sidebar isOpen={isOpen} toggle={toggle} />
