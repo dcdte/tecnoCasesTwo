@@ -1,8 +1,9 @@
 import React from "react";
+import "../styles/css/searchImei.css";
 
 export const SearchImei = () => {
   return (
-    <div>
+    <div className="searchImei">
       <iframe
         height="500px"
         width="100%"
