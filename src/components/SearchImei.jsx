@@ -5,7 +5,7 @@ export const SearchImei = () => {
   return (
     <div className="searchImei">
       <iframe
-        height="500%"
+        height="100vh"
         width="100%"
         frameborder="0"
         allowTransparency="true"
