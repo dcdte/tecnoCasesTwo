@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/css/searchImei.css";
+import "../styles/css/SearchImei.css";
 
 export const SearchImei = () => {
   return (
