@@ -12,6 +12,48 @@
   border-radius: 10px;
   overflow: hidden;
 
+  &__color {
+    height: 15px;
+    width: 15px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    //border: 0.1px solid black;
+    margin-block-end: 5px;
+
+    &--pink {
+      background-color: #d97b93;
+    }
+
+    &--darkblue {
+      background-color: #355bc6;
+    }
+
+    &--gray { 
+      background-color: #8c928e;
+    }
+
+    &--blue { 
+      background-color: #3a9dc7;
+    }
+
+    &--red { 
+      background-color: #d40300;
+    }
+
+    &--darkgray {
+      background-color: #676861;
+    }
+
+    &--cian { 
+      background-color: #73bcb1;
+    }
+
+    &--purple { 
+      background-color: #c289d8;
+    }
+  }
+
   &__featured {
     position: absolute;
     padding: 2px 5px;
@@ -47,6 +89,7 @@
       height: 100%;
       width: 100%;
       object-fit: cover;
+      
     }
   }
 
@@ -122,7 +165,6 @@
 .img__visible {
   position: absolute;
   inset: 0 0 0 0;
-
 
   img {
     border-radius: 10px;

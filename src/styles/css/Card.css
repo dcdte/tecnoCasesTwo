@@ -26,6 +26,39 @@
   border-radius: 10px;
   overflow: hidden;
 }
+.card__color {
+  height: 15px;
+  width: 15px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  -webkit-margin-after: 5px;
+          margin-block-end: 5px;
+}
+.card__color--pink {
+  background-color: #d97b93;
+}
+.card__color--darkblue {
+  background-color: #355bc6;
+}
+.card__color--gray {
+  background-color: #8c928e;
+}
+.card__color--blue {
+  background-color: #3a9dc7;
+}
+.card__color--red {
+  background-color: #d40300;
+}
+.card__color--darkgray {
+  background-color: #676861;
+}
+.card__color--cian {
+  background-color: #73bcb1;
+}
+.card__color--purple {
+  background-color: #c289d8;
+}
 .card__featured {
   position: absolute;
   padding: 2px 5px;
