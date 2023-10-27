@@ -53,9 +53,11 @@ function Card({ data }) {
         <div className="card__row">
           <div className="pay">
             <span className="pay__title">Modelos: </span>
-            {data.model.split(",").map((item) => (
-              <div className="pay__value">{item}</div>
-            ))}
+            <div className="pay__container">
+              {data.model.split(",").map((item) => (
+                <div className="pay__value">{item}</div>
+              ))}
+            </div>
           </div>
           <div className="card__row">
             <div className="pay">
