@@ -51,7 +51,7 @@ function Card({ data }) {
       <div className="card__visual">
         {/*         <h4 className="card__brand">{data.brand.brand}</h4>
          */}{" "}
-        <h3 className="card__title">{data.model}</h3>
+        <h3 className="card__title">{data.reference}</h3>
         <div className="card__img" onClick={() => setZoom(true)}>
           <motion.img
             src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/SuperCaseReporte/${data.id}/previewTecnoCase/image-download/SXb8BYBmSkxhtOb0543AUQ2hBwdbdG3hCHf6nQmvkAAYGQx4sXC3tDpAbpZ1OenrdSfxsHxCF54aObOhm3pdpETErG0CpTteH33D?filepath=/${data.preview}`}
@@ -68,8 +68,12 @@ function Card({ data }) {
         </div>
         <div className="card__row">
           <div className="pay">
-            <span className="pay__title">Referencia: </span>
-            <div className="pay__value">{data.reference}</div>
+            <span className="pay__title">Modelos: </span>
+            <div className="pay__container">
+              {data.model.split(",").map((item) => (
+                <div className="pay__value">{item}</div>
+              ))}
+            </div>
           </div>
 
           <div className="card__row">

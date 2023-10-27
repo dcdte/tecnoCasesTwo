@@ -12,6 +12,11 @@
         color: $darkGray;
     }
 
+    &__container {
+        @include flex(center, center);
+        gap: 2px;
+    }
+
     &__value {
         padding: 5px 10px;
         font-size: 10px;
