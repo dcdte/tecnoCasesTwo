@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/css/Card.css";
 import "../styles/css/CardPay.css";
 
@@ -8,6 +8,7 @@ import currencyFormat from "../utils/currencyFormat";
 import Case from "../assets/case.png";
 function Card({ data }) {
   const [zoom, setZoom] = useState(false);
+  const [color, setColor] = useState(null);
 
   const colors = [
     "pink",
@@ -20,11 +21,16 @@ function Card({ data }) {
     "purple",
   ];
 
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    setColor(colors[randomIndex]);
+  }, []);
+
   let renderZoom = () => {
     if (zoom === true) {
       return (
         <motion.div
-          className="img__visible"
+          className={`img__visible img__visible--${color}`}
           initial={{ x: -330 }}
           animate={{ x: 0 }}
           exit={{ x: -330 }}
@@ -52,7 +58,10 @@ function Card({ data }) {
         {/*         <h4 className="card__brand">{data.brand.brand}</h4>
          */}{" "}
         <h3 className="card__title">{data.reference}</h3>
-        <div className="card__img" onClick={() => setZoom(true)}>
+        <div
+          className={`card__img card__img--${color}`}
+          onClick={() => setZoom(true)}
+        >
           <motion.img
             src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/SuperCaseReporte/${data.id}/previewTecnoCase/image-download/SXb8BYBmSkxhtOb0543AUQ2hBwdbdG3hCHf6nQmvkAAYGQx4sXC3tDpAbpZ1OenrdSfxsHxCF54aObOhm3pdpETErG0CpTteH33D?filepath=/${data.preview}`}
             alt=""
@@ -63,7 +72,10 @@ function Card({ data }) {
       <div className="card__info">
         <div className="card__row">
           {colors.map((color) => (
-            <button className={`card__color card__color--${color}`}></button>
+            <button
+              className={`card__color card__color--${color}`}
+              onClick={() => setColor(color)}
+            ></button>
           ))}
         </div>
         <div className="card__row">

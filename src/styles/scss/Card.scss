@@ -29,15 +29,15 @@
       background-color: #355bc6;
     }
 
-    &--gray { 
+    &--gray {
       background-color: #8c928e;
     }
 
-    &--blue { 
+    &--blue {
       background-color: #3a9dc7;
     }
 
-    &--red { 
+    &--red {
       background-color: #d40300;
     }
 
@@ -45,11 +45,11 @@
       background-color: #676861;
     }
 
-    &--cian { 
+    &--cian {
       background-color: #73bcb1;
     }
 
-    &--purple { 
+    &--purple {
       background-color: #c289d8;
     }
   }
@@ -89,7 +89,46 @@
       height: 100%;
       width: 100%;
       object-fit: cover;
-      
+    }
+
+    &--pink {
+      filter: brightness(0) saturate(100%) invert(53%) sepia(51%) saturate(389%)
+        hue-rotate(294deg) brightness(98%) contrast(88%);
+    }
+
+    &--darkblue {
+      filter: brightness(0) saturate(100%) invert(53%) sepia(89%)
+        saturate(6449%) hue-rotate(218deg) brightness(85%) contrast(80%);
+    }
+
+    &--gray {
+      filter: brightness(0) saturate(100%) invert(59%) sepia(6%) saturate(213%)
+        hue-rotate(87deg) brightness(96%) contrast(90%);
+    }
+
+    &--blue {
+      filter: brightness(0) saturate(100%) invert(54%) sepia(85%) saturate(356%)
+        hue-rotate(152deg) brightness(86%) contrast(90%);
+    }
+
+    &--red {
+      filter: brightness(0) saturate(100%) invert(7%) sepia(99%) saturate(5683%)
+        hue-rotate(13deg) brightness(130%) contrast(117%);
+    }
+
+    &--darkgray {
+      filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(1620%)
+        hue-rotate(142deg) brightness(98%) contrast(89%);
+    }
+
+    &--cian {
+      filter: brightness(0) saturate(100%) invert(78%) sepia(18%) saturate(690%)
+        hue-rotate(121deg) brightness(87%) contrast(87%);
+    }
+
+    &--purple {
+      filter: brightness(0) saturate(100%) invert(84%) sepia(33%)
+        saturate(5554%) hue-rotate(214deg) brightness(91%) contrast(84%);
     }
   }
 
@@ -165,13 +204,68 @@
 .img__visible {
   position: absolute;
   inset: 0 0 0 0;
+  background-color: white;
 
   img {
     border-radius: 10px;
     height: 100%;
     width: 100%;
     object-fit: cover;
-    background-color: #fff;
+  }
+
+  &--pink {
+    img {
+      filter: brightness(0) saturate(100%) invert(53%) sepia(51%) saturate(389%)
+        hue-rotate(294deg) brightness(98%) contrast(88%);
+    }
+  }
+
+  &--darkblue {
+    img {
+      filter: brightness(0) saturate(100%) invert(53%) sepia(89%)
+        saturate(6449%) hue-rotate(218deg) brightness(85%) contrast(80%);
+    }
+  }
+
+  &--gray {
+    img {
+      filter: brightness(0) saturate(100%) invert(59%) sepia(6%) saturate(213%)
+        hue-rotate(87deg) brightness(96%) contrast(90%);
+    }
+  }
+
+  &--blue {
+    img {
+      filter: brightness(0) saturate(100%) invert(54%) sepia(85%) saturate(356%)
+        hue-rotate(152deg) brightness(86%) contrast(90%);
+    }
+  }
+
+  &--red {
+    img {
+      filter: brightness(0) saturate(100%) invert(7%) sepia(99%) saturate(5683%)
+        hue-rotate(13deg) brightness(130%) contrast(117%);
+    }
+  }
+
+  &--darkgray {
+    img {
+      filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(1620%)
+        hue-rotate(142deg) brightness(98%) contrast(89%);
+    }
+  }
+
+  &--cian {
+    img {
+      filter: brightness(0) saturate(100%) invert(78%) sepia(18%) saturate(690%)
+        hue-rotate(121deg) brightness(87%) contrast(87%);
+    }
+  }
+
+  &--purple {
+    img {
+      filter: brightness(0) saturate(100%) invert(84%) sepia(33%) saturate(5554%) hue-rotate(214deg) brightness(91%) contrast(84%);
+    }
   }
 }
 
