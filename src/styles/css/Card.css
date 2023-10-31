@@ -59,6 +59,9 @@
 .card__color--purple {
   background-color: #c289d8;
 }
+.card__color--black {
+  background-color: #040405;
+}
 .card__featured {
   position: absolute;
   padding: 2px 5px;
@@ -91,7 +94,7 @@
   height: 300px;
   padding: 5px;
   border-radius: 5px;
-  background: linear-gradient(200deg, #f2f2f2 0%, #24b0bf 100%);
+  background: linear-gradient(200deg, #f2f2f2 0%, #cfcece 100%);
   cursor: pointer;
 }
 .card__img {
@@ -154,6 +157,10 @@
 .card__img--purple {
   -webkit-filter: brightness(0) saturate(100%) invert(84%) sepia(33%) saturate(5554%) hue-rotate(214deg) brightness(91%) contrast(84%);
           filter: brightness(0) saturate(100%) invert(84%) sepia(33%) saturate(5554%) hue-rotate(214deg) brightness(91%) contrast(84%);
+}
+.card__img--black {
+  -webkit-filter: brightness(0) saturate(100%) invert(4%) sepia(14%) saturate(0%) hue-rotate(44deg) brightness(95%) contrast(102%);
+          filter: brightness(0) saturate(100%) invert(4%) sepia(14%) saturate(0%) hue-rotate(44deg) brightness(95%) contrast(102%);
 }
 .card__pays {
   display: -webkit-box;
@@ -341,6 +348,10 @@
 .img__visible--purple img {
   -webkit-filter: brightness(0) saturate(100%) invert(84%) sepia(33%) saturate(5554%) hue-rotate(214deg) brightness(91%) contrast(84%);
           filter: brightness(0) saturate(100%) invert(84%) sepia(33%) saturate(5554%) hue-rotate(214deg) brightness(91%) contrast(84%);
+}
+.img__visible--black img {
+  -webkit-filter: brightness(0) saturate(100%) invert(4%) sepia(14%) saturate(0%) hue-rotate(44deg) brightness(95%) contrast(102%);
+          filter: brightness(0) saturate(100%) invert(4%) sepia(14%) saturate(0%) hue-rotate(44deg) brightness(95%) contrast(102%);
 }
 
 .button__close {

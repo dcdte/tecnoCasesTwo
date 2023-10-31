@@ -19,6 +19,7 @@ function Card({ data }) {
     "darkgray",
     "cian",
     "purple",
+    "black"
   ];
 
   useEffect(() => {
