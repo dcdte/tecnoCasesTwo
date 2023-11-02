@@ -33,7 +33,7 @@ function UnaHora() {
         frameborder="0"
         allowTransparency="true"
         scrolling="auto"
-        src="https://creatorapp.zohopublic.com/vt.cel/tecnosuper/report-embed/Accesorios_1hora/qBn9SAJHRJr5k3GWFMfqwM2PsRafP2NJakuKBRqC93TJVTbYCdQEaMSG0YfJKAWR8XKDr21dT6Uq77DTqA0FmZMGNkApaPyWyJr5"
+        src="https://creatorapp.zohopublic.com/vt.cel/tecnosuper/page-embed/Nuevo_Catalogo_1_Hora/dKOA3VJVEeGxx3RpEkQAxqM6nw6Jqg6wXXq37TDtDfVjKxEetuyGrqw5QJ3VdgaFRfDg9fBRPTReXdDQAYQ01mqt4mPsZ2YEmVv5"
       ></iframe>
     </div>
   );
