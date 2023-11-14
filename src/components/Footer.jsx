@@ -3,11 +3,11 @@ import "./../styles/css/Footer.css";
 import tecno from "./../assets/tecnosuper.svg";
 import nidum from "./../assets/blue-noback.png";
 
-function Footer({location=false}) {
+function Footer({ location = false }) {
   return (
     <footer className={`footer ${location && "footer--zones"}`}>
       <div className="footer__container">
-        <a className="footer__link" href="https://www.nidumhaus.com">
+        <a className="footer__link" href="#">
           <img src={nidum} alt="" />
         </a>
         <a className="footer__link" href="https://www.tecnosuper.com.co">
