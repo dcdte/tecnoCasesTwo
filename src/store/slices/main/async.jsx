@@ -9,7 +9,6 @@ import axios from "axios";
 //const url = "http://localhost:3000";
 const url = "https://tecnocredits.herokuapp.com";
 
-
 export const getCasesAsync =
   ({ searchValue = null, models = null, maxPay = null, page = 1 }) =>
   async (dispatch) => {
@@ -42,9 +41,11 @@ export const getFiltersAsync = () => async (dispatch) => {
     const dataProducts = response.data;
     const models = [];
     dataProducts.forEach((element) => {
-      if (!models.some((item) => item.trim() === element.model.trim())) {
-        models.push(element.model);
-      }
+      element.model.split(',').forEach((model) => {
+        if (!models.some((item) => item.trim() === model.trim())) {
+          models.push(model);
+        }
+      });
     });
 
     dispatch(setModels(models));

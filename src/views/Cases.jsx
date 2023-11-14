@@ -215,8 +215,6 @@ function Cases() {
     changeFavicon();
   }, [location]);
 
-  console.log(location.pathname);
-
   return (
     <section className={`home ${isSearchToggle && "home--toggle"}`}>
       <Header
