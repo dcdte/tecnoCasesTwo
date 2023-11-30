@@ -11,6 +11,7 @@ import UnaHora from "./components/UnaHora";
 import Aliados from "./components/Aliados";
 import { SearchImei } from "./components/SearchImei";
 import { useLocation } from "react-router-dom";
+import { Stores } from "./components/Stores";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/supercase" element={<Cases />} />
         <Route path="/ubicacionaliados" element={<Aliados />}></Route>
         <Route path="/imei" element={<SearchImei />}></Route>
+        <Route path="/tiendas" element={<Stores />} />
       </Routes>
     </BrowserRouter>
   );
