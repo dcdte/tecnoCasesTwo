@@ -1,0 +1,6 @@
+.payjoy {
+  height: 100vh;
+}
+.payjoy * {
+  height: 100%;
+}
