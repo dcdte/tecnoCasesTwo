@@ -21,14 +21,14 @@ export const getCasesAsync =
       const response = await axios.get(
         `${url}/cases${criteria.length > 0 ? "?" + criteria.join("&") : ""}`
       );
+      
       const notPaged = response.data;
-      const pages = Math.floor(notPaged.length / 12);
-      dispatch(setPages(notPaged.length % 12 == 0 ? pages : pages + 1));
+      const pages = Math.floor(notPaged.length / 24);
+      dispatch(setPages(notPaged.length % 24 == 0 ? pages : pages + 1));
       if (page) criteria.push(`page=${page}`);
-      const realResponse = await axios.get(
+       const realResponse = await axios.get(
         `${url}/cases${criteria.length > 0 ? "?" + criteria.join("&") : ""}`
       );
-
       dispatch(setCases(realResponse.data));
     } catch (err) {
       console.log(err);
