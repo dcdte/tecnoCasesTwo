@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const FooterContainer = styled.div`
@@ -15,6 +16,14 @@ export const FooterContainer = styled.div`
   @media screen and (max-width: 420px) {
   }
 `;
+
+export const LinkTerms = styled(Link)`
+  color: #fff;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+`
 
 export const IconContainer = styled.div`
   display: flex;

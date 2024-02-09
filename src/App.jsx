@@ -13,6 +13,7 @@ import { SearchImei } from "./components/SearchImei";
 import { useLocation } from "react-router-dom";
 import { Stores } from "./components/Stores";
 import { PayJoy } from "./components/PayJoy";
+import { Politics } from "./views/Politics";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/imei" element={<SearchImei />}></Route>
         <Route path="/tiendas" element={<Stores />} />
         <Route path="/payjoy" element={<PayJoy />} />
+        <Route path="/politics" element={<Politics />} />
       </Routes>
     </BrowserRouter>
   );
