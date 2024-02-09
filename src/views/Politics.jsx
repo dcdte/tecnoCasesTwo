@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/atoms/Navbar";
-import "../styles/css/politics.css";
+import "../styles/css/Politics.css";
 
 export const Politics = () => {
   const [isOpen, setIsOpen] = useState(false);
