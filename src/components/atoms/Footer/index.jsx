@@ -8,15 +8,15 @@ const Footer = () => {
   return (
     <>
       <FooterContainer>
-        <a href="https://www.tecnosuper.com/politics" target="_blank">
-          Politica y tratamiento de datos
-        </a>
         <IconContainer>
           <a href="https://es-la.facebook.com/pages/category/Mobile-Phone-Shop/Tecnosuperco-111939800431233/">
             <MdOutlineFacebook />
             <p>TecnoSuper</p>
           </a>
         </IconContainer>
+        <a href="https://www.tecnosuper.com.co/politics" target="_blank">
+          Politica y tratamiento de datos
+        </a>
         <IconContainer>
           <a href="https://www.instagram.com/tecnosuper.co/">
             <FaInstagram />

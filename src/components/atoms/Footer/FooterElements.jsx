@@ -15,15 +15,17 @@ export const FooterContainer = styled.div`
 
   @media screen and (max-width: 420px) {
   }
+
+  a {
+    color: #fff;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+  }
 `;
 
-export const LinkTerms = styled(Link)`
-  color: #fff;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-`
+export const LinkTerms = styled(Link)``;
 
 export const IconContainer = styled.div`
   display: flex;
