@@ -128,7 +128,7 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 100%;
-  gap: 10px;
+  gap: 15px;
 }
 .home__paging {
   display: -webkit-box;

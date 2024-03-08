@@ -3,14 +3,13 @@
 .card {
   @include flex(start, start);
   position: relative;
-  width: 295px;
+  width: 260px;
   height: auto;
-  padding: 12px;
-  gap: 12px;
   box-sizing: border-box;
-  box-shadow: 0 0 9px rgba($color: #000000, $alpha: 0.25);
-  border-radius: 10px;
+  box-shadow: 2px 2px 4px 2px #00000045;
+  border-radius: 15px;
   overflow: hidden;
+  margin-right: 20px;
 
   &__color {
     height: 15px;
@@ -58,26 +57,12 @@
     }
   }
 
-  &__featured {
-    position: absolute;
-    padding: 2px 5px;
-    inset-block-start: 0px;
-    inset-inline-end: 0;
-    font-size: 14px;
-    font-weight: 600;
-    background-color: #f94e4e;
-    color: white;
-    border-radius: 0px 10px 0 10px;
-  }
-
   &__visual {
-    @include flex(start, center, column);
+    @include flex(center, center, column);
     overflow: hidden;
-    width: 260px;
-    height: 300px;
+    width: 100%;
     padding: 5px;
     border-radius: 5px;
-    background: linear-gradient(200deg, #f2f2f2 0%, #cfcece 100%);
     cursor: pointer;
   }
 
@@ -90,8 +75,8 @@
       position: relative;
       inset-block-start: 0px;
       inset-inline-start: 3px;
-      height: 100%;
-      width: 100%;
+      height: 90%;
+      width: 90%;
       object-fit: cover;
     }
 
@@ -151,10 +136,23 @@
     @include flex(center, center, row);
     width: 100%;
     gap: 5px;
+    background-color: #F3F3F3;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    padding: 5px;
+    box-sizing: border-box;
 
     .pay {
       width: 100%;
     }
+  }
+
+  &__column {
+    @include flex(center, center, column);
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    gap: 3px;
   }
 
   &__info {
@@ -182,7 +180,6 @@
 
   &__details {
     @include flex(space-between, stretch, column);
-    margin-block-start: 5px;
     gap: 1px;
     width: 175px;
     height: 160px;
@@ -207,6 +204,36 @@
       border-radius: 20px;
       font-size: 10px;
     }
+  }
+
+  &__container {
+    @include flex(center, center, row);
+    width: 100%;
+    gap: 10px;
+    padding: 5px;
+  }
+
+  &__value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000;
+    padding: 2px;
+  }
+
+  &__titleTwo {
+    font-size: 17px;
+    font-weight: 600;
+    color: #000000;
+  }
+
+  &__valueTwo {
+    font-size: 20px;
+    font-weight: bolder;
+    color: #000000;
+    background-color: #ec0603;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
   }
 }
 
@@ -283,6 +310,10 @@
       filter: brightness(0) saturate(100%) invert(4%) sepia(14%) saturate(0%)
         hue-rotate(44deg) brightness(95%) contrast(102%);
     }
+  }
+
+  @include sm-screen {
+    margin-right: 0;
   }
 }
 

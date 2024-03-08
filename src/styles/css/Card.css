@@ -15,16 +15,15 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   position: relative;
-  width: 295px;
+  width: 260px;
   height: auto;
-  padding: 12px;
-  gap: 12px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.25);
-          box-shadow: 0 0 9px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2705882353);
+          box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2705882353);
+  border-radius: 15px;
   overflow: hidden;
+  margin-right: 20px;
 }
 .card__color {
   height: 15px;
@@ -62,17 +61,6 @@
 .card__color--black {
   background-color: #040405;
 }
-.card__featured {
-  position: absolute;
-  padding: 2px 5px;
-  inset-block-start: 0px;
-  inset-inline-end: 0;
-  font-size: 14px;
-  font-weight: 600;
-  background-color: #f94e4e;
-  color: white;
-  border-radius: 0px 10px 0 10px;
-}
 .card__visual {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -81,20 +69,18 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   overflow: hidden;
-  width: 260px;
-  height: 300px;
+  width: 100%;
   padding: 5px;
   border-radius: 5px;
-  background: linear-gradient(200deg, #f2f2f2 0%, #cfcece 100%);
   cursor: pointer;
 }
 .card__img {
@@ -121,8 +107,8 @@
   position: relative;
   inset-block-start: 0px;
   inset-inline-start: 3px;
-  height: 100%;
-  width: 100%;
+  height: 90%;
+  width: 90%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -199,9 +185,36 @@
       flex-wrap: wrap;
   width: 100%;
   gap: 5px;
+  background-color: #F3F3F3;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .card__row .pay {
   width: 100%;
+}
+.card__column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  gap: 3px;
 }
 .card__info {
   display: -webkit-box;
@@ -253,8 +266,6 @@
           align-items: stretch;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-margin-before: 5px;
-          margin-block-start: 5px;
   gap: 1px;
   width: 175px;
   height: 160px;
@@ -304,6 +315,46 @@
   border-radius: 20px;
   font-size: 10px;
 }
+.card__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  gap: 10px;
+  padding: 5px;
+}
+.card__value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+  padding: 2px;
+}
+.card__titleTwo {
+  font-size: 17px;
+  font-weight: 600;
+  color: #000000;
+}
+.card__valueTwo {
+  font-size: 20px;
+  font-weight: bolder;
+  color: #000000;
+  background-color: #ec0603;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
 
 .img__visible {
   position: absolute;
@@ -352,6 +403,11 @@
 .img__visible--black img {
   -webkit-filter: brightness(0) saturate(100%) invert(4%) sepia(14%) saturate(0%) hue-rotate(44deg) brightness(95%) contrast(102%);
           filter: brightness(0) saturate(100%) invert(4%) sepia(14%) saturate(0%) hue-rotate(44deg) brightness(95%) contrast(102%);
+}
+@media only screen and (max-width: 834px) {
+  .img__visible {
+    margin-right: 0;
+  }
 }
 
 .button__close {

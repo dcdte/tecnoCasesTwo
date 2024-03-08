@@ -9,7 +9,7 @@ import Case from "../assets/case.png";
 function Card({ data }) {
   const [zoom, setZoom] = useState(false);
   const [color, setColor] = useState(null);
-  console.log(data)
+  console.log(data);
 
   const colors = [
     "pink",
@@ -20,7 +20,7 @@ function Card({ data }) {
     "darkgray",
     "cian",
     "purple",
-    "black"
+    "black",
   ];
 
   useEffect(() => {
@@ -72,7 +72,7 @@ function Card({ data }) {
         </div>
       </div>
       <div className="card__info">
-        <div className="card__row">
+        <div className="card__column">
           {colors.map((color) => (
             <button
               className={`card__color card__color--${color}`}
@@ -81,20 +81,14 @@ function Card({ data }) {
           ))}
         </div>
         <div className="card__row">
-          <div className="pay">
-            <span className="pay__title">Modelos: </span>
-            <div className="pay__container">
-              {data.model.split(",").map((item) => (
-                <div className="pay__value">{item}</div>
-              ))}
-            </div>  
+          <span className="card__titleTwo">Modelos</span>
+          <div className="card__container">
+            {data.model.split(",").map((item) => (
+              <div className="card__value">{item}</div>
+            ))}
           </div>
-
           <div className="card__row">
-            <div className="pay">
-              <span className="pay__title">Precio:</span>
-              <div className="pay__value">{currencyFormat(data.price)}</div>
-            </div>
+            <div className="card__valueTwo">{currencyFormat(data.price)}</div>
           </div>
         </div>
       </div>
