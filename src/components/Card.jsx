@@ -9,7 +9,6 @@ import Case from "../assets/case.png";
 function Card({ data }) {
   const [zoom, setZoom] = useState(false);
   const [color, setColor] = useState(null);
-  console.log(data);
 
   const colors = [
     "pink",
