@@ -9,6 +9,7 @@ import Case from "../assets/case.png";
 function Card({ data }) {
   const [zoom, setZoom] = useState(false);
   const [color, setColor] = useState(null);
+  console.log(data)
 
   const colors = [
     "pink",
@@ -86,7 +87,7 @@ function Card({ data }) {
               {data.model.split(",").map((item) => (
                 <div className="pay__value">{item}</div>
               ))}
-            </div>
+            </div>  
           </div>
 
           <div className="card__row">
