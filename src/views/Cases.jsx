@@ -21,7 +21,6 @@ import currencyFormat from "../utils/currencyFormat";
 import Skeleton from "../components/atoms/Skeleton";
 import NotFound from "../components/atoms/NotFound";
 import WppImage from "../assets/whatsapp.png";
-import { useLocation } from "react-router";
 
 function Cases() {
   const dispatch = useDispatch();
@@ -158,62 +157,6 @@ function Cases() {
     }
     return numbersArr.slice(prevPage, postPage);
   };
-
-  //No sé qué hace esta mierda, eso lo hizo federico
-  /* function numeroZona() {
-    if (numZone.zoneId == "1889220000019320168") {
-      return (
-        <div className="WPP">
-          <a href={`https://wa.me/message/NONM6JLQVSJXL1`} target="_blank">
-            <img src={WppImage} alt="" />
-          </a>
-        </div>
-      );
-    } else {
-      (function (d, s, t, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = t;
-        js.src =
-          "https://app.plazbot.com/Widget/plazbot-archivos/plazbot-chat/Plazbot.frame.js?version=3.3.0.0&var1=" +
-          id;
-        js.defer = true;
-        fjs.parentNode.insertBefore(js, fjs);
-      })(
-        document,
-        "script",
-        "id-chat-plazbot",
-        "7da22a7ffb41841bd5d81db7f45f989a"
-      );
-    }
-  } */
-
-  const location = useLocation();
-
-  useEffect(() => {
-    // Define una función para cambiar el favicon en función de la ruta actual
-    const changeFavicon = () => {
-      const faviconPath =
-        location.pathname === "/supercase" ? "/icon.svg" : "/fav-icon.png "; // Cambia los nombres de los archivos según tus necesidades
-      const name =
-        location.pathname === "/supercase" ? "SuperCase" : "Tecnosuper";
-      const link = document.querySelector("link[rel~='icon']");
-      if (link) {
-        link.href = faviconPath;
-      } else {
-        const newLink = document.createElement("link");
-        newLink.rel = "icon";
-        newLink.href = faviconPath;
-
-        document.head.appendChild(newLink);
-      }
-      document.title = name;
-    };
-    // Llama a la función para cambiar el favicon cada vez que cambie la ubicación
-    changeFavicon();
-  }, [location]);
 
   return (
     <section className={`home ${isSearchToggle && "home--toggle"}`}>

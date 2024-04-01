@@ -1,7 +1,7 @@
 import React from "react";
 import "./../styles/css/Footer.css";
 import tecno from "./../assets/tecnosuper.svg";
-import nidum from "./../assets/blue-noback.png";
+import nidum from "./../assets/no-back.png";
 
 function Footer({ location = false }) {
   return (
