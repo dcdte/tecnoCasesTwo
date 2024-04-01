@@ -5,7 +5,6 @@ import "../styles/css/CardPay.css";
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import currencyFormat from "../utils/currencyFormat";
-import Case from "../assets/case.png";
 function Card({ data }) {
   const [zoom, setZoom] = useState(false);
   const [color, setColor] = useState(null);
