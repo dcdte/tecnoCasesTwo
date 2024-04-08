@@ -28,7 +28,6 @@ function Card({ data }) {
   }, []);
 
   const img = getImageZoho(data);
-  console.log(img);
   let renderZoom = () => {
     if (zoom === true) {
       return (

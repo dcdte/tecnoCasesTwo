@@ -7,7 +7,6 @@ const reportConfig = {
 };
 
 export const getImageZoho = (data) => {
-  console.log(data)
   return `https://creatorapp.zohopublic.com/file/vt.cel/${
     reportConfig.appName
   }/${reportConfig.reportName}/${data.id}/${
