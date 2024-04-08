@@ -6,14 +6,14 @@ import {
   setModels,
 } from ".";
 import axios from "axios";
-const url = "http://localhost:3000";
-//const url = "https://tecnocredits.herokuapp.com";
+const isProd = true
+const url = isProd ? "https://tecnocredits.herokuapp.com" : "http://localhost:3000";
 
 export const getCasesAsync =
   ({ searchValue = null, models = null, maxPay = null, page }) =>
   async (dispatch) => {
     try {
-      let criteria = [];
+      let criteria = [];  
       if (searchValue) criteria.push(`searchValue=${searchValue}`);
       if (models) criteria.push(`models=${models}`);
     
