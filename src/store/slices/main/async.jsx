@@ -7,7 +7,7 @@ import {
 } from ".";
 import axios from "axios";
 const isProd = true
-const url = isProd ? "https://tecnocredits.herokuapp.com" : "http://localhost:3000";
+const url = isProd ? "https://nexyapp-f3a65a020e2a.herokuapp.com" : "http://localhost:3000";
 
 export const getCasesAsync =
   ({ searchValue = null, models = null, maxPay = null, page }) =>
