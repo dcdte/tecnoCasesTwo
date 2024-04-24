@@ -6,19 +6,23 @@ import {
   setModels,
 } from ".";
 import axios from "axios";
-const isProd = true
-const url = isProd ? "https://nexyapp-f3a65a020e2a.herokuapp.com" : "http://localhost:3000";
+const isProd = true;
+const url = isProd
+  ? "https://nexyapp-f3a65a020e2a.herokuapp.com"
+  : "http://localhost:3000";
 
 export const getCasesAsync =
   ({ searchValue = null, models = null, maxPay = null, page }) =>
   async (dispatch) => {
     try {
-      let criteria = [];  
+      let criteria = [];
       if (searchValue) criteria.push(`searchValue=${searchValue}`);
       if (models) criteria.push(`models=${models}`);
-    
+
       const response = await axios.post(
-        `${url}/supercase/v1/products${criteria.length > 0 ? "?" + criteria.join("&") : ""}`
+        `${url}/catalogo/v1/cases${
+          criteria.length > 0 ? "?" + criteria.join("&") : ""
+        }`
       );
 
       const notPaged = response.data;
@@ -27,7 +31,9 @@ export const getCasesAsync =
       if (page) criteria.push(`page=${page}`);
 
       const realResponse = await axios.post(
-        `${url}/supercase/v1/products${criteria.length > 0 ? "?" + criteria.join("&") : ""}`
+        `${url}/catalogo/v1/cases${
+          criteria.length > 0 ? "?" + criteria.join("&") : ""
+        }`
       );
 
       dispatch(setCases(realResponse.data));
@@ -38,7 +44,7 @@ export const getCasesAsync =
 
 export const getFiltersAsync = () => async (dispatch) => {
   try {
-    const response = await axios.post(`${url}/supercase/v1/products`);
+    const response = await axios.post(`${url}/catalogo/v1/cases`);
     const dataProducts = response.data;
     const models = [];
     dataProducts.forEach((element) => {
