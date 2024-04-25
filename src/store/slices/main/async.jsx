@@ -9,6 +9,8 @@ import axios from "axios";
 //const url = "http://localhost:3000";
 const url = "https://tecnocredits.herokuapp.com";
 
+  //ESto es el async
+
 export const getCasesAsync =
   ({ searchValue = null, models = null, maxPay = null, page = 1 }) =>
   async (dispatch) => {
