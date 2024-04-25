@@ -11,6 +11,8 @@ const url = isProd
   ? "https://nexyapp-f3a65a020e2a.herokuapp.com"
   : "http://localhost:3000";
 
+  //ESto es el async
+
 export const getCasesAsync =
   ({ searchValue = null, models = null, maxPay = null, page }) =>
   async (dispatch) => {
