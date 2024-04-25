@@ -5,7 +5,6 @@ import "../styles/css/CardPay.css";
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import currencyFormat from "../utils/currencyFormat";
-import { getImageZoho } from "../utils/imageZohoUtil";
 function Card({ data }) {
   const [zoom, setZoom] = useState(false);
   const [color, setColor] = useState(null);
@@ -27,7 +26,6 @@ function Card({ data }) {
     setColor(colors[randomIndex]);
   }, []);
 
-  const img = getImageZoho(data);
   let renderZoom = () => {
     if (zoom === true) {
       return (
@@ -37,7 +35,10 @@ function Card({ data }) {
           animate={{ x: 0 }}
           exit={{ x: -330 }}
         >
-          <img src={img} alt="" />
+          <img
+            src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/SuperCaseReporte/${data.id}/previewTecnoCase/image-download/SXb8BYBmSkxhtOb0543AUQ2hBwdbdG3hCHf6nQmvkAAYGQx4sXC3tDpAbpZ1OenrdSfxsHxCF54aObOhm3pdpETErG0CpTteH33D?filepath=/${data.preview}`}
+            alt=""
+          />
           <button className="button__close">
             <IoCloseCircleOutline
               className="closeIcon"
@@ -62,7 +63,7 @@ function Card({ data }) {
           onClick={() => setZoom(true)}
         >
           <motion.img
-            src={img}
+            src={`https://creatorapp.zohopublic.com/file/vt.cel/tecnosuper/SuperCaseReporte/${data.id}/previewTecnoCase/image-download/SXb8BYBmSkxhtOb0543AUQ2hBwdbdG3hCHf6nQmvkAAYGQx4sXC3tDpAbpZ1OenrdSfxsHxCF54aObOhm3pdpETErG0CpTteH33D?filepath=/${data.preview}`}
             alt=""
             whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
           />
@@ -72,7 +73,6 @@ function Card({ data }) {
         <div className="card__column">
           {colors.map((color) => (
             <button
-              key={color}
               className={`card__color card__color--${color}`}
               onClick={() => setColor(color)}
             ></button>
@@ -82,9 +82,7 @@ function Card({ data }) {
           <span className="card__titleTwo">Modelos</span>
           <div className="card__container">
             {data.model.split(",").map((item) => (
-              <div className="card__value" key={item}>
-                {item}
-              </div>
+              <div className="card__value">{item}</div>
             ))}
           </div>
           <div className="card__row">
